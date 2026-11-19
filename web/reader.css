@@ -89,3 +89,13 @@ button:hover { background: var(--background); }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; animation: none; transition: none; } }
 @media (forced-colors: active) { * { scrollbar-color: auto; } :focus-visible { outline-color: Highlight; } }
 @media print { .cover, form, .pager, .skip { display: none; } .book { display: block; padding: 0; } .leaf { border: 0; padding: 0; } a { color: inherit; } }
+/* Chinese continuous reading: passages use spacing, with sources kept adjacent. */
+h1, h2, h3 { line-height: 1.4; }
+.passage { margin-top: 3rem; scroll-margin-top: 1rem; }
+.label { font-size: .85rem; color: var(--muted); font-weight: 650; margin: 1.25rem 0 .65rem; }
+.source-note { border-left: 2px solid var(--border); padding-left: 1rem; margin: 1.5rem 0 2.5rem; scroll-margin-top: 1rem; }
+blockquote { margin: .5rem 0 1rem; max-width: 60ch; }
+blockquote p { margin: 0; }
+code, .source-note, .exclusions, .source-register { overflow-wrap: anywhere; }
+.exclusions, .source-register { padding-left: 1.4rem; }
+.exclusions li, .source-register li { margin-bottom: .8rem; }

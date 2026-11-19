@@ -105,12 +105,20 @@ def validate_hygiene(raw_dir, published_files):
 
 
 def main():
-    sources = json.loads((ROOT / 'data/thedankoe/sources.json').read_text())
-    rows = list(csv.DictReader(io.StringIO((ROOT / 'original-info/thedankoe/index.csv').read_text())))
-    validate_sources(sources, rows)
-    files = list((ROOT / 'site').rglob('*.html')) + [ROOT / 'site/search-index.json'] + list((ROOT / 'editorial/thedankoe').glob('*.json'))
+    # The active publication is the finite X sample; the legacy validator above
+    # remains for historical collector/export regression tests only.
+    if __package__:
+        from .build_site import load
+    else:
+        from build_site import load
+    sources, coverage, _ = load()
+    files = list((ROOT / 'site').rglob('*.html')) + [
+        ROOT / 'data/thedankoe/sample-sources.json',
+        ROOT / 'data/thedankoe/sample-coverage.json',
+        ROOT / 'editorial/thedankoe/sample-chapter.json']
+    assert len(list((ROOT / 'site').rglob('*.html'))) == 3, 'Unexpected publication pages'
     validate_hygiene(ROOT / 'data/thedankoe/raw', files)
-    print(f'Validated {len(sources)} sources and {len(files)} published/editorial files; raw caches stay local.')
+    print(f'Validated {len(sources)} complete short posts, {len(coverage["exclusions"])} exclusions and {len(files)} public/editorial files; private cache optional.')
 
 
 if __name__ == '__main__':

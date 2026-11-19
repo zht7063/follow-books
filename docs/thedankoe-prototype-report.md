@@ -1,157 +1,84 @@
-# Dan Koe unofficial reader — implementation report
+# Dan Koe 中文连续阅读小样 — 实现报告
 
-Recorded on 2026-11-19. This is a finite, independent reading prototype, not a complete archive or an authorized Dan Koe ebook.
+记录日期：2026-11-19。当前交付是一个非官方、未完成的小样：五条完整公开短帖、一章原创中文编辑整理。无隶属关系或背书；不是完整书籍、人物传记或 63 条内容语料库。样章尚未获得用户视觉验收，完整验收未完成。交付后停止，等待用户审阅，不扩充来源。
 
-## Delivery and provenance
+## 范围修正与交付
 
-- Repository: [zht7063/follow-books](https://github.com/zht7063/follow-books).
-- Branch: `feat/thedankoe-ebook-prototype`.
-- Unchanged base/main snapshot: `946dd3c94564d39b6c7ee4ff3ac00341ed9cd1c8`.
-- Validated implementation HEAD SHA at report preparation: `9994622553c2377406e1242b751a2e2ed6dc83f2` ([commit](https://github.com/zht7063/follow-books/commit/9994622553c2377406e1242b751a2e2ed6dc83f2)). Subsequent commits add this report and confine test scratch files to the ignored checkout cache; `git rev-parse HEAD` or the PR commits list gives the final tip including those follow-ups.
-- PR: [#2 — Add an unofficial Dan Koe ebook reader and safe source collector](https://github.com/zht7063/follow-books/pull/2). Open into `main`, unmerged; auto-merge is disabled. **Do not merge unless asked.**
-- Author: `Engineer (bot) <zht7063@users.noreply.github.com>`.
-- Runner metadata supplied by the coordinator: **Codex CLI 0.163.0**, **gpt-6.1-sol**, reasoning effort **high**. This work was implemented by Codex in that run.
-- No history rewriting, force-push, repository access change or five-person routine modification. The original implementation did not deploy; the later manual isolated preview deployment is recorded below. This attribution-fix commit does not change git integration, domains, DNS, plan, or other sites; the same isolated Hobby project is to be redeployed after push. Every file under `original-info/` remains unchanged.
+默认发布方向从此前的人物介绍 / 来源目录改为按序阅读的中文样章：
 
-## What was delivered
+- 首页先说明范围、如何阅读、5/10 覆盖和全部排除项。
+- 一章五段：从开始获得经验，到接受初稿、给修改一个对象、投入时间并复查，最后回到注意力。段落相互承接，每段明确标注“编辑整理”“短引文”“来源”。
+- 覆盖说明与编后记交代来源边界和用户审阅关口。前后页、目录、skip link、375px 响应式及无脚本阅读保留。
+- 旧 `site/catalog.html`、七个旧章节、旧搜索索引与发布搜索脚本删除。旧采集器、种子元数据、旧编辑文件及历史搜索源代码/测试留作历史材料，不驱动样章。
 
-Seven original editorial chapters: orientation/identity, one-person business, writing/attention, AI/work, product history, unwatched videos and unread X references. The static reader has nine HTML pages, 63 source entries and 70 search entries. It includes a consistent contents rail, previous/next chapter navigation, original-source links, attribution, dates with provenance, independent fetch/read labels, clear coverage limits, a skip link, print rules and responsive CSS.
+仓库：[zht7063/follow-books](https://github.com/zht7063/follow-books)。分支：`feat/thedankoe-ebook-prototype`；本次起点 SHA：`c92a182e9d17f46151da02d870e4ba562a596290`。继续使用未合并 [PR #2](https://github.com/zht7063/follow-books/pull/2)，不合并、不 rebase、不 amend 已推送提交、不 force push。Git 作者保持 `Engineer (bot) <zht7063@users.noreply.github.com>`。最终提交 SHA 写入仓库外结果说明，避免在同一个提交中自引用。
 
-Search covers seed titles, tags, URLs and original editorial. Earlier seed abstracts and inherited reading claims are omitted from reader cards and search; source search records and results carry provenance and independent fetch/read labels. The blocked paid entry retains a generic heading, seed attribution, an explicitly unverified seed date/provenance (or an unknown date), URL and restriction/status metadata on reader cards, including chapter cards. Its inherited title/tags, abstract, body and reading claims remain withheld; its old abstract/verification claims are removed from derived metadata. Blocked search text remains URL-only, with no inherited title/tags; result provenance points to seed attribution and the unverified seed date, if known, on the source card and states that the abstract is withheld. X entries have URL text only in search and no seed summaries in reader output; derived metadata still retains seed titles, tags and historical verification notes. Videos remain unwatched. Company sources are attributed to Eden/Kortex with individual authorship unverified; the original seed attribution is retained separately for auditability.
+## 当前五条素材与依据
 
-Test scratch files stay under `.cache/tests/` inside this checkout. The collector, builder and Python tests use the standard library; JavaScript uses the built-in Node test runner. No packages need installation. The builder never reads the raw cache.
+仅使用用户已提供的三份 gitignored 本地 JSON：`search-posts-all-01.json`、`search-posts-all-02.json`、`selected-sample-posts.json`。本轮没有 X / 网络 API 调用，没有作者站或其他来源主机请求。
 
-## Collection results
+此前官方 `x.search_posts_all`，namespace `x`，无用户账户：第一次关键词查询返回 `result_count: 0`，结果为成功空集，不是 403/429。一条修正查询 `from:thedankoe -is:retweet -is:reply`，`max_results=10`，取得 10 条，均为 DAN KOE / `@thedankoe` / 用户 ID `256523056`。不翻页，不扩展来源。
 
-Exact configured cap: **90 live HTTP attempts per invocation**, including robots, discovery, redirects and retries. Explicit finite plan: **25 URLs**. Actual request concurrency: **1**. Delay: **10 seconds** minimum, increased for robots delay/rate rules. User-Agent:
+| 样章顺序 | Post ID | 官方 created_at（UTC） | 新加坡显示时间（+08 / Asia/Singapore） | 文字字符数 |
+| --- | --- | --- | --- | ---: |
+| x-sample-01 | 2121636177702727868 | 2026-11-14T16:07:37.000Z | 2026-11-15 00:07:37 | 68 |
+| x-sample-02 | 2118387157794496581 | 2026-11-05T16:57:10.000Z | 2026-11-06 00:57:10 | 266 |
+| x-sample-03 | 2122717500014022904 | 2026-11-17T15:44:24.000Z | 2026-11-17 23:44:24 | 263 |
+| x-sample-04 | 2119463899774767513 | 2026-11-08T16:15:46.000Z | 2026-11-09 00:15:46 | 277 |
+| x-sample-05 | 2116156997712195646 | 2026-10-30T13:15:19.000Z | 2026-10-30 21:15:19 | 205 |
 
-```text
-FollowBooksResearch/0.1 (small personal research collector; contact: zht7063@users.noreply.github.com)
-```
+这是主题顺序，不是时间顺序。五条均为 `complete_short_post`：完整 display_text_range、完整句末、conversation_id 等于帖 ID、note_post 为空，未作为串文或长文，也不声称读取了回复。
 
-| Measure | Actual count |
-| --- | ---: |
-| Seed entries retained | 63 |
-| Newly added catalog entries beyond the seed | 0 |
-| Live HTTP attempts | 17 |
-| Successful HTTP responses | 16 |
-| Cache-hit events in the live ledger | 0 |
-| Request-skip events in the live ledger | 0 |
-| Restriction/block events | 1 |
-| Transient network errors or backoff events | 0 |
-| Catalog source entries fetched successfully | 11 |
-| Source entries never requested | 51 |
-| Sources reviewed, including partial excerpts | 3 |
-| Complete public pages reviewed | 1 |
-| Unreviewed/unwatched entries retained | 60 |
-| X URL-only references retained | 12 |
-| YouTube channel/video/playlist/RSS references, all unwatched | 8 |
+公开记录带作者、原 URL、UTC 与新加坡日期、长度、完整性、对话范围说明、完整已取得文字的 UTF-8 SHA-256、官方 API 和本地文件来源依据。只保留短引文：68 字符的一句话可全文引用，其余每条一个短句，不超过 120 字符和 25 个英文词。哈希的对象是私有已取得文字，不是短引文；哈希并不意味着公开了全文。
 
-Counts are deliberately separate: the 16 successful responses include two robots files and three discovery documents, as well as 11 catalog sources. The blocked source is a separate twelfth requested catalog entry. The 51 unrequested entries include URL duplicates and items outside the finite plan; they are source-entry counts, not unique request counts. Zero request-skip events does not mean all 63 sources were requested. Notes on each unrequested entry explain the policy/stop boundary. The 60 unreviewed entries include eight fetched-but-unreviewed sources, one blocked source and 51 unrequested entries. Two of the three reviewed sources were only opening excerpts, not complete essay reviews.
+## 未使用的五条结果
 
-Hosts actually touched: **`thedankoe.com` and `letters.thedankoe.com` only**. No X, YouTube, Eden, Kortex, GitHub-content or third-party-site collection occurred.
+- `2116921689426583713`、`2114027336421032268`：句中截断预览，不补写、不纳入正文。display_text_range 匹配所见预览本身不足以证明完整。
+- `2122374187935523045`：附带链接目标未取得，不推断链接内容。
+- `2117664712532123680`：《The most lucrative AI business to start in 2027》，plain_len 20156。长 X 文章不转载，不作为样章正文。
+- `2112586533610156368`：《The influencer is dead. The Age of Experience is here.》，plain_len 16373。同上。
 
-At attempt 17, [This prompt will change your life](https://letters.thedankoe.com/p/this-prompt-will-change-your-life) returned **HTTP 200** with the marker **“this post is for paid subscribers”**. The collector persisted a global stop for that response. The integrity fix now saves minimal stop metadata before any optional body caching. It did not retry the page or proceed to any remaining host. No HTTP request appears after the block event in the ledger. The intact persisted stop prevents later requests; the audit verified this with guarded offline calls. Subsequent review metadata was exported using the offline `--export-only` mode in the earlier implementation. The integrity-fix run did not invoke live mode or resume collection.
+旧 63 条种子目录、旧人物介绍 / 来源索引、未取得或未读的种子条目不作为这章素材。不借未读条目填补第六篇，不概括为已读内容。
 
-Machine-readable evidence: [collection-summary.json](../data/thedankoe/collection-summary.json) and [request-ledger.json](../data/thedankoe/request-ledger.json). Raw cache and resume state are local and gitignored.
+## 实现与验证
 
-## What was actually read
+`import_x_sample.py` 没有网络代码，只读三个指定本地文件；缺失即失败。选帖记录与官方结果逐项交叉验证，重算 UTF-8 SHA-256、字符长度及时区，验证短引文确实在所取文字中，再用白名单写两个公开文件。验证全部通过前不写输出。长文只保留标题、长度和排除原因。
 
-| Source | Review performed this run | Use in editorial |
-| --- | --- | --- |
-| [Dan's homepage](https://thedankoe.com/) (`site-01`) | Reviewed the public homepage, including identity and project links | Identity, author/business context |
-| [How I'd build a one-person business](https://letters.thedankoe.com/p/how-id-build-a-one-person-business) (`letter-04`) | First 14,000 characters of locally extracted page text; remaining text unreviewed | Learning format versus underlying need, interactive guidance and adaptation |
-| [The Future Of Work (Acquire This Skill Stack)](https://thedankoe.com/letters/the-future-of-work-acquire-this-skill-stack/) (`letter-12`) | First 14,000 characters of locally extracted page text; remaining text unreviewed | Generalist learning and experimentation; predictions explicitly treated as attributed claims |
+`build_site.py` 仅读 `sample-sources.json`、`sample-coverage.json`、原创 `sample-chapter.json` 和 CSS，不读私有原始 API 或旧目录。固定五条来源顺序和公开字段模式，输出 HTML 转义，使用严格 CSP，无远程资源、JavaScript 或表单。重建会删除明确列举的旧生成文件，不递归清理任意输出目录。
 
-Review notes are bound to exact cache hashes in [reviewed-sources.json](../editorial/thedankoe/reviewed-sources.json). Validation, build and export now share a registry check for matching content hash, successful fetch, review extent and note. Mismatched pre-existing review labels are rejected before publication output is written.
-
-Fetched but **not newly reviewed**: `site-03`, `letter-01`, `letter-02`, `letter-03`, `letter-05`, `letter-09`, `letter-10` and `letter-11`. Their previous seed abstracts are omitted from the reader and search. The blocked `letter-06` was not reviewed or unlocked, and its seed abstract is withheld from derived metadata as well. All remaining catalog entries are seed-only/unread/unwatched as individually recorded.
-
-Discovery responses: robots for each touched host; the personal-site sitemap index; the newsletter RSS feed and sitemap. Only discovery structure was inspected, not every linked article or RSS body. A sitemap modification date was not used as an article publication date. The original seed dates and their explanations are preserved, including unknown dates and the X account-creation date.
-
-## Gaps and identity discrepancies
-
-The seed selected software, AI and digital-product topics. This prototype adds an editorial reading structure and limited new review, **not a broader corpus census**. It does not cover all mindset/growth writing, exhaust newsletter archives, reconcile every mirrored letter, enumerate all product blog posts or scan the large X timeline. Historical seed counts of roughly 93 Substack and 189 WordPress letters, and 192 Eden blog titles, remain prior survey context; this run does not claim to have read those corpora.
-
-The seed README/RSS reference contains channel ID `UCWXYDYv5STLk-zoxMP2I1Lw`, while the seed CSV's channel identity row contains `UCswG6FSbgZjbWtdf_hMLaow`. **Unresolved:** the live stop occurred before channel-page or official RSS verification. Neither candidate was silently selected as correct. The conflict is visible on the homepage and video chapter. No videos were watched, and no transcripts were collected.
-
-Eden and Kortex were not reached after the stop. The historical Kortex-to-Eden relationship and sunset description are explicitly attributed to the seed. Current redirects, availability, product behavior and feature claims were not verified this run. No course purchase, PDF/book download, signup or account use occurred.
-
-## Reproduce and validate
-
-Runtime used: Python 3.13.5 and Node v24.22.1. There are no third-party dependencies to install.
+无第三方依赖。完整离线命令：
 
 ```bash
-# Offline plan, no network or file writes
-python3 scripts/collect_thedankoe.py
-
-# Live mode is optional, bounded, and respects the persistent stop
-python3 scripts/collect_thedankoe.py --live --budget 90 --delay 10
-
-# Offline metadata export, only if local raw/state already exists
-python3 scripts/collect_thedankoe.py --export-only
-
-# Build and checks; all default tests are offline
 npm run build
-npm run check
 npm test
+npm run check
 python3 scripts/validate_content.py
-
-# Local static preview of published output only
-python3 -m http.server 4173 --bind 127.0.0.1 --directory site
 ```
 
-The supplied stopped state must not be deleted to work around the restriction. A fresh clone does not contain copyrighted cache bodies or private resume state and can build/test without them. Explicit stale-age refresh is available only for an unblocked run; it does not override a stop. The public code has no concurrency option and no browser/authentication path.
+本次离线套件：**48 个 Python 测试 + 8 个 Node 测试，共 56 个**。其中包括原采集器回归、历史种子元数据 / 导出保护、合成临时夹具导入、哈希和日期、失败时不写输出、截断及长文排除、短引文上限、五段来源属性、链接 / 锚点、确定性构建、375px CSS 合同、HTML 转义。历史搜索的 8 个测试用合成数据验证保留工具；站点不再发布该工具。新克隆不依赖私有缓存。实现机器另对可用私有缓存检查未泄露完整 200+ 字符帖子和长文正文。
 
-| Verification | Result |
-| --- | --- |
-| `npm run build` | PASS — 9 HTML pages, 63 sources, 70 search entries |
-| `npm run check` | PASS — Node syntax and Python compilation |
-| `npm test` | PASS — **40 Python tests + 8 Node tests**, zero failures (offline attribution-fix run; no new CI run claimed) |
-| `python3 scripts/validate_content.py` | PASS — 63 sources and 12 published/editorial files checked against available raw cache |
-| Strict frontend static audit | PASS — zero findings; [evidence](design-audit.json) |
-| Restriction-guard mutation check | Prior run: inverted status guard caused 11 assertion failures; [evidence](mutation-check.json). Integrity-fix mutation checks exercise normalized gate detection and registry hash checks in memory. |
-| Independent code review/re-review | Two collector safety findings fixed; re-review found no remaining actionable P1/P2 issues |
-| Local HTTP smoke | PASS — six endpoints returned 200; [evidence](preview-smoke.json) |
-| Staged-file checks | PASS — no raw cache, credential material or archive changes |
-| GitHub Actions at validated implementation SHA | PASS — push run [44499612164](https://github.com/zht7063/follow-books/actions/runs/44499612164) and PR run [44499665850](https://github.com/zht7063/follow-books/actions/runs/44499665850) |
+另一次隐藏实际私有缓存、禁用 socket 的新克隆模拟中，48 个 Python 测试全部通过；没有移动或修改私有缓存。将导入器哈希相等条件临时反向后，夹具测试按预期失败，随后已恢复原代码。独立只读代码审查未发现需要修正的问题，并在内存中确认两份规范化输出与本地原始记录一致。21 个私有文件的前后字节哈希相同，包括停止状态与 HTML/XML 缓存。
 
-Offline collector fixtures cover immediate persistent stops on restricted statuses, captcha, login/paywall and account redirects; serial cache/dedup/resume; robots disallow/delay; network/5xx-only bounded backoff; finite budgets; cache integrity; and explicit stale refresh. Review found that oversized/erroring bodies could hide restricted statuses and that NaN could bypass the delay floor. The fixes check restricted status before any body read, scan bounded body chunks, stop on oversized uninspectable responses, and reject nonfinite settings. Transport-level mocked-opener fixtures verify those paths. Integrity regressions additionally cover body-cache write failure on restricted responses, failed stop persistence and restart, load-time block evidence, normalized HTML/entity gates, uninspectable transport ValueError, and restricted redirects. Newly detected restricted/oversized bodies are not cached. State writes flush and fsync the replacement file and directory. An unfinished durable HTTP attempt or logical fetch fails closed on reload if the stop could not be saved, including policy checks on older cached robots and redirect responses. Gate detection remains a finite heuristic, and the stop does not coordinate already-running independent collector processes.
+自动 CSS/HTML 检查不是视觉验收或完整无障碍审计。当前小样未在公开 URL 重新部署，未进行样章浏览器视觉验收，不继承旧版的验收结论。
 
-Publication checks require blocked-card seed attribution, explicitly unverified seed dates/provenance, null-date handling, withheld protected fields, and rebuilt catalog/chapter cards. They also cover metadata/date provenance and preserved seed IDs, company attribution, resolved page/anchor links, search consistency, deterministic builds, contrast tokens, semantic markup, 375px CSS contracts, and real gitignore behavior. Node DOM fixtures exercise search restoration/clear/focus, IME composition, no results and failed index loading. **No browser GUI was driven by the offline suite**; these checks are not screenshots or a complete rendered-layout/accessibility audit. Separate measured browser acceptance on the public preview is recorded below; mobile evidence is not limited to CSS contracts.
+## 预览、此前部署与本次不部署
 
-## Public preview and browser verification
+公开预览 URL：**https://follow-books-thedankoe-preview.vercel.app/**。同一隔离的 Hobby 静态项目：`follow-books-thedankoe-preview`（`prj_mPKRT20m578FfIZz7JoiyD9rTwrK`）。本次推送后待另行重新部署，当前公开 URL 不代表样章已发布。
 
-The existing local-only preview record (not restarted or reverified by this offline fix):
+用户提供的上一轮元数据修复部署事实：
 
-- URL: **http://127.0.0.1:4173/**.
-- PID: **2321421**.
-- Port: **4173**.
-- Bind: **127.0.0.1**.
-- Served directory: `/workspace/engineer/follow-books/site`.
-- Started: `2026-11-19T09:44:43+00:00`.
-- Command: `python3 -m http.server 4173 --bind 127.0.0.1 --directory site`.
-- Local ignored log: `.cache/preview.log`.
-- Machine-readable record: [preview-server.json](preview-server.json).
+- SHA：`c92a182e9d17f46151da02d870e4ba562a596290`。
+- 部署 ID：`dpl_89LRxD7raHVKrhsgwfHLs35TGDTw`。
+- **2026-11-19 18:37:21 +08**：公开 catalog 逐字节匹配该 SHA。
 
-Loopback is local to the implementation machine. The public unauthenticated preview is **https://follow-books-thedankoe-preview.vercel.app/**.
+这些是历史记录，本轮没有网络复核。更早首部署为 `85a23d6489432ed5858efe4aec343fd6adaeae8c` / `dpl_2F6qqueYBBhUZ1opi2jeY87Kk9Zp`，旧目录首页、导航、搜索和 375×985 视口曾有浏览器检查；这些仅适用于旧版，不是本样章视觉验收。
 
-Recorded deployment facts supplied by the coordinator:
+本轮不部署，不改变 Vercel、域名、DNS、Git 集成、认证、套餐或其他站点；不启动托管 / 认证流程。现有 GitHub Actions 只运行离线检查，无部署步骤。
 
-- Isolated no-cost Hobby static project newly created for this prototype only: `follow-books-thedankoe-preview`, id `prj_mPKRT20m578FfIZz7JoiyD9rTwrK`.
-- Team: `tiansang0824s-projects` / `team_9aWYwFxIekNNlNo5kCYhwxZ0` (name: yubai project).
-- No git integration, custom domain, DNS change, plan upgrade or password protection. No other existing site was changed. GitHub Pages was not enabled; GitHub Actions still has no deploy step. This was a manual isolated deploy.
-- The team-scoped alias `https://follow-books-thedankoe-preview-tiansang0824s-projects.vercel.app/` and deployment-hash host require Vercel Authentication and are not the public preview.
-- First deploy of the then-current SHA `85a23d6489432ed5858efe4aec343fd6adaeae8c`: `dpl_2F6qqueYBBhUZ1opi2jeY87Kk9Zp`, READY at **2026-11-19 18:17:56 Asia/Singapore (+08)**. Unauthenticated fetches of all 13 committed site files on the public alias returned HTTP 200 and byte-matched that tree.
+## 单独保留的历史采集证据
 
-Measured browser acceptance already performed on that public preview **before this card fix**: homepage honest coverage passed; chapter next/prev/navigation passed; search “AI” returned 25 results; a nonsense query returned 0; 375×985 was legible with no visible overflow. These are prior recorded results, not new checks from this offline run.
+此前作者站采集器在一次有限计划中使用单请求并发、10 秒间隔与 90 次预算，实际第 17 次请求遇到订阅标记后全局停止：16 次成功响应，1 次限制事件；11 条目录来源取得成功，3 条曾被审阅（一个首页、两篇仅开篇片段）。这些是旧采集器事实，不是本样章的内容覆盖数字。历史证据保存在 [collection-summary.json](../data/thedankoe/collection-summary.json)、[request-ledger.json](../data/thedankoe/request-ledger.json) 和旧 review registry。
 
-This change fixes the restricted `letter-06` card's missing attribution/date/provenance in code and offline regression tests, while keeping the source blocked and unread and withholding protected content. **No visual recheck of that card after this change is claimed.** After this commit is pushed and the same isolated Hobby project is redeployed, a focused browser recheck of that blocked card gap remains outstanding. This change makes no source requests and no repository-side hosting, auth, domain, or DNS changes. Historical CI links above remain prior evidence.
+本轮没有执行 live 或 export-only，没有重启、删除或改变 `data/thedankoe/raw/state.json` 及其 HTML/XML 缓存。旧限制状态保持原样。未访问 thedankoe.com、letters.thedankoe.com、Eden、Kortex、YouTube 或其他来源主机。没有新 API、翻页、视频字幕或保护内容读取。旧种子资料和其他四人的档案不变。
 
-## Copyright and remaining limits
-
-Normalized metadata, source links, prior seed notes (except the blocked page's abstract/verification) and original editorial are committed. The reader/search omit all inherited abstracts and seed reading claims. Video references show seed titles, tags and dates with unwatched labels; additional old channel/playlist notes in derived metadata are unverified here. No full article bodies, books, course materials, videos, transcripts, cookies, tokens or secrets are published. Raw HTML/XML and local state are gitignored. The published build is served from `site/` alone.
-
-The hygiene guard flags a contiguous overlap of 40 normalized tokens with at least 200 characters between local raw cache and published/editorial files. Fixtures demonstrate that a long copied passage fails and a short quote passes. This is a practical regression guard, not an assessment of close paraphrase, translation, cumulative quotation or legal permission. This edition uses no intentional article quotations beyond source titles. Reading exercises and interpretations are clearly editorial; author claims are not independently verified financial, employment or product claims.
-
-The implementation remains a prototype with incomplete source coverage and unresolved channel identity. The public preview has measured mobile browser evidence as recorded above, alongside offline CSS contracts; neither constitutes a complete accessibility audit. Full acceptance is pending the focused blocked-card browser recheck after redeploy.
+原始 API 响应、HTML/XML、状态、秘密与 token 留在已 gitignored 的私有区域；公开只含原创编辑、短引文、URL 和必要元数据。交付在此次提交及常规推送、仓库外结果记录后停止，等待用户决定样章是否可接受。

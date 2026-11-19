@@ -1,13 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
 import { normalize, searchEntries } from '../web/search-core.js';
 
-const entries = JSON.parse(readFileSync(new URL('../site/search-index.json', import.meta.url), 'utf8'));
+// Historical search utility regressions only; the sample reader ships no JS
+// or source index. Synthetic fixtures keep this independent of the old catalog.
+const entries = [
+  {id: 'chapter-fixture', kind: 'chapter', title: 'Writing and learning', text: 'AI work 写作 generalist', tags: ['learning'], href: 'chapter.html', provenance: 'Synthetic editorial fixture'},
+  {id: 'source-fixture', kind: 'source', title: 'Fixture source', text: 'Kortex AI work', tags: [], href: 'source.html', provenance: 'Synthetic source provenance', status_label: 'Fetch: fixture · Read: fixture'},
+];
 test('search includes chapter editorial, titles and tags', () => {
   assert(searchEntries(entries, 'learning').some((e) => e.kind === 'chapter'));
   assert(searchEntries(entries, 'Kortex').some((e) => e.kind === 'source'));
-  assert(searchEntries(entries, 'generalist').some((e) => e.id === 'writing-and-attention'));
+  assert(searchEntries(entries, 'generalist').some((e) => e.id === 'chapter-fixture'));
 });
 test('empty and no-results queries return an empty list', () => {
   assert.deepEqual(searchEntries(entries, ' '), []);
@@ -79,17 +83,11 @@ test('controller leaves browsing available if search index fails', async () => {
 });
 
 
-test('source results display seed provenance and separate fetch and read labels', async () => {
-  const { elements: e } = await controllerFixture('?q=letter-06');
-  const result = e['search-results'].children.find((item) => item.children[0].children[0].textContent.includes('letter-06'));
+test('historical utility displays provided provenance and statuses without interpreting them', async () => {
+  const { elements: e } = await controllerFixture('?q=Fixture%20source');
+  const result = e['search-results'].children[0];
   assert(result);
-  assert.match(result.children[0].children[0].textContent, /Blocked \/ restricted/);
-  assert.match(result.children[1].textContent, /Restricted source; seed attribution and unverified seed date, if known, on source card; abstract withheld/);
-  assert.match(result.children[1].textContent, /Fetch: collection stopped/);
-  assert.match(result.children[1].textContent, /Read: unread/);
-  const { elements: seed } = await controllerFixture('?q=Kortex&provenance=1');
-  const source = seed['search-results'].children.find((item) => item.children[1].textContent.includes('Seed title'));
-  assert(source);
-  assert.match(source.children[1].textContent, /prior abstract omitted/);
-  assert.match(source.children[1].textContent, /Fetch:.*Read:/);
+  assert.equal(result.children[0].children[0].textContent, 'Fixture source');
+  assert.match(result.children[1].textContent, /Synthetic source provenance/);
+  assert.match(result.children[1].textContent, /Fetch: fixture · Read: fixture/);
 });

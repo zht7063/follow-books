@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Follow Books — Dan Koe study edition
+name: Follow Books — Chinese reading sample
 description: A compact, unofficial reading companion with visible evidence boundaries.
 colors:
   primary: "#2349a0"
@@ -23,8 +23,7 @@ spacing:
   page-max: "78rem"
 components:
   navigation: {owner: "scripts/build_site.py: shell"}
-  source: {owner: "scripts/build_site.py: source_card"}
-  search: {owner: "web/search.js"}
+  source: {owner: "scripts/build_site.py: source_note"}
 ---
 
 # Follow Books Design System
@@ -37,7 +36,7 @@ An annotated study edition: a blue cloth cover, a visible contents leaf, and gen
 
 ### Product context and register
 
-The task brief is the product authority. Readers want to understand one author's themes and open the original sources without mistaking an index for a complete book. This is a content site with local search, not an account-based application. English editorial and controls; Chinese seed abstracts retain their original language and carry `lang="zh-Hans"`. No Japan-market assumption. Desktop study and phone reading are equally supported. Avoid generic SaaS cards, decorative statistics, and faux archival claims.
+The task brief is the product authority. Readers follow five passages of original Chinese editorial based on five complete public X posts. Chinese editorial and controls use `lang="zh-Hans"`; short English quotations use `lang="en"`. This is a small unofficial sample, not a biography or complete book. The default site has no search or JavaScript. Desktop study and phone reading are equally supported. Avoid generic SaaS cards, decorative statistics, and faux archival claims.
 
 ### Token ownership/runtime mapping
 
@@ -53,7 +52,7 @@ Palatino gives editorial headings a book-like cadence; system sans keeps control
 
 ## Layout
 
-At wide widths the contents rail is 16rem and the reading leaf takes the remaining space. At 760px and below the rail joins document flow, chapters become wrapped links, and the reading area uses 1rem padding. All children have `min-width: 0`; URLs wrap. Document scrolling owns the whole page. No viewport-height clipping or hidden mobile navigation. Full catalog lists are deliberately rendered for this finite 63-entry edition and grouped by chapter.
+At wide widths the contents rail is 16rem and the reading leaf takes the remaining space. At 760px and below the rail joins document flow, chapters become wrapped links, and the reading area uses 1rem padding. All children have `min-width: 0`; URLs wrap. Document scrolling owns the whole page. No viewport-height clipping or hidden mobile navigation. Three pages form the reading path: sample home, one chapter with five numbered passages, and coverage/colophon. Sources follow each passage in the reading flow.
 
 ## Elevation & Depth
 
@@ -67,19 +66,19 @@ A 0.75rem reading-leaf radius softens the outer cover; source entries use rules 
 
 ### Foundational visual states
 
-Native links and buttons provide keyboard semantics. Hover underlines, focus rings and current-chapter text distinguish states. All content remains available without JavaScript. Local search adds a results region only after initialization; no remote loading state is necessary. No-results text suggests clearing or changing the query. Search errors preserve the complete browse list.
+Native links and buttons provide keyboard semantics. Hover underlines, focus rings and current-chapter text distinguish states. All content remains available without JavaScript. All three pages work without scripts. Each passage visibly distinguishes original editorial, a short English quotation, and attribution/date/completeness/provenance.
 
 ### Buttons and actions
 
-One primary reading link; ordinary navigation uses underlined text. Clear search is a visible, labelled button when a query is present. No destructive actions, authentication, purchases or data entry.
+One primary reading link; ordinary navigation uses underlined text. No destructive actions, authentication, purchases or data entry.
 
 ### Navigation and data display
 
-The same shell links contents, chapters and catalog on every page. Previous/next links follow the editorial chapter order. Source entries always show attribution, dates and provenance, fetch/read status, a short seed abstract when permitted, and the original link. X entries remain URL-only and videos remain unwatched.
+The same shell links home, chapter and coverage on every page. Previous/next links connect the reading path. Source notes show DAN KOE / @thedankoe, official UTC dates plus Asia/Singapore display, complete_short_post, fetched character length, a hash and official API provenance. Quotes are bounded; long article bodies, truncated previews and the old seed catalog are outside this sample.
 
 ### Forms and overlays
 
-Search is local, IME-safe, and updates `?q=`. Explicit submit commits the query; clear restores focus. A `<noscript>` message explains browsing. No select, dialog or overlay is needed.
+The sample has no forms, dialogs, overlays or client data entry. Historical search source/tests remain in the repository but are not shipped in `site/`.
 
 ### Iconography
 
@@ -91,7 +90,7 @@ No animation is required; reduced motion disables any future smooth scrolling.
 
 ### Content and data visualization
 
-Editorial identifies the evidence it uses. Counts distinguish requests, sources and reviewed pages. This edition is incomplete and unaffiliated. No inferred publication dates, watched-video claims or reproduced article bodies.
+Editorial identifies the evidence it uses. Counts distinguish the earlier empty official search, ten corrective-search results and five selected complete short posts. This edition is incomplete and unaffiliated. No inferred publication dates, watched-video claims or reproduced article bodies.
 
 ## Do's and Don'ts
 
