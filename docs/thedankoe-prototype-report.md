@@ -7,7 +7,7 @@ Recorded on 2026-11-19. This is a finite, independent reading prototype, not a c
 - Repository: [zht7063/follow-books](https://github.com/zht7063/follow-books).
 - Branch: `feat/thedankoe-ebook-prototype`.
 - Unchanged base/main snapshot: `946dd3c94564d39b6c7ee4ff3ac00341ed9cd1c8`.
-- Validated implementation HEAD SHA at report preparation: `9994622553c2377406e1242b751a2e2ed6dc83f2` ([commit](https://github.com/zht7063/follow-books/commit/9994622553c2377406e1242b751a2e2ed6dc83f2)). This report is a subsequent documentation-only commit; `git rev-parse HEAD` or the PR commits list gives the final tip including the report.
+- Validated implementation HEAD SHA at report preparation: `9994622553c2377406e1242b751a2e2ed6dc83f2` ([commit](https://github.com/zht7063/follow-books/commit/9994622553c2377406e1242b751a2e2ed6dc83f2)). Subsequent commits add this report and confine test scratch files to the ignored checkout cache; `git rev-parse HEAD` or the PR commits list gives the final tip including those follow-ups.
 - PR: [#2 — Add an unofficial Dan Koe ebook reader and safe source collector](https://github.com/zht7063/follow-books/pull/2). Open into `main`, unmerged; auto-merge is disabled. **Do not merge unless asked.**
 - Author: `Engineer (bot) <zht7063@users.noreply.github.com>`.
 - Runner metadata supplied by the coordinator: **Codex CLI 0.163.0**, **gpt-6.1-sol**, reasoning effort **high**. This work was implemented by Codex in that run.
@@ -19,7 +19,7 @@ Seven original editorial chapters: orientation/identity, one-person business, wr
 
 Search covers titles, tags, original editorial and clearly identified seed abstracts. X entries have URL text only in search and no seed summaries in published output. Videos remain unwatched. Company sources are attributed to Eden/Kortex with individual authorship unverified; the original seed attribution is retained separately for auditability.
 
-The collector, builder and Python tests use the standard library; JavaScript uses the built-in Node test runner. No packages need installation. The builder never reads the raw cache.
+Test scratch files stay under `.cache/tests/` inside this checkout. The collector, builder and Python tests use the standard library; JavaScript uses the built-in Node test runner. No packages need installation. The builder never reads the raw cache.
 
 ## Collection results
 

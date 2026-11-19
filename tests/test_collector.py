@@ -9,6 +9,9 @@ from urllib.error import URLError
 
 from scripts.collect_thedankoe import Collector, MAX_BODY, canonical_url, permitted, http_transport
 
+TEST_CACHE = Path(__file__).resolve().parents[1] / '.cache/tests'
+TEST_CACHE.mkdir(parents=True, exist_ok=True)
+
 HOME = 'https://thedankoe.com/'
 ROBOTS = HOME + 'robots.txt'
 ARTICLE = HOME + 'letters/example/'
@@ -42,7 +45,7 @@ def response(body='fixture article', status=200, **headers):
 
 class CollectorTests(unittest.TestCase):
     def setUp(self):
-        self.directory = tempfile.TemporaryDirectory()
+        self.directory = tempfile.TemporaryDirectory(dir=TEST_CACHE)
         self.addCleanup(self.directory.cleanup)
         self.sleeps = []
         self.time = 1000
@@ -74,7 +77,7 @@ class CollectorTests(unittest.TestCase):
                  (200, '<title>Captcha required</title>'), (200, 'Verify you are human'),
                  (200, 'cf-chl-challenge'), (200, 'Subscribe to read'), (200, 'Sign in to continue')]
         for status, body in cases:
-            with self.subTest(status=status, body=body), tempfile.TemporaryDirectory() as directory:
+            with self.subTest(status=status, body=body), tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
                 t = FixtureTransport({ROBOTS: [response('User-agent: *\nAllow: /')], ARTICLE: [response(body, status)]})
                 c = Collector(directory, transport=t, sleep=self.sleep, clock=lambda: self.time)
                 self.assertEqual(c.fetch(ARTICLE)['fetch_status'], 'blocked')
@@ -153,7 +156,7 @@ class CollectorTests(unittest.TestCase):
 
     def test_oversized_restrictions_stop_before_size_limit_skip(self):
         for status, prefix in [(403, ''), (429, ''), (200, 'Verify you are human')]:
-            with self.subTest(status=status), tempfile.TemporaryDirectory() as directory:
+            with self.subTest(status=status), tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
                 t = FixtureTransport({ROBOTS: [response('', 404)], ARTICLE: [response(prefix + 'a' * (MAX_BODY + 1), status)]})
                 c = Collector(directory, transport=t, sleep=self.sleep, clock=lambda: self.time)
                 self.assertEqual(c.fetch(ARTICLE)['fetch_status'], 'blocked')

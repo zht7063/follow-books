@@ -14,6 +14,8 @@ from scripts.build_site import build
 from scripts.validate_content import matching_passage, validate_hygiene, validate_sources
 
 ROOT = Path(__file__).resolve().parents[1]
+TEST_CACHE = ROOT / '.cache/tests'
+TEST_CACHE.mkdir(parents=True, exist_ok=True)
 
 
 class Page(HTMLParser):
@@ -110,7 +112,7 @@ class PublicationTests(unittest.TestCase):
             self.assertIn('aria-current="page"', text)
 
     def test_deterministic_offline_build(self):
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
             output = Path(directory)
             build(output)
             for path in output.rglob('*'):
@@ -123,7 +125,7 @@ class PublicationTests(unittest.TestCase):
         self.assertTrue(matching_passage(raw, '<p>' + raw.replace(' ', '</span> <span>') + '</p>'))
         short_quote = ' '.join(raw.split()[:12])
         self.assertFalse(matching_passage(raw, f'<blockquote>{short_quote}</blockquote><p>Our own commentary and attribution.</p>'))
-        with tempfile.TemporaryDirectory() as directory:
+        with tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
             raw_dir = Path(directory) / 'raw'
             raw_dir.mkdir()
             (raw_dir / 'fake.body').write_text(raw)
