@@ -1,4 +1,5 @@
 import json
+import hashlib
 import io
 import tempfile
 import threading
@@ -7,7 +8,7 @@ from pathlib import Path
 from unittest.mock import patch
 from urllib.error import URLError
 
-from scripts.collect_thedankoe import Collector, MAX_BODY, canonical_url, permitted, http_transport
+from scripts.collect_thedankoe import Collector, MAX_BODY, canonical_url, permitted, http_transport, restriction
 
 TEST_CACHE = Path(__file__).resolve().parents[1] / '.cache/tests'
 TEST_CACHE.mkdir(parents=True, exist_ok=True)
@@ -73,7 +74,7 @@ class CollectorTests(unittest.TestCase):
         self.assertTrue(all(seconds >= 10 for seconds in self.sleeps))
 
     def test_immediate_global_persistent_stop_for_restrictions(self):
-        cases = [(429, 'slow down'), (403, 'forbidden'), (401, 'auth'), (451, 'restricted'),
+        cases = [(402, 'payment required'), (429, 'slow down'), (403, 'forbidden'), (401, 'auth'), (451, 'restricted'),
                  (200, '<title>Captcha required</title>'), (200, 'Verify you are human'),
                  (200, 'cf-chl-challenge'), (200, 'Subscribe to read'), (200, 'Sign in to continue')]
         for status, body in cases:
@@ -88,6 +89,132 @@ class CollectorTests(unittest.TestCase):
                 self.assertEqual(t.calls, before)
                 self.assertFalse(any(e['kind'] == 'backoff' for e in c.state['events']))
                 self.assertTrue(json.loads((Path(directory) / 'state.json').read_text())['stop_reason'])
+
+    def test_restrictions_do_not_write_bodies_even_when_cache_writes_fail(self):
+        for status, body in [(200, 'This post is for paid subscribers'), (403, 'denied'), (429, 'slow')]:
+            with self.subTest(status=status), tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
+                t = FixtureTransport({ARTICLE: [response(body, status)]})
+                c = Collector(directory, transport=t, sleep=self.sleep, clock=lambda: self.time)
+                with patch.object(Path, 'write_bytes', side_effect=OSError('fixture cache failure')) as write:
+                    self.assertEqual(c.request(ARTICLE)['fetch_status'], 'blocked')
+                write.assert_not_called()
+                state = json.loads(c.state_path.read_text())
+                self.assertTrue(state['stop_reason'])
+                self.assertEqual(state['responses'][ARTICLE]['fetch_status'], 'blocked')
+                self.assertNotIn('cache_file', state['responses'][ARTICLE])
+                self.assertEqual(list(Path(directory).glob('*.body')), [])
+                resumed = Collector(directory, transport=t, sleep=self.sleep, stale_days=1e-12)
+                self.assertEqual(resumed.request('https://eden.so/')['fetch_status'], 'blocked')
+                self.assertEqual(resumed.fetch('https://eden.so/')['fetch_status'], 'blocked')
+                self.assertEqual(t.calls, [ARTICLE])
+
+    def test_stop_persistence_failure_raises_and_reload_fails_closed(self):
+        c, t = self.collector({ARTICLE: [response('Subscribe to read')]})
+        persist = c.persist
+        def fail_stop():
+            if c.state['stop_reason']:
+                raise OSError('fixture stop persistence failure')
+            persist()
+        with patch.object(c, 'persist', side_effect=fail_stop):
+            with self.assertRaises(OSError):
+                c.request(ARTICLE)
+        self.assertTrue(c.state['stop_reason'])
+        self.assertEqual(c.request('https://eden.so/')['fetch_status'], 'blocked')
+        self.assertIsNone(json.loads(c.state_path.read_text())['stop_reason'])
+        resumed, _ = self.collector({})
+        self.assertTrue(resumed.state['stop_reason'])
+        self.assertEqual(resumed.request('https://eden.so/')['fetch_status'], 'blocked')
+        self.assertEqual(t.calls, [ARTICLE])
+
+    def test_policy_stop_persistence_failure_cannot_resume_fresh_or_cached_fetch(self):
+        for policy in ['login', 'robots']:
+            for cached in [False, True]:
+                with self.subTest(policy=policy, cached=cached), tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
+                    body = 'Content-Signal: ai-input=no' if policy == 'robots' else ''
+                    restricted_url = ROBOTS if policy == 'robots' else ARTICLE
+                    status = 200 if policy == 'robots' else 302
+                    t = FixtureTransport({ROBOTS: [response(body if policy == 'robots' else '', 200 if policy == 'robots' else 404)],
+                                          ARTICLE: [response('', 302, Location='/login')]})
+                    c = Collector(directory, transport=t, sleep=self.sleep, clock=lambda: self.time)
+                    if cached:
+                        (c.raw / 'legacy.body').write_text(body)
+                        c.state['responses'][restricted_url] = {
+                            'fetch_status': 'fetched_ok' if policy == 'robots' else 'error',
+                            'http_status': status, 'location': '/login' if policy == 'login' else None,
+                            'cache_file': 'legacy.body', 'content_hash': hashlib.sha256(body.encode()).hexdigest(),
+                            'timestamp': self.time, 'fetched_at': '2026-11-19T00:00:00+00:00'}
+                        c.persist()
+                    persist = c.persist
+                    def fail_stop():
+                        if c.state['stop_reason']:
+                            raise OSError('fixture policy stop persistence failure')
+                        persist()
+                    with patch.object(c, 'persist', side_effect=fail_stop), self.assertRaises(OSError):
+                        c.fetch(ARTICLE)
+                    calls = list(t.calls)
+                    self.assertTrue(c.state['stop_reason'])
+                    resumed = Collector(directory, transport=t, sleep=self.sleep, stale_days=1e-12)
+                    self.assertTrue(resumed.state['stop_reason'])
+                    self.assertEqual(resumed.fetch('https://eden.so/')['fetch_status'], 'blocked')
+                    self.assertEqual(t.calls, calls)
+                    if not cached:
+                        # Restricted login/robots responses never enter the body cache.
+                        self.assertNotIn(restricted_url, json.loads(c.state_path.read_text())['responses'])
+
+    def test_load_recovers_missing_stop_from_block_evidence(self):
+        for evidence in ['event', 'response', 'attempt', 'fetch']:
+            with self.subTest(evidence=evidence):
+                c, _ = self.collector({})
+                c.state['stop_reason'] = None
+                c.state['events'] = [] if evidence == 'response' else [
+                    {'kind': 'blocked' if evidence == 'event' else 'fetch_started' if evidence == 'fetch' else 'attempted', 'url': ARTICLE}]
+                c.state['responses'] = {ARTICLE: {'fetch_status': 'blocked'}} if evidence == 'response' else {}
+                c.persist()
+                before = c.state_path.read_bytes()
+                resumed, t = self.collector({})
+                self.assertTrue(resumed.state['stop_reason'])
+                self.assertEqual(resumed.fetch('https://eden.so/')['fetch_status'], 'blocked')
+                self.assertEqual(t.calls, [])
+                self.assertEqual(c.state_path.read_bytes(), before)
+
+    def test_visible_text_gate_variants_stop_globally(self):
+        variants = ['This post is for <strong>paid subscribers</strong>', 'Subscribe&nbsp;to read',
+                    'Only paid subscribers can access this post', 'Subscribe&#160;to <em>continue reading</em>',
+                    'Sign <b>in</b> to continue', 'This article is for paid subscribers only',
+                    'Subscribe&NewLine;to read', 'Subscr&#73;be to read', 'Sub<strong>scribe</strong> to read']
+        for body in variants:
+            with self.subTest(body=body), tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
+                t = FixtureTransport({ARTICLE: [response(body)]})
+                c = Collector(directory, transport=t, sleep=self.sleep, clock=lambda: self.time)
+                self.assertEqual(c.request(ARTICLE)['fetch_status'], 'blocked')
+                resumed = Collector(directory, transport=t, sleep=self.sleep)
+                self.assertEqual(resumed.fetch('https://eden.so/')['fetch_status'], 'blocked')
+                self.assertEqual(t.calls, [ARTICLE])
+        self.assertIsNone(restriction(200, '<p>A public article about learning.</p>'))
+
+    def test_uninspectable_transport_value_error_stops_globally(self):
+        c, t = self.collector({ARTICLE: [ValueError('Oversized response')]})
+        self.assertEqual(c.request(ARTICLE)['fetch_status'], 'blocked')
+        resumed, _ = self.collector({})
+        self.assertEqual(resumed.fetch('https://eden.so/')['fetch_status'], 'blocked')
+        self.assertTrue(json.loads(c.state_path.read_text())['stop_reason'])
+        self.assertEqual(t.calls, [ARTICLE])
+
+    def test_restricted_redirect_keeps_blocked_outcome(self):
+        c, t = self.collector({ROBOTS: [response('', 404)],
+                               ARTICLE: [response('This post is for paid subscribers', 302, Location='https://example.invalid/')]})
+        request = c.request
+        def classified_response(url, delay=None):
+            item = request(url, delay)
+            # A blocked response may retain Location metadata (e.g. older cache
+            # formats); ordinary redirect handling must never override it.
+            return {**item, 'location': 'https://example.invalid/'} if url == ARTICLE else item
+        with patch.object(c, 'request', side_effect=classified_response):
+            self.assertEqual(c.fetch(ARTICLE)['fetch_status'], 'blocked')
+        self.assertTrue(json.loads(c.state_path.read_text())['stop_reason'])
+        self.assertEqual(c.fetch('https://eden.so/')['fetch_status'], 'blocked')
+        self.assertEqual(t.calls, [ROBOTS, ARTICLE])
+        self.assertFalse(any(e['kind'] == 'skipped' for e in c.state['events']))
 
     def test_blocked_robots_stops_before_page(self):
         c, t = self.collector({ROBOTS: [response('Forbidden', 403)]})
@@ -155,7 +282,7 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(t.calls, [ROBOTS, ARTICLE])
 
     def test_oversized_restrictions_stop_before_size_limit_skip(self):
-        for status, prefix in [(403, ''), (429, ''), (200, 'Verify you are human')]:
+        for status, prefix in [(403, ''), (429, ''), (200, 'Verify you are human'), (200, '')]:
             with self.subTest(status=status), tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
                 t = FixtureTransport({ROBOTS: [response('', 404)], ARTICLE: [response(prefix + 'a' * (MAX_BODY + 1), status)]})
                 c = Collector(directory, transport=t, sleep=self.sleep, clock=lambda: self.time)
@@ -186,12 +313,13 @@ class CollectorTests(unittest.TestCase):
             self.assertEqual(actual, status)
             self.assertEqual(remote.reads, 0)
             self.assertEqual(body, b'')
-        remote = FakeResponse(200, b'Verify you are human' + b'x' * 65536, fail_after_first=True)
-        with patch('scripts.collect_thedankoe.build_opener') as opener:
-            opener.return_value.open.return_value = remote
-            actual, _, body = http_transport(ARTICLE)
-        self.assertEqual(remote.reads, 1)
-        self.assertIn(b'Verify you are human', body)
+        for url, marker in [(ARTICLE, b'Verify you are human'), (ROBOTS, b'Content-Signal: ai-input=no')]:
+            remote = FakeResponse(200, marker + b'x' * 65536, fail_after_first=True)
+            with patch('scripts.collect_thedankoe.build_opener') as opener:
+                opener.return_value.open.return_value = remote
+                actual, _, body = http_transport(url)
+            self.assertEqual(remote.reads, 1)
+            self.assertIn(marker, body)
         remote = FakeResponse(200, b'x' * (MAX_BODY + 100))
         with patch('scripts.collect_thedankoe.build_opener') as opener:
             opener.return_value.open.return_value = remote

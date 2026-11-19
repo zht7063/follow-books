@@ -61,7 +61,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "site-03",
@@ -508,10 +508,10 @@
       "内容创作"
     ],
     "section": "letters",
-    "seed_abstract": "一篇较短的“Koe prompt”信件，目的是用提示词帮助找出个人独特观点，而不是让模型直接代写跟风内容。本轮正文提取完整度一般（后半可能在嵌套结构中），摘要只依据已读开头，不复述未完整抽出的提示词全文。",
-    "seed_verification": "已核验 200；已读开头，提示词全文提取不完整",
+    "seed_abstract": null,
+    "seed_verification": null,
     "fetch_status": "blocked",
-    "read_status": "seed_abstract_only",
+    "read_status": "unread",
     "http_status": 200,
     "content_hash": "6ff9dac4ca6fabaf586a8d34876d5db2d9d4ac2b94dfde27a6b55cc9f0692566",
     "fetched_at": "2026-11-19T09:34:13+00:00",
@@ -1715,7 +1715,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-02",
@@ -1750,7 +1750,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-03",
@@ -1785,7 +1785,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-04",
@@ -1820,7 +1820,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-05",
@@ -1854,7 +1854,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-06",
@@ -1889,7 +1889,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-07",
@@ -1923,7 +1923,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-08",
@@ -1957,7 +1957,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-09",
@@ -1991,7 +1991,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "x-10",
@@ -2025,7 +2025,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "rec-01",
@@ -2059,7 +2059,7 @@
     "content_hash": null,
     "fetched_at": null,
     "robots_note": "Not requested this run",
-    "decision_note": "X URL-only, unread; collection forbidden and not attempted"
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
   },
   {
     "id": "rec-02",

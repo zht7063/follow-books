@@ -13,10 +13,10 @@
       ]},
       {"heading": "What kind of book is this?", "paragraphs": [
         "A collection can be useful without pretending to be complete. These chapters are original editorial: short arguments, reading questions and routes to sources. They do not reproduce Dan's essays. Read an original, return here to compare it with another, and keep your own notes on where the argument holds up.",
-        "The seed was compiled around technology and products. Its Chinese abstracts remain available in expandable notes. We preserve that selection's limits instead of silently converting it into a comprehensive portrait. Early GitHub references have an uncertain identity connection; their presence in an old index does not establish a current engineering practice."
+        "The seed was compiled around technology and products. Its older Chinese abstracts and inherited reading claims are omitted from this reader and search. We preserve that selection's limits instead of silently converting it into a comprehensive portrait. Early GitHub references have an uncertain identity connection; their presence in an old index does not establish a current engineering practice."
       ]},
       {"heading": "Use the labels as part of reading", "paragraphs": [
-        "A fetch label describes collection. A read label describes review. A public excerpt review means only the specified portion was examined. A seed abstract is older curation, and a product list can tell us that a title exists without telling us the article's argument. Unknown dates remain unknown, while dated entries retain the seed's explanation of what the date measures.",
+        "A fetch label describes collection. A read label describes review. A public excerpt review means only the specified portion was examined. Seed titles, tags and dates are prior metadata, and a product list can tell us that a title exists without telling us the article's argument. Unknown dates remain unknown, while dated entries retain the seed's explanation of what the date measures.",
         "Treat commercial self-descriptions as attributed claims. This reader has not purchased a course, tested a paid product or independently verified business revenue. The homepage establishes how Dan describes his work; it does not validate every promise made by that work."
       ]}
     ]
@@ -35,7 +35,7 @@
       ]},
       {"heading": "Speed is a constraint, too", "paragraphs": [
         "The same excerpt connects a small business with the ability to change quickly. But speed also creates a burden: the owner must notice when a useful method becomes a copied convention. We would read the letter with a two-column notebook: decisions that depend on this moment's tools, and capabilities that remain useful when those tools change.",
-        "The later one-human-business letter and the earlier startup-revenue account offer comparison points. Both were fetched, but their complete arguments have not been reviewed for this edition. Their seed abstracts can help you choose what to open next; they are not evidence that we replicated the results or audited the business."
+        "The later one-human-business letter and the earlier startup-revenue account offer comparison points. Both were fetched, but their complete arguments have not been reviewed for this edition. Their seed titles provide discovery links; they are not evidence that we replicated the results or audited the business."
       ]},
       {"heading": "A question to take to the original", "paragraphs": [
         "Choose one thing you can help a specific person do. Describe the outcome before naming a product. Then ask whether the customer needs information, feedback, execution or some combination. Keep that question beside you while reading the original, and mark the places where its proposal answers it—or leaves work for you."
@@ -72,12 +72,12 @@
     "source_ids": ["letter-01", "letter-03", "letter-05", "letter-06", "letter-07", "letter-08", "rec-02"],
     "sections": [
       {"heading": "A route, not a composite summary", "paragraphs": [
-        "The seed groups these letters around changing work, AI-assisted production and prompt-based workflows. Several public pages fetched successfully, but this chapter does not pretend to synthesize their unread full texts. Use the individual titles and earlier abstracts to select an original that matches your question.",
+        "The seed groups these letters around changing work, AI-assisted production and prompt-based workflows. Several public pages fetched successfully, but this chapter does not pretend to synthesize their unread full texts. Use the individual seed titles to select an original that matches your question. The blocked page retains only a URL and restriction metadata.",
         "A productive comparison is to ask what each source delegates to a tool and what it expects a person to decide. That is our reading lens. It avoids turning a list of AI-related links into an unsupported claim that the author has one settled position across different dates."
       ]},
       {"heading": "Partial sources require smaller claims", "paragraphs": [
         "The seed already marked some prompt letters as incompletely extracted. During this run, the life-change prompt page triggered an access-restriction marker and stopped the entire live crawl. We did not attempt to unlock it or continue to other hosts. The next prompt pages were not requested.",
-        "That means this edition cannot teach the missing prompts, reconstruct their instructions or claim to have tested them. A title and a short abstract are useful discovery aids. They are not substitutes for the actual instructions, context or limitations of a method."
+        "That means this edition cannot teach the missing prompts, reconstruct their instructions or claim to have tested them. The blocked page's older abstract is withheld. Links alone cannot supply the instructions, context or limitations of a method."
       ]},
       {"heading": "Write down the decision before the automation", "paragraphs": [
         "Before trying a workflow from an original, define a result you can inspect and a mistake you would need to catch. Keep a manual example for comparison. This editorial exercise gives you a way to evaluate the method on your own work; it makes no promise about income, productivity or protection from job displacement."
@@ -110,8 +110,8 @@
     "tags": ["YouTube", "video", "unwatched", "channel identity"],
     "source_ids": ["site-04", "yt-01", "yt-02", "yt-03", "yt-04", "yt-05", "yt-06", "yt-07"],
     "sections": [
-      {"heading": "Titles are the extent of this shelf", "paragraphs": [
-        "None of these videos or playlists was watched. No video was downloaded, and no transcript was collected. Titles and dates come from the seed snapshot, whose RSS coverage was limited to recent uploads. Playlist entries do not imply that their contents were enumerated or viewed.",
+      {"heading": "Titles and limited seed metadata", "paragraphs": [
+        "None of these videos or playlists was watched. No video was downloaded, and no transcript was collected. Titles, dates and tags come from the seed snapshot, whose RSS coverage was limited to recent uploads. Derived metadata also retains older channel and playlist notes; these were not verified here and are omitted from the reader and search. Playlist entries do not imply that their contents were enumerated or viewed.",
         "The seed contains conflicting channel IDs: UCWXYDYv5STLk-zoxMP2I1Lw in its README and RSS reference, and UCswG6FSbgZjbWtdf_hMLaow in the CSV identity row. Because live collection stopped before a permitted channel or RSS verification, the discrepancy remains unresolved. Neither candidate is adopted as verified. Open the public handle as a starting reference."
       ]}
     ]
@@ -125,7 +125,7 @@
     "source_ids": ["site-02", "x-01", "x-02", "x-03", "x-04", "x-05", "x-06", "x-07", "x-08", "x-09", "x-10", "rec-01"],
     "sections": [
       {"heading": "An index is not a timeline", "paragraphs": [
-        "The old seed describes a very large posting history and substantial gaps. This project does not attempt to complete it. X entries are URL-only, labelled unread, and were not re-fetched. We exclude their old summaries from this reader and its search text.",
+        "The old seed describes a very large posting history and substantial gaps. This project does not attempt to complete it. X references use URLs only in this reader and search, are labelled unread, and were not re-fetched. Derived metadata retains seed titles, tags and historical verification notes; these do not establish a new reading. We exclude their old summaries from this reader and its search text.",
         "A date beside a reference reports what the seed recorded. For the account entry it is an account-creation date, not an essay publication date. We preserve that explanation so the presence of a date does not create a false chronology of ideas."
       ]}
     ]

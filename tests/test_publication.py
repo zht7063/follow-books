@@ -6,11 +6,13 @@ import re
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-from scripts.build_site import build
+from scripts.build_site import build, load, source_card
+from scripts.collect_thedankoe import Collector, export, seed_sources
 from scripts.validate_content import matching_passage, validate_hygiene, validate_sources
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -54,6 +56,106 @@ class PublicationTests(unittest.TestCase):
             else: values[0]['article_body'] = 'not allowed'
             with self.subTest(mutation=mutation), self.assertRaises((AssertionError, TypeError)):
                 validate_sources(values, self.seed)
+
+    def test_review_registry_matches_on_validation_and_build(self):
+        validate_sources(self.sources, self.seed)
+        sources, _, _ = load()
+        self.assertEqual(sum(s['read_status'].startswith('public_') for s in sources), 3)
+        for mutation in ['hash', 'missing_registry', 'extent', 'note']:
+            values = copy.deepcopy(self.sources)
+            if mutation == 'hash':
+                values[0]['content_hash'] = 'f' * 64
+            elif mutation == 'missing_registry':
+                next(s for s in values if s['id'] == 'site-03').update(read_status='public_page_reviewed', review_note='Unregistered review')
+            elif mutation == 'extent':
+                next(s for s in values if s['id'] == 'letter-04')['read_status'] = 'public_page_reviewed'
+            else:
+                values[0]['review_note'] = 'Unregistered full reading claim'
+            with self.subTest(mutation=mutation):
+                with self.assertRaises(AssertionError):
+                    validate_sources(values, self.seed)
+                original = Path.read_text
+                def read(path, *args, **kwargs):
+                    if path == ROOT / 'data/thedankoe/sources.json':
+                        return json.dumps(values)
+                    return original(path, *args, **kwargs)
+                with tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
+                    with patch.object(Path, 'read_text', read), self.assertRaises(AssertionError):
+                        build(directory)
+                    self.assertFalse(list(Path(directory).rglob('*.html')))
+
+    def test_export_binds_reviews_and_withholds_blocked_seed_notes(self):
+        for matches in [True, False]:
+            with self.subTest(matches=matches), tempfile.TemporaryDirectory(dir=TEST_CACHE) as directory:
+                root = Path(directory)
+                registry = root / 'editorial/thedankoe/reviewed-sources.json'
+                registry.parent.mkdir(parents=True)
+                registry.write_text((ROOT / 'editorial/thedankoe/reviewed-sources.json').read_text())
+                sources = seed_sources()
+                homepage = next(s for s in sources if s['id'] == 'site-01')
+                blocked = next(s for s in sources if s['id'] == 'letter-06')
+                c = Collector(root / 'raw', transport=lambda url: self.fail('Offline export made a transport call'))
+                (c.raw / 'fixture.body').write_text('<title>Public fixture homepage</title>')
+                registered_hash = json.loads(registry.read_text())['site-01']['content_hash']
+                c.state['responses'][homepage['url']] = {
+                    'fetch_status': 'fetched_ok', 'http_status': 200, 'cache_file': 'fixture.body',
+                    'content_hash': registered_hash if matches else 'f' * 64,
+                    'fetched_at': '2026-11-19T00:00:00+00:00', 'decision_note': 'Offline fixture'}
+                c.state['responses'][blocked['url']] = {
+                    'fetch_status': 'blocked', 'http_status': 200, 'decision_note': 'Paid marker fixture'}
+                c.state['stop_reason'] = 'Paid marker fixture'
+                with patch('scripts.collect_thedankoe.ROOT', root):
+                    export(c, sources, {})
+                    export(c, sources, {})  # Repeated exports must preserve valid review scopes.
+                self.assertEqual(homepage['read_status'], 'public_page_reviewed' if matches else 'fetched_not_reviewed')
+                self.assertEqual('review_note' in homepage, matches)
+                saved = json.loads((root / 'data/thedankoe/sources.json').read_text())
+                withheld = next(s for s in saved if s['id'] == 'letter-06')
+                self.assertIsNone(withheld['seed_abstract'])
+                self.assertIsNone(withheld['seed_verification'])
+                self.assertEqual(withheld['read_status'], 'unread')
+                if matches:
+                    homepage['content_hash'] = 'e' * 64
+                    with patch('scripts.collect_thedankoe.ROOT', root), self.assertRaises(AssertionError):
+                        export(c, sources, {})
+
+    def test_seed_notes_are_omitted_from_cards_and_search(self):
+        search = json.loads((ROOT / 'site/search-index.json').read_text())
+        for source in self.sources:
+            entry = next(e for e in search if e['id'] == source['id'])
+            self.assertEqual(entry['text'], source['canonical_url'])
+            self.assertTrue(entry['provenance'])
+            self.assertEqual(entry['fetch_status'], source['fetch_status'])
+            self.assertEqual(entry['read_status'], source['read_status'])
+            self.assertIn('Fetch:', entry['status_label'])
+            self.assertIn('Read:', entry['status_label'])
+        fixture = copy.deepcopy(self.sources[0])
+        fixture['seed_abstract'] = 'This run read the full text. 本轮已读正文。'
+        fixture['seed_verification'] = 'Already read in full this run.'
+        card = source_card(fixture)
+        self.assertNotIn(fixture['seed_abstract'], card)
+        self.assertNotIn(fixture['seed_verification'], card)
+        for path in (ROOT / 'site').rglob('*.html'):
+            self.assertNotIn('seed-abstract', path.read_text())
+
+    def test_blocked_source_only_publishes_url_and_restriction_metadata(self):
+        blocked = next(s for s in self.sources if s['id'] == 'letter-06')
+        self.assertEqual(blocked['fetch_status'], 'blocked')
+        self.assertIsNone(blocked['seed_abstract'])
+        self.assertFalse(blocked.get('seed_verification'))
+        self.assertEqual(blocked['read_status'], 'unread')
+        fixture = copy.deepcopy(blocked)
+        fixture.update(seed_abstract='Protected seed abstract fixture', seed_verification='Prior reading claim',
+                       title='Inherited paid-page title', tags=['protected topic'])
+        card = source_card(fixture)
+        self.assertIn('Blocked / restricted', card)
+        self.assertIn(blocked['canonical_url'], card)
+        for hidden in (fixture['seed_abstract'], fixture['seed_verification'], fixture['title'], fixture['tags'][0]):
+            self.assertNotIn(hidden, card)
+        entry = next(e for e in json.loads((ROOT / 'site/search-index.json').read_text()) if e['id'] == 'letter-06')
+        self.assertEqual(entry['tags'], [])
+        self.assertEqual(entry['text'], blocked['canonical_url'])
+        self.assertIn('Blocked / restricted', entry['title'])
 
     def test_company_sources_do_not_assume_personal_authorship(self):
         for source in self.sources:

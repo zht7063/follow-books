@@ -35,7 +35,7 @@ try {
       link.textContent = entry.title;
       heading.append(link);
       const description = document.createElement('p');
-      description.textContent = `${entry.kind === 'chapter' ? 'Editorial chapter' : 'Source reference'} · ${entry.tags.join(' / ')}`;
+      description.textContent = [entry.provenance, entry.status_label, entry.tags.join(' / ')].filter(Boolean).join(' · ');
       item.append(heading, description);
       results.append(item);
     }

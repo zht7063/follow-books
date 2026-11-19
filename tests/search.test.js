@@ -77,3 +77,19 @@ test('controller leaves browsing available if search index fails', async () => {
   assert.equal(e['browse-sources'].hidden, false);
   assert.match(e['search-status'].textContent, /Search could not load/);
 });
+
+
+test('source results display seed provenance and separate fetch and read labels', async () => {
+  const { elements: e } = await controllerFixture('?q=letter-06');
+  const result = e['search-results'].children.find((item) => item.children[0].children[0].textContent.includes('letter-06'));
+  assert(result);
+  assert.match(result.children[0].children[0].textContent, /Blocked \/ restricted/);
+  assert.match(result.children[1].textContent, /Restricted source; URL and status only; abstract withheld/);
+  assert.match(result.children[1].textContent, /Fetch: collection stopped/);
+  assert.match(result.children[1].textContent, /Read: unread/);
+  const { elements: seed } = await controllerFixture('?q=Kortex&provenance=1');
+  const source = seed['search-results'].children.find((item) => item.children[1].textContent.includes('Seed title'));
+  assert(source);
+  assert.match(source.children[1].textContent, /prior abstract omitted/);
+  assert.match(source.children[1].textContent, /Fetch:.*Read:/);
+});

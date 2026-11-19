@@ -9,6 +9,11 @@ from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 
+if __package__:
+    from .review_integrity import load_reviews, validate_review
+else:
+    from review_integrity import load_reviews, validate_review
+
 ROOT = Path(__file__).resolve().parents[1]
 FETCH_STATUSES = {'fetched_ok', 'skipped', 'blocked', 'unread', 'unwatched', 'seed_only', 'error'}
 READ_STATUSES = {'unread', 'unwatched', 'seed_abstract_only', 'fetched_not_reviewed', 'public_page_reviewed', 'public_excerpt_reviewed'}
@@ -18,6 +23,7 @@ REQUIRED = {'id', 'seed_ids', 'title', 'url', 'canonical_url', 'date', 'date_pro
 
 
 def validate_sources(sources, seed_rows):
+    reviews = load_reviews(ROOT)
     expected = {r['id']: r for r in seed_rows}
     ids = [s['id'] for s in sources]
     assert len(ids) == len(set(ids)), 'Duplicate source id'
@@ -45,8 +51,9 @@ def validate_sources(sources, seed_rows):
             assert s['http_status'] is None, 'No X requests allowed'
         if s['section'] == 'videos':
             assert s['read_status'] == 'unwatched'
-        if s['read_status'].startswith('public_'):
-            assert s['fetch_status'] == 'fetched_ok' and s.get('review_note'), 'Review without matching fetched source'
+        validate_review(s, reviews)
+        if s['fetch_status'] == 'blocked':
+            assert s.get('seed_abstract') is None and not s.get('seed_verification'), 'Blocked seed notes must be withheld'
         assert not {'body', 'html', 'content', 'article_body', 'transcript'} & s.keys(), 'Raw body in metadata'
 
 

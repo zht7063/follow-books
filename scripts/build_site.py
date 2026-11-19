@@ -7,6 +7,11 @@ import re
 import shutil
 from pathlib import Path
 
+if __package__:
+    from .review_integrity import apply_reviews, load_reviews
+else:
+    from review_integrity import apply_reviews, load_reviews
+
 ROOT = Path(__file__).resolve().parents[1]
 SECTIONS = {'identity': 'Identity & official sites', 'letters': 'Selected letters',
             'products': 'Eden & historical Kortex', 'videos': 'Videos · unwatched', 'x': 'X · URL-only references'}
@@ -20,13 +25,7 @@ def load():
     sources = json.loads((ROOT / 'data/thedankoe/sources.json').read_text())
     summary = json.loads((ROOT / 'data/thedankoe/collection-summary.json').read_text())
     chapters = json.loads((ROOT / 'editorial/thedankoe/chapters.json').read_text())
-    reviewed_path = ROOT / 'editorial/thedankoe/reviewed-sources.json'
-    reviewed = json.loads(reviewed_path.read_text()) if reviewed_path.exists() else {}
-    for source in sources:
-        review = reviewed.get(source['id'])
-        if review and review['content_hash'] == source['content_hash'] and source['fetch_status'] == 'fetched_ok':
-            source['read_status'] = review['read_status']
-            source['review_note'] = review['note']
+    apply_reviews(sources, load_reviews(ROOT))
     return sources, summary, chapters
 
 
@@ -37,9 +36,12 @@ READ_LABELS = {'public_page_reviewed': 'public page reviewed', 'public_excerpt_r
 def source_card(source):
     s = source
     date = f'{esc(s["date"])} · {esc(s["date_provenance"]["note"])}' if s['date'] else 'Date unknown · no publication date inferred'
-    abstract = ''
-    if s['section'] != 'x' and s.get('seed_abstract'):
-        abstract = f'<details><summary>Previously curated seed abstract (Chinese)</summary><p lang="zh-Hans" class="seed-abstract">{esc(s["seed_abstract"])}</p><p class="meta">From the 2026-11-19 seed snapshot; this is not a new full-text review.</p></details>'
+    if s['fetch_status'] == 'blocked':
+        return f'''<article class="source" id="{esc(s['id'])}">
+<span class="source-id">{esc(s['id'])}</span><h3>Blocked / restricted source</h3>
+<p><span class="badge">Fetch: blocked / restricted</span><span class="badge">Read: unread</span></p>
+<p class="meta">{esc(s['decision_note'])}<br>HTTP: {esc(s['http_status'])} · Recorded: {esc(s['fetched_at'])}<br>Inherited abstract withheld; URL and restriction metadata only.</p>
+<p><a href="{esc(s['canonical_url'])}" rel="noreferrer">Original source URL</a> <span class="meta">{esc(s['canonical_url'])}</span></p></article>'''
     title = 'X reference · ' + s['id'] if s['section'] == 'x' else s['title']
     review = f'<p class="meta">{esc(s["review_note"])}</p>' if s.get('review_note') else ''
     return f'''<article class="source" id="{esc(s['id'])}">
@@ -48,9 +50,9 @@ def source_card(source):
 <p><span class="badge">Fetch: {esc(FETCH_LABELS[s['fetch_status']])}</span><span class="badge">Read: {esc(READ_LABELS[s['read_status']])}</span></p>
 <p class="meta">Attribution: {esc(s['author'])} · {esc(s['attribution_note'])}<br>
 Date: {date}<br>Provenance: {esc(s['date_provenance']['kind'] if s['date_provenance'] else 'none')} · seed {esc(', '.join(s['seed_ids']))}</p>
-{review}{abstract}
+{review}
 <p><a href="{esc(s['canonical_url'])}" rel="noreferrer">Open original source</a> <span class="meta">{esc(s['canonical_url'])}</span></p>
-<details><summary>Collection & attribution notes</summary><p class="meta">{esc(s['decision_note'])}<br>{esc(s['robots_note'])}<br>HTTP: {esc(s['http_status'] if s['http_status'] is not None else 'not requested')} · Fetched: {esc(s['fetched_at'] or 'not this run')}<br>Seed verification: {esc(s['seed_verification'])}</p></details>
+<details><summary>Collection & attribution notes</summary><p class="meta">{esc(s['decision_note'])}<br>{esc(s['robots_note'])}<br>HTTP: {esc(s['http_status'] if s['http_status'] is not None else 'not requested')} · Fetched: {esc(s['fetched_at'] or 'not this run')}<br>Prior seed abstracts and reading claims are omitted from this reader.</p></details>
 </article>'''
 
 
@@ -93,10 +95,10 @@ def build(output=None):
 <dl class="stats"><div><dt>Seed entries</dt><dd>{len(sources)}</dd></div><div><dt>Sources fetched this run</dt><dd>{counts['sources_fetched_ok']}</dd></div><div><dt>Pages / excerpts reviewed</dt><dd>{reviewed}</dd></div><div><dt>Unreviewed / unwatched</dt><dd>{retained}</dd></div></dl>
 <section class="prose"><h2>Who is Dan?</h2><p>{identity_text} <a href="{esc(identity['canonical_url'])}">Identity source: his homepage</a>.</p>
 <h2>How to read this edition</h2><p>Follow the chapters in order for a guided route, or use the source index to find a theme. Each chapter is our own reading companion. Open the originals for the author's complete argument. Previous and next links keep your place in this short edition.</p>
-<p>Source labels distinguish a successful fetch from an actual review. Seed abstracts are earlier Chinese editorial, retained as such. Unknown dates stay unknown; seed dates carry their original provenance. Company product pages are attributed separately from Dan's personal essays.</p></section>
+<p>Source labels distinguish a successful fetch from an actual review. Titles, tags and dates are inherited seed metadata. Earlier abstracts and reading claims are omitted from the reader and search. Unknown dates stay unknown; seed dates carry their original provenance. Company product pages are attributed separately from Dan's personal essays.</p></section>
 <h2>Contents</h2>{chapter_list}
 <section class="prose" id="coverage"><h2>The edges of the collection</h2><p>The 63-entry seed was selected for software, AI and digital products. It underrepresents Dan's wider work on writing, mindset and personal growth. Earlier surveys of newsletter sitemaps and the Eden blog were metadata surveys, not complete reading.</p>
-<p>X is URL-only, unread and never re-fetched. All videos are unwatched; no transcripts were obtained. Partial prompts and list-only entries remain partial. This is one person's selected collection, not a five-person library or a life archive.</p>
+<p>X references use URLs only in the reader and search, remain unread and were never re-fetched. Derived metadata retains seed titles and tags. All videos are unwatched; no transcripts were obtained. Partial prompts and list-only entries remain partial. This is one person's selected collection, not a five-person library or a life archive.</p>
 <p>Live HTTP attempts: {counts['attempted']} (including robots and discovery); successful responses: {counts['fetched']}; restriction events: {counts['blocked']}. Crawl result: {esc(summary['stop_reason'] or 'Finite selected plan completed; no completeness claim')}.</p>
 <p>YouTube channel discrepancy: the seed README names <code>UCWXYDYv5STLk-zoxMP2I1Lw</code>, while the CSV identity row names <code>UCswG6FSbgZjbWtdf_hMLaow</code>. {esc(summary['youtube_verification']['result'])}</p></section>'''
     (output / 'index.html').write_text(shell('Contents', body, chapters, 'home'))
@@ -114,9 +116,10 @@ def build(output=None):
         (output / 'chapters' / f'{chapter["id"]}.html').write_text(shell(chapter['title'], ''.join(parts), chapters, chapter['id'], 1))
         text = ' '.join([chapter['description']] + [p for section in chapter['sections'] for p in [section['heading'], *section['paragraphs']]])
         search_index.append({'id': chapter['id'], 'kind': 'chapter', 'title': chapter['title'], 'text': text,
+                             'provenance': 'Original editorial by Engineer (bot)',
                              'tags': chapter['tags'], 'href': f'chapters/{chapter["id"]}.html'})
     catalog = '''<p class="eyebrow">The evidence behind the edition</p><h1>Search & source index</h1>
-<p class="deck">Browse every seed entry, or search titles, tags and our editorial. Article full text is not indexed.</p>
+<p class="deck">Browse every seed entry, or search seed titles, tags, URLs and our original editorial. Earlier seed abstracts and article full text are not indexed. Each result carries provenance and separate fetch/read labels.</p>
 <form id="search-form" role="search" novalidate hidden><label for="query">Search this edition</label><div class="search-controls"><input id="query" name="q" type="search" placeholder="Try writing, AI, Eden…" autocomplete="off"><button type="submit">Search</button><button type="button" id="clear-search" disabled hidden>Clear search</button></div></form>
 <p id="search-status" role="status" aria-live="polite"></p><div id="search-results" hidden></div>
 <noscript><p>JavaScript is off. All sources remain grouped below; use your browser's find command.</p></noscript>
@@ -128,10 +131,17 @@ def build(output=None):
                 continue
             catalog += source_card(source)
             # X text/summary remains excluded even from the hidden search index.
-            title = 'X reference · ' + source['id'] if key == 'x' else source['title']
+            restricted = source['fetch_status'] == 'blocked'
+            title = ('Blocked / restricted source · ' + source['id'] if restricted else
+                     'X reference · ' + source['id'] if key == 'x' else source['title'])
             search_index.append({'id': source['id'], 'kind': 'source', 'title': title,
-                                 'tags': [] if key == 'x' else source['tags'],
-                                 'text': source['canonical_url'] if key == 'x' else source.get('seed_abstract') or '',
+                                 'tags': [] if key == 'x' or restricted else source['tags'],
+                                 'text': source['canonical_url'],
+                                 'provenance': ('Restricted source; URL and status only; abstract withheld' if restricted else
+                                                'Seed URL reference; unread' if key == 'x' else
+                                                'Seed title, tags and URL; prior abstract omitted'),
+                                 'fetch_status': source['fetch_status'], 'read_status': source['read_status'],
+                                 'status_label': f"Fetch: {FETCH_LABELS[source['fetch_status']]} · Read: {READ_LABELS[source['read_status']]}",
                                  'href': f'catalog.html#{source["id"]}'})
         catalog += '</section>'
     catalog += '</div><script type="module" src="assets/search.js"></script>'

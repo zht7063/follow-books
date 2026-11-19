@@ -17,7 +17,7 @@ Recorded on 2026-11-19. This is a finite, independent reading prototype, not a c
 
 Seven original editorial chapters: orientation/identity, one-person business, writing/attention, AI/work, product history, unwatched videos and unread X references. The static reader has nine HTML pages, 63 source entries and 70 search entries. It includes a consistent contents rail, previous/next chapter navigation, original-source links, attribution, dates with provenance, independent fetch/read labels, clear coverage limits, a skip link, print rules and responsive CSS.
 
-Search covers titles, tags, original editorial and clearly identified seed abstracts. X entries have URL text only in search and no seed summaries in published output. Videos remain unwatched. Company sources are attributed to Eden/Kortex with individual authorship unverified; the original seed attribution is retained separately for auditability.
+Search covers seed titles, tags, URLs and original editorial. Earlier seed abstracts and inherited reading claims are omitted from reader cards and search; source search records and results carry provenance and independent fetch/read labels. The blocked paid entry retains only its URL and restriction/status metadata in the reader/search, and its old abstract/verification claims are removed from derived metadata. X entries have URL text only in search and no seed summaries in reader output; derived metadata still retains seed titles, tags and historical verification notes. Videos remain unwatched. Company sources are attributed to Eden/Kortex with individual authorship unverified; the original seed attribution is retained separately for auditability.
 
 Test scratch files stay under `.cache/tests/` inside this checkout. The collector, builder and Python tests use the standard library; JavaScript uses the built-in Node test runner. No packages need installation. The builder never reads the raw cache.
 
@@ -51,7 +51,7 @@ Counts are deliberately separate: the 16 successful responses include two robots
 
 Hosts actually touched: **`thedankoe.com` and `letters.thedankoe.com` only**. No X, YouTube, Eden, Kortex, GitHub-content or third-party-site collection occurred.
 
-At attempt 17, [This prompt will change your life](https://letters.thedankoe.com/p/this-prompt-will-change-your-life) returned **HTTP 200** with the marker **“this post is for paid subscribers”**. The collector immediately persisted a global stop. It did not retry the page or proceed to any remaining host. No HTTP request appears after the block event in the ledger. Later invocations against the stopped state made zero requests; subsequent review metadata was exported using the offline `--export-only` mode.
+At attempt 17, [This prompt will change your life](https://letters.thedankoe.com/p/this-prompt-will-change-your-life) returned **HTTP 200** with the marker **“this post is for paid subscribers”**. The collector persisted a global stop for that response. The integrity fix now saves minimal stop metadata before any optional body caching. It did not retry the page or proceed to any remaining host. No HTTP request appears after the block event in the ledger. The intact persisted stop prevents later requests; the audit verified this with guarded offline calls. Subsequent review metadata was exported using the offline `--export-only` mode in the earlier implementation. The integrity-fix run did not invoke live mode or resume collection.
 
 Machine-readable evidence: [collection-summary.json](../data/thedankoe/collection-summary.json) and [request-ledger.json](../data/thedankoe/request-ledger.json). Raw cache and resume state are local and gitignored.
 
@@ -63,9 +63,9 @@ Machine-readable evidence: [collection-summary.json](../data/thedankoe/collectio
 | [How I'd build a one-person business](https://letters.thedankoe.com/p/how-id-build-a-one-person-business) (`letter-04`) | First 14,000 characters of locally extracted page text; remaining text unreviewed | Learning format versus underlying need, interactive guidance and adaptation |
 | [The Future Of Work (Acquire This Skill Stack)](https://thedankoe.com/letters/the-future-of-work-acquire-this-skill-stack/) (`letter-12`) | First 14,000 characters of locally extracted page text; remaining text unreviewed | Generalist learning and experimentation; predictions explicitly treated as attributed claims |
 
-Review notes are bound to exact cache hashes in [reviewed-sources.json](../editorial/thedankoe/reviewed-sources.json). A later source change cannot silently inherit a review label.
+Review notes are bound to exact cache hashes in [reviewed-sources.json](../editorial/thedankoe/reviewed-sources.json). Validation, build and export now share a registry check for matching content hash, successful fetch, review extent and note. Mismatched pre-existing review labels are rejected before publication output is written.
 
-Fetched but **not newly reviewed**: `site-03`, `letter-01`, `letter-02`, `letter-03`, `letter-05`, `letter-09`, `letter-10` and `letter-11`. Their previous seed abstracts remain labelled as earlier curation, not fresh summaries. The blocked `letter-06` was not reviewed or unlocked. All remaining catalog entries are seed-only/unread/unwatched as individually recorded.
+Fetched but **not newly reviewed**: `site-03`, `letter-01`, `letter-02`, `letter-03`, `letter-05`, `letter-09`, `letter-10` and `letter-11`. Their previous seed abstracts are omitted from the reader and search. The blocked `letter-06` was not reviewed or unlocked, and its seed abstract is withheld from derived metadata as well. All remaining catalog entries are seed-only/unread/unwatched as individually recorded.
 
 Discovery responses: robots for each touched host; the personal-site sitemap index; the newsletter RSS feed and sitemap. Only discovery structure was inspected, not every linked article or RSS body. A sitemap modification date was not used as an article publication date. The original seed dates and their explanations are preserved, including unknown dates and the X account-creation date.
 
@@ -107,16 +107,16 @@ The supplied stopped state must not be deleted to work around the restriction. A
 | --- | --- |
 | `npm run build` | PASS — 9 HTML pages, 63 sources, 70 search entries |
 | `npm run check` | PASS — Node syntax and Python compilation |
-| `npm test` | PASS — **27 Python tests + 7 Node tests**, zero failures |
+| `npm test` | PASS — **38 Python tests + 8 Node tests**, zero failures |
 | `python3 scripts/validate_content.py` | PASS — 63 sources and 12 published/editorial files checked against available raw cache |
 | Strict frontend static audit | PASS — zero findings; [evidence](design-audit.json) |
-| Restriction-guard mutation check | PASS — inverted status guard caused 11 assertion failures; original restored; [evidence](mutation-check.json) |
+| Restriction-guard mutation check | Prior run: inverted status guard caused 11 assertion failures; [evidence](mutation-check.json). Integrity-fix mutation checks exercise normalized gate detection and registry hash checks in memory. |
 | Independent code review/re-review | Two collector safety findings fixed; re-review found no remaining actionable P1/P2 issues |
 | Local HTTP smoke | PASS — six endpoints returned 200; [evidence](preview-smoke.json) |
 | Staged-file checks | PASS — no raw cache, credential material or archive changes |
 | GitHub Actions at validated implementation SHA | PASS — push run [44499612164](https://github.com/zht7063/follow-books/actions/runs/44499612164) and PR run [44499665850](https://github.com/zht7063/follow-books/actions/runs/44499665850) |
 
-Offline collector fixtures cover immediate persistent stops on restricted statuses, captcha, login/paywall and account redirects; serial cache/dedup/resume; robots disallow/delay; network/5xx-only bounded backoff; finite budgets; cache integrity; and explicit stale refresh. Review found that oversized/erroring bodies could hide restricted statuses and that NaN could bypass the delay floor. The fixes check restricted status before any body read, scan bounded body chunks, stop on oversized uninspectable responses, and reject nonfinite settings. Transport-level mocked-opener fixtures verify those paths.
+Offline collector fixtures cover immediate persistent stops on restricted statuses, captcha, login/paywall and account redirects; serial cache/dedup/resume; robots disallow/delay; network/5xx-only bounded backoff; finite budgets; cache integrity; and explicit stale refresh. Review found that oversized/erroring bodies could hide restricted statuses and that NaN could bypass the delay floor. The fixes check restricted status before any body read, scan bounded body chunks, stop on oversized uninspectable responses, and reject nonfinite settings. Transport-level mocked-opener fixtures verify those paths. Integrity regressions additionally cover body-cache write failure on restricted responses, failed stop persistence and restart, load-time block evidence, normalized HTML/entity gates, uninspectable transport ValueError, and restricted redirects. Newly detected restricted/oversized bodies are not cached. State writes flush and fsync the replacement file and directory. An unfinished durable HTTP attempt or logical fetch fails closed on reload if the stop could not be saved, including policy checks on older cached robots and redirect responses. Gate detection remains a finite heuristic, and the stop does not coordinate already-running independent collector processes.
 
 Publication checks cover metadata/date provenance and preserved seed IDs, company attribution, resolved page/anchor links, search consistency, deterministic builds, contrast tokens, semantic markup, 375px CSS contracts, and real gitignore behavior. Node DOM fixtures exercise search restoration/clear/focus, IME composition, no results and failed index loading. **No browser GUI was driven**; these checks are not screenshots or a complete rendered-layout/accessibility audit.
 
@@ -138,7 +138,7 @@ This is loopback on the implementation machine, **not a public remote URL**. Git
 
 ## Copyright and remaining limits
 
-Only normalized metadata, source links, short previously curated seed abstracts and original editorial are committed. No full article bodies, books, course materials, videos, transcripts, cookies, tokens or secrets are published. Raw HTML/XML and local state are gitignored. The published build is served from `site/` alone.
+Normalized metadata, source links, prior seed notes (except the blocked page's abstract/verification) and original editorial are committed. The reader/search omit all inherited abstracts and seed reading claims. Video references show seed titles, tags and dates with unwatched labels; additional old channel/playlist notes in derived metadata are unverified here. No full article bodies, books, course materials, videos, transcripts, cookies, tokens or secrets are published. Raw HTML/XML and local state are gitignored. The published build is served from `site/` alone.
 
 The hygiene guard flags a contiguous overlap of 40 normalized tokens with at least 200 characters between local raw cache and published/editorial files. Fixtures demonstrate that a long copied passage fails and a short quote passes. This is a practical regression guard, not an assessment of close paraphrase, translation, cumulative quotation or legal permission. This edition uses no intentional article quotations beyond source titles. Reading exercises and interpretations are clearly editorial; author claims are not independently verified financial, employment or product claims.
 

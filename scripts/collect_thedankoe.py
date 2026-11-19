@@ -12,16 +12,23 @@ import io
 import hashlib
 import json
 import math
+import os
 import re
 import time
 from collections import Counter
 from datetime import datetime, timezone
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin, urlsplit, urlunsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 from urllib.robotparser import RobotFileParser
+
+if __package__:
+    from .review_integrity import apply_reviews, load_reviews, validate_review, withhold_blocked_notes
+else:
+    from review_integrity import apply_reviews, load_reviews, validate_review, withhold_blocked_notes
 
 ROOT = Path(__file__).resolve().parents[1]
 USER_AGENT = 'FollowBooksResearch/0.1 (small personal research collector; contact: zht7063@users.noreply.github.com)'
@@ -41,8 +48,16 @@ def now():
 def save_json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + '.tmp')
-    temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+    with temporary.open('w') as stream:
+        stream.write(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+        stream.flush()
+        os.fsync(stream.fileno())
     temporary.replace(path)
+    directory = os.open(path.parent, os.O_RDONLY)
+    try:
+        os.fsync(directory)
+    finally:
+        os.close(directory)
 
 
 def canonical_url(url):
@@ -110,15 +125,26 @@ class PageMetadata(HTMLParser):
             self.text.append(data.strip())
 
 
-def restriction(status, body):
+def restriction(status, body, url='', location=None):
     if status in {401, 402, 403, 429, 451}:
         return f'HTTP {status}: access restriction; global crawl stopped'
+    if (status in {301, 302, 303, 307, 308} and location
+            and re.search(r'/(?:login|signin|sign-in|account|auth)(?:/|\?|$)', urljoin(url, location), re.I)):
+        return 'Login/account redirect; global crawl stopped without following'
+    if urlsplit(url).path == '/robots.txt' and re.search(
+            r'(?:ai-input|ai-train|search)\s*=\s*no|noai|noimageai', body, re.I):
+        return 'Robots content-use restriction; stopped for manual terms review'
     lowered = body.lower()
+    # Keep raw challenge/markup probes as well as normalized visible gate text.
+    visible = [' '.join(unescape(re.sub(r'<[^>]*>', separator, body)).lower().split())
+               for separator in (' ', '')]
     markers = ('verify you are human', 'cf-chl-', 'g-recaptcha', 'hcaptcha',
                'just a moment...', 'access denied', 'unusual traffic', '<title>captcha', 'captcha required',
                'subscribe to read', 'sign in to continue', 'log in to continue',
-               'this post is for paid subscribers', 'automated access is prohibited')
-    if any(marker in lowered for marker in markers) or re.search(r'<input[^>]+type=[\"\']?password', lowered):
+               'this post is for paid subscribers', 'this article is for paid subscribers',
+               'only paid subscribers can access', 'subscribe to continue reading',
+               'automated access is prohibited')
+    if any(marker in text for text in [lowered, *visible] for marker in markers) or re.search(r'<input[^>]+type=[\"\']?password', lowered):
         return 'Captcha, challenge, login/paywall or explicit access restriction; global crawl stopped'
     return None
 
@@ -140,7 +166,8 @@ def http_transport(url):
         status, headers = response.code, dict(response.headers)
         # A known restricted status must reach the persistent stop even if its
         # body is huge, stalls, or cannot be decoded. Do not read it at all.
-        if restriction(status, ''):
+        location = next((v for k, v in headers.items() if k.lower() == 'location'), None)
+        if restriction(status, '', url, location):
             return status, headers, b''
         chunks, size, tail = [], 0, b''
         while size <= MAX_BODY:
@@ -150,7 +177,7 @@ def http_transport(url):
             chunks.append(chunk)
             size += len(chunk)
             probe = tail + chunk
-            if restriction(status, probe.decode('utf-8', errors='replace')):
+            if restriction(status, probe.decode('utf-8', errors='replace'), url, location):
                 break
             tail = probe[-512:]
         return status, headers, b''.join(chunks)
@@ -169,6 +196,23 @@ class Collector:
         self.state = json.loads(self.state_path.read_text()) if self.state_path.exists() else {
             'version': 1, 'responses': {}, 'events': [], 'stop_reason': None,
             'started_at': now(), 'last_request_at': None, 'outcomes': {}}
+        if not self.state.get('stop_reason'):
+            pending = set()
+            for event in self.state['events']:
+                if event['kind'] == 'attempted':
+                    pending.add(('request', event['url']))
+                elif event['kind'] in {'fetched', 'http_error', 'network_error', 'blocked'}:
+                    pending.discard(('request', event['url']))
+                elif event['kind'] == 'fetch_started':
+                    pending.add(('fetch', event['url']))
+                elif event['kind'] == 'fetch_finished':
+                    pending.discard(('fetch', event['url']))
+            blocked = any(e['kind'] == 'blocked' for e in self.state['events']) or any(
+                item.get('fetch_status') == 'blocked' for item in self.state['responses'].values())
+            # An attempt is durable before transport I/O. If completion/stop
+            # persistence failed, its unresolved record prevents silent resume.
+            if blocked or pending:
+                self.state['stop_reason'] = 'Recorded restriction or unfinished request; global crawl stopped for manual review'
         self.transport, self.sleep, self.clock = transport, sleep, clock
         self.budget, self.delay, self.stale_days = budget, delay, stale_days
         self.run_attempts = 0
@@ -181,6 +225,24 @@ class Collector:
     def event(self, kind, url, **fields):
         self.state['events'].append({'at': now(), 'kind': kind, 'url': url, **fields})
         self.persist()
+
+    def block(self, url, reason, status=None):
+        # Persist only minimal restriction metadata, never the protected body.
+        self.state['stop_reason'] = reason
+        item = {'fetch_status': 'blocked', 'decision_note': reason,
+                'http_status': status, 'timestamp': self.clock(), 'fetched_at': now()}
+        self.state['responses'][url] = item
+        try:
+            self.event('blocked', url, http_status=status, reason=reason)
+        except OSError:
+            # Leave the in-memory stop set, retry recording, and abort even if
+            # the retry succeeds. A durable unfinished attempt guards reload.
+            try:
+                self.persist()
+            except OSError:
+                pass
+            raise
+        return item
 
     def cached(self, url):
         item = self.state['responses'].get(url)
@@ -226,25 +288,26 @@ class Collector:
                 self.persist()
                 return item
             except ValueError:
-                self.event('skipped', url, reason='Oversized response')
-                return {'fetch_status': 'skipped', 'decision_note': 'Oversized response'}
+                return self.block(url, 'Transport could not safely inspect response (possibly oversized); global crawl stopped')
+            location = next((v for k, v in headers.items() if k.lower() == 'location'), None)
+            reason = restriction(status, '', url, location)
+            if reason:
+                return self.block(url, reason, status)
             text = body.decode('utf-8', errors='replace')
-            reason = restriction(status, text)
+            reason = restriction(status, text, url, location)
             if len(body) > MAX_BODY and not reason:
                 reason = 'Response exceeds 5 MiB inspection limit; global crawl stopped for manual review'
+            if reason:
+                return self.block(url, reason, status)
             digest = hashlib.sha256(body).hexdigest()
             filename = digest + '.body'
             (self.raw / filename).write_bytes(body)
-            item = {'fetch_status': 'blocked' if reason else ('fetched_ok' if 200 <= status < 300 else 'error'),
+            item = {'fetch_status': 'fetched_ok' if 200 <= status < 300 else 'error',
                     'http_status': status, 'content_hash': digest, 'cache_file': filename,
                     'body_truncated': len(body) > MAX_BODY,
-                    'timestamp': self.clock(), 'fetched_at': now(), 'decision_note': reason or 'Public HTTP response; no authentication',
-                    'location': next((v for k, v in headers.items() if k.lower() == 'location'), None)}
+                    'timestamp': self.clock(), 'fetched_at': now(), 'decision_note': 'Public HTTP response; no authentication',
+                    'location': location}
             self.state['responses'][url] = item
-            if reason:
-                self.state['stop_reason'] = reason
-                self.event('blocked', url, http_status=status, reason=reason)
-                return item
             self.event('fetched' if 200 <= status < 300 else 'http_error', url, http_status=status)
             if status >= 500 and status <= 599 and attempt < 2:
                 self.event('backoff', url, seconds=2 ** (attempt + 1), reason='5xx')
@@ -266,9 +329,9 @@ class Collector:
         elif result['fetch_status'] == 'fetched_ok':
             body = (self.raw / result['cache_file']).read_text(errors='replace')
             # Conservative interpretation of published machine-use restrictions.
-            if re.search(r'(?:ai-input|ai-train|search)\s*=\s*no|noai|noimageai', body, re.I):
-                self.state['stop_reason'] = 'Robots content-use restriction; stopped for manual terms review'
-                self.event('blocked', robots_url, reason=self.state['stop_reason'])
+            reason = restriction(result['http_status'], body, robots_url)
+            if reason:
+                self.block(robots_url, reason, result.get('http_status'))
                 return None
             parser.parse(body.splitlines())
         else:
@@ -286,6 +349,14 @@ class Collector:
         url = canonical_url(url)
         if self.state['stop_reason']:
             return {'fetch_status': 'blocked', 'decision_note': 'Retained without request after global stop'}
+        # Keep policy/redirect inspection unfinished until the logical fetch
+        # completes, including when it reuses an older cached HTTP response.
+        self.event('fetch_started', url)
+        result = self._fetch(url, seen)
+        self.event('fetch_finished', url)
+        return result
+
+    def _fetch(self, url, seen=None):
         if not permitted(url):
             self.event('skipped', url, reason='Outside official-site allowlist / forbidden platform path')
             return {'fetch_status': 'skipped', 'decision_note': 'Outside collection policy'}
@@ -302,12 +373,13 @@ class Collector:
             self.event('skipped', url, reason='robots.txt disallow')
             return {'fetch_status': 'skipped', 'decision_note': 'robots.txt disallow'}
         result = self.request(url, delay)
+        if result['fetch_status'] == 'blocked':
+            return result
         if result.get('http_status') in {301, 302, 303, 307, 308} and result.get('location'):
             target = urljoin(url, result['location'])
-            if re.search(r'/(?:login|signin|sign-in|account|auth)(?:/|\?|$)', target, re.I):
-                self.state['stop_reason'] = 'Login/account redirect; global crawl stopped without following'
-                self.event('blocked', url, reason=self.state['stop_reason'])
-                return {**result, 'fetch_status': 'blocked', 'decision_note': self.state['stop_reason']}
+            reason = restriction(result['http_status'], '', url, result['location'])
+            if reason:
+                return self.block(url, reason, result['http_status'])
             if not permitted(target):
                 self.event('skipped', url, reason='Redirect target outside allowlist; not followed')
                 return {**result, 'fetch_status': 'skipped', 'decision_note': 'Redirect outside allowlist', 'redirect_to': target}
@@ -351,7 +423,7 @@ def seed_sources():
                         'fetch_status': status, 'read_status': 'unwatched' if is_video else 'unread' if is_x or status == 'unread' else 'seed_abstract_only',
                         'http_status': None, 'content_hash': None, 'fetched_at': None,
                         'robots_note': 'Not requested this run',
-                        'decision_note': 'X URL-only; no re-fetch' if is_x else 'Seed metadata; not read this run'})
+                        'decision_note': 'X seed metadata retained; reader/search use URL-only references; no re-fetch' if is_x else 'Seed metadata; not read this run'})
     return sources
 
 
@@ -368,6 +440,9 @@ def collection_plan(sources):
 
 
 def export(collector, sources, outcomes):
+    reviews = load_reviews(ROOT)
+    for source in sources:
+        validate_review(source, reviews)
     for source in sources:
         outcome = outcomes.get(source['url'])
         if outcome is None:
@@ -375,7 +450,7 @@ def export(collector, sources, outcomes):
             outcome = collector.state.get('outcomes', {}).get(source['url']) or collector.state['responses'].get(source['url'])
         if not outcome or source['section'] == 'x':
             if source['section'] == 'x':
-                source['decision_note'] = 'X URL-only, unread; collection forbidden and not attempted'
+                source['decision_note'] = 'X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested'
             elif source['section'] == 'videos':
                 source['decision_note'] = 'Unwatched; metadata verification not reached before global stop' if collector.state['stop_reason'] else 'Unwatched; no video collection planned'
             else:
@@ -386,7 +461,9 @@ def export(collector, sources, outcomes):
                 source[field] = outcome[field]
         source['robots_note'] = 'robots checked before network request; see request ledger' if outcome.get('http_status') else outcome['decision_note']
         source['canonical_url'] = outcome.get('final_url', source['url'])
+        withhold_blocked_notes(source)
         if outcome['fetch_status'] == 'fetched_ok':
+            source.pop('review_note', None)
             page = PageMetadata()
             page.feed((collector.raw / outcome['cache_file']).read_text(errors='replace'))
             source['observed_title'] = page.title.strip()[:300] or None
@@ -394,13 +471,9 @@ def export(collector, sources, outcomes):
             source['read_status'] = 'unwatched' if source['section'] == 'videos' else 'fetched_not_reviewed'
             if page.channel_ids:
                 source['observed_channel_ids'] = sorted(page.channel_ids)
-    reviews_path = ROOT / 'editorial/thedankoe/reviewed-sources.json'
-    reviews = json.loads(reviews_path.read_text()) if reviews_path.exists() else {}
+    apply_reviews(sources, reviews)
     for source in sources:
-        review = reviews.get(source['id'])
-        if review and source['fetch_status'] == 'fetched_ok' and source['content_hash'] == review['content_hash']:
-            source['read_status'] = review['read_status']
-            source['review_note'] = review['note']
+        withhold_blocked_notes(source)
     events = collector.state['events']
     kinds = Counter(e['kind'] for e in events)
     summary = {'generated_at': now(), 'seed_entries': len(sources), 'request_cap_per_invocation': collector.budget,
