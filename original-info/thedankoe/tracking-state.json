@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "handle": "thedankoe",
+  "display_name": "DAN KOE",
+  "legal_or_common_name": "Dan Koe",
+  "user_id": "256523056",
+  "profile_url": "https://x.com/thedankoe",
+  "former_handles": [],
+  "invalid_or_stale_handles": [],
+  "channel_id_youtube": "UCWXYDYv5STLk-zoxMP2I1Lw",
+  "account_created_at_utc": "2011-02-23T14:25:39.000Z",
+  "protected": false,
+  "profile_snapshot_at_sgt": "2026-11-19 15:44 Asia/Singapore (UTC+8)",
+  "profile_snapshot": {
+    "name": "DAN KOE",
+    "username": "thedankoe",
+    "description": "if you’re a creator, you should probably be using @edendotso",
+    "url": "https://thedankoe.eden.so",
+    "location": "the goods:",
+    "verified": true,
+    "post_count_then": 30381,
+    "followers_count_then": 1083838,
+    "pinned_post_id": "2010751592346030461",
+    "pinned_post_note": "get_users_by_username 展开置顶时返回 not found",
+    "most_recent_post_id_at_profile_read": "2122717500014022904",
+    "most_recent_post_created_at_utc": "2026-11-17T15:44:24.000Z"
+  },
+  "official_sites": {
+    "homepage": "https://thedankoe.com/",
+    "newsletter": "https://letters.thedankoe.com/",
+    "newsletter_rss": "https://letters.thedankoe.com/feed",
+    "site_rss": "https://thedankoe.com/feed/",
+    "eden": "https://eden.so/",
+    "eden_blog": "https://eden.so/blog/",
+    "eden_profile": "https://thedankoe.eden.so/",
+    "kortex": "https://www.kortex.co/",
+    "youtube": "https://www.youtube.com/@DanKoeTalks",
+    "youtube_rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWXYDYv5STLk-zoxMP2I1Lw",
+    "github_unverified_official_link": "https://github.com/thedankoe"
+  },
+  "scope_note": "优先软件开发、AI 工具/工作流、数字产品构建；不把全部励志、健身、个人成长、营销人生内容收入目录。其主体产出并非软件工程教程，条目偏少是筛选结果。",
+  "first_inventory": {
+    "generated_at_sgt": "2026-11-19 15:51 Asia/Singapore（UTC+8）",
+    "catalog_entry_count": 63,
+    "category_counts": {
+      "官方站点与身份": 8,
+      "官方产品与课程介绍": 2,
+      "通讯：AI、工具与数字产品": 12,
+      "Kortex 与 Eden 产品文章": 21,
+      "YouTube 视频与播放列表": 7,
+      "开源与早期代码": 1,
+      "X 技术帖与线程": 10,
+      "推荐的第三方资料": 2
+    },
+    "x_tool_calls_used_approx": "约 6 次公开读取（与当日已完成的 poteto/karpathy/mattpocockuk 额度共享；本轮未打满 100 次预算，也未穷尽历史）",
+    "coverage": {
+      "newsletter_substack_sitemap_posts": 93,
+      "wordpress_letters_sitemap_approx": 189,
+      "letters_selected_and_read": 12,
+      "eden_blog_index_posts": 192,
+      "eden_blog_strategy": "只收录 AI 工具/MCP/工作流/数字产品相关，其余对比与销售指南不建目",
+      "kortex_sitemap_urls": 33,
+      "youtube_rss_latest": 15,
+      "youtube_playlists_title_verified": [
+        "The One Person Business",
+        "Season 2",
+        "Season 4",
+        "Genius Thinking",
+        "Self Improvement（后者未作为范围内系列展开）"
+      ],
+      "github_public_repos_via_api": 18,
+      "archive_search": "from:thedankoe 技术关键词与官方链接检索，2025–2026 翻了 2 页，2022–2024 翻了 1 页，2024–2026 链接检索 1 页",
+      "user_timeline": "最新 1 页（排除转帖）用于增量游标",
+      "not_claimed": "未声称穷尽 30381 条时间线、全部 YouTube 上传或全部 93/189 封通讯"
+    },
+    "observed_x_date_range": {
+      "earliest_in_scope_post_seen_utc": "2024-10-07",
+      "latest_post_seen_utc": "2026-11-17T15:44:24.000Z",
+      "latest_post_seen_sgt": "2026-11-17 23:44 Asia/Singapore (UTC+8)",
+      "latest_post_id": "2122717500014022904",
+      "note": "范围内较早相关帖出现在 2024-10 的 Kortex 发布说明。2022–2023、2024 上半年、2025 上半年的技术向检索仍未翻完。时间线最新一条是 2026-11-17 的一般产品/创作提醒，增量仍以该 ID 为 since_id。"
+    }
+  },
+  "incremental": {
+    "strategy": "每日用公开 X 接口拉取 get_users_posts（id 256523056，since_id 为 newest_post_id，exclude retweets），必要时用 from:thedankoe 加上 Eden/Kortex/AI/MCP/Claude/prompt 等词或 url:eden.so / url:letters.thedankoe.com 补漏。同时检查 letters.thedankoe.com/feed、thedankoe.com/feed、Eden 博客索引、YouTube RSS（UCWXYDYv5STLk-zoxMP2I1Lw）和 Kortex 博客是否仍有迁移说明。只追加范围内条目：软件开发、AI 工具/工作流、数字产品构建；付费产品只更新公开介绍；去重后写索引和更新日志。历史补扫使用 backfill_cursors。归档搜索必须带 start_time/end_time。公开读取走 x 命名空间；约每分钟 30、每天 1000、每次最多 25 条。不要登录个人 X，不要发帖、私信、关注或点赞。不要把新的励志或纯营销文自动灌进目录。",
+    "newest_post_id": "2122717500014022904",
+    "newest_post_created_at_utc": "2026-11-17T15:44:24.000Z",
+    "newest_post_created_at_sgt": "2026-11-17 23:44 Asia/Singapore (UTC+8)",
+    "use_public_x_namespace_only": true,
+    "do_not_login_or_mutate": true,
+    "rate_limits": {
+      "per_minute": 30,
+      "per_day": 1000,
+      "max_results_per_call": 25
+    }
+  },
+  "dedupe_keys": [
+    "x_post_id",
+    "conversation_id",
+    "canonical_source_url",
+    "catalog_entry_id"
+  ],
+  "inclusion_rules": {
+    "include": [
+      "AI 工具与工作流",
+      "Eden/Kortex 产品与迁移说明",
+      "数字产品构建的公开方法",
+      "相关提示词/MCP/研究流程",
+      "他推荐的第三方技术或创作者工具",
+      "有实质内容的相关技术帖"
+    ],
+    "exclude": [
+      "泛励志、健身、个人成长、营销人生文章",
+      "付费课正文",
+      "每条重复的 Eden 导流或全部 Shorts",
+      "无法阅读则不编摘要"
+    ]
+  },
+  "known_gaps": [
+    "多个 backfill_cursors 尚未翻完",
+    "X 范围内可见最早约 2024-10，更早 Kortex/AI 讨论可能仍在 2022–2024 后续页",
+    "tech 2025–2026 第二页 oldest 仍在 2025-08，2025 上半年可能未扫完",
+    "YouTube RSS 仅最近 15 条，完整上传历史未扫",
+    "置顶帖 not found",
+    "部分提示词信件后半未完整抽出",
+    "Eden 博客多数篇目只核验了列表元数据",
+    "GitHub 账号缺少现行官方站点反向链接",
+    "大量通讯故意不收录（超出委托范围）"
+  ],
+  "backfill_cursors": [
+    {
+      "name": "timeline_backfill",
+      "tool": "get_users_posts",
+      "id": "256523056",
+      "exclude": [
+        "retweets"
+      ],
+      "pagination_token": "7140dibdnow9c7btwp0fs8wsew1py75v50epn1eo1jr5i",
+      "note": "时间线第 1 页之后；本页 oldest 约为 2026-10-09。增量请用 since_id，不要用这条。",
+      "oldest_id_on_this_page": "2108569436357845316"
+    },
+    {
+      "name": "tech_2025_2026",
+      "tool": "search_posts_all",
+      "query": "from:thedankoe (Eden OR Kortex OR AI OR ChatGPT OR Claude OR GPT OR prompt OR Cursor OR MCP OR workflow OR coding OR software OR \"second brain\" OR kAI) -is:retweet",
+      "start_time": "2025-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:47:53Z",
+      "pagination_token": "b26v89c19zqg8o3fscb74byt8bv2uj2h9i7tlme2b2bgd",
+      "note": "已翻到第 2 页，本页 oldest 约为 2025-08-11，2025 上半年可能仍在后续页。",
+      "oldest_id_on_this_page": "1954864126800605270"
+    },
+    {
+      "name": "url_2024_2026",
+      "tool": "search_posts_all",
+      "query": "from:thedankoe (url:eden.so OR url:kortex.co OR url:thedankoe.com OR url:letters.thedankoe.com OR url:youtube.com OR url:youtu.be OR url:github.com) -is:retweet",
+      "start_time": "2024-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:47:55Z",
+      "pagination_token": "b26v89c19zqg8o3fsce61hvn62htziyza08g407orbsl9",
+      "note": "链接检索仅第 1 页之后，本页 oldest 约为 2025-08-31。",
+      "oldest_id_on_this_page": "1962188768112435391"
+    },
+    {
+      "name": "tech_2022_2024",
+      "tool": "search_posts_all",
+      "query": "from:thedankoe (Eden OR Kortex OR AI OR ChatGPT OR Claude OR GPT OR prompt OR coding OR software OR \"second brain\" OR kAI OR Cursor) -is:retweet",
+      "start_time": "2022-01-01T00:00:00Z",
+      "end_time": "2025-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3frqxsl741366vc7gsadmvnt3b36rnh",
+      "note": "仅第 1 页之后，本页约 2024-12 至 2024-10，2022、2023 与 2024 上半年基本未扫。",
+      "oldest_id_on_this_page": "1843306315575398541"
+    }
+  ],
+  "drive": {
+    "follows_parent_id": "1ZgCrxGcwnVw1xTW2k4W_KESPvVtKqY2P",
+    "follows_parent_url": "https://drive.google.com/drive/folders/1ZgCrxGcwnVw1xTW2k4W_KESPvVtKqY2P",
+    "folder_id": "1kdYBXgpnOsl6-Wn7qM9oDlvxHjLmJvUZ",
+    "folder_url": "https://drive.google.com/drive/folders/1kdYBXgpnOsl6-Wn7qM9oDlvxHjLmJvUZ",
+    "files": {
+      "readme_doc_id": "1elNq1skHSTlB1TL6kLSJfy7m5SupSzhMHYrTKNCOvFQ",
+      "index_sheet_id": "1g5tfWaPOiIAD1xoXZ1S_wgKaZtisluELycaahamKnrE",
+      "index_sheet_url": "https://docs.google.com/spreadsheets/d/1g5tfWaPOiIAD1xoXZ1S_wgKaZtisluELycaahamKnrE/edit",
+      "reading_doc_id": "1zGQMULBeZm7Pi4PoZSTfiKQJnRVpP_wd-l6D9vACSGc",
+      "reading_doc_url": "https://docs.google.com/document/d/1zGQMULBeZm7Pi4PoZSTfiKQJnRVpP_wd-l6D9vACSGc/edit",
+      "changelog_doc_id": "1gY7_lJny4gKF6MYU1VnwSoP3Zks7oiRQo5z8IvuU3gg",
+      "changelog_doc_url": "https://docs.google.com/document/d/1gY7_lJny4gKF6MYU1VnwSoP3Zks7oiRQo5z8IvuU3gg/edit",
+      "tracking_state_file_id": "1TBz4NqUtrGq-FUYsZ3EER224t1WFu7PX",
+      "tracking_state_file_url": "https://drive.google.com/file/d/1TBz4NqUtrGq-FUYsZ3EER224t1WFu7PX/view",
+      "readme_doc_url": "https://docs.google.com/document/d/1elNq1skHSTlB1TL6kLSJfy7m5SupSzhMHYrTKNCOvFQ/edit"
+    }
+  }
+}

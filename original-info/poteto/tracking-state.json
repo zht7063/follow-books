@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "handle": "poteto",
+  "display_name": "lauren",
+  "legal_or_common_name": "Lauren Tan",
+  "user_id": "2832427459",
+  "profile_url": "https://x.com/poteto",
+  "former_handles": [
+    "sugarpirate_"
+  ],
+  "invalid_or_stale_handles": [
+    "potetotes"
+  ],
+  "account_created_at_utc": "2014-09-26T01:06:36.000Z",
+  "protected": false,
+  "profile_snapshot_at_sgt": "2026-11-19 13:14 Asia/Singapore (UTC+8)",
+  "profile_snapshot": {
+    "description": "grok @bot at @SpaceXSI. react compiler core team, prev cursor, meta, netflix",
+    "url": "https://x.ai/bot/plugin/9717366",
+    "post_count_then": 8203,
+    "followers_count_then": 313653,
+    "pinned_post_id": "2121673563489140863",
+    "pinned_post_note": "get_users_by_username 展开置顶时曾报 not found；随后在时间线/搜索中读到该帖（AIE 演讲录像宣布）。"
+  },
+  "official_sites": {
+    "blog": "https://www.no.lol/",
+    "blog_rss": "https://www.no.lol/rss.xml",
+    "speaking": "https://www.no.lol/speaking/",
+    "github": "https://github.com/poteto",
+    "speakerdeck": "https://speakerdeck.com/poteto",
+    "medium_historical": "https://medium.com/@sugarpirate",
+    "grok_bot_plugin": "https://x.ai/bot/plugin/9717366"
+  },
+  "first_inventory": {
+    "generated_at_sgt": "2026-11-19 13:25 Asia/Singapore (UTC+8)",
+    "catalog_entry_count": 97,
+    "x_posts_collected_author_filtered_note": "原始抓取若混入 includes 或其他来源，目录条目已人工筛过，只保留能核对到 @poteto (2832427459) 或官方站点的内容。",
+    "x_tool_calls_used_approx": "约 30 次公开读取（当日额度仍有剩余，未用尽 1000）",
+    "coverage": {
+      "blog_rss_items": 33,
+      "blog_links_http_200": 33,
+      "speaking_page_talks": 16,
+      "speakerdeck_dev_decks_verified": 14,
+      "archive_search": "按时间窗检索 from:poteto 技术关键词（2014-09 至 2026-11），多数窗口已取 1–2 页，仍有 next_token",
+      "user_timeline": "仅最新 1 页（排除转帖），用于增量游标",
+      "not_claimed": "未声称穷尽 8203 条时间线、已删帖或平台未返回内容"
+    },
+    "observed_x_date_range": {
+      "earliest_technical_post_seen_utc": "2014-12-08T06:03:58.000Z",
+      "latest_post_seen_utc": "2026-11-19T04:44:38.000Z",
+      "latest_post_seen_sgt": "2026-11-19 12:44 Asia/Singapore (UTC+8)",
+      "latest_post_id": "2123276239679205558",
+      "note": "2014-09 至 2014-12 初仍可能有未翻完页；最早看到的技术帖之一是 Ember 2.0 in Practice 分享。"
+    }
+  },
+  "incremental": {
+    "strategy": "每日用公开 X 接口拉取 from:poteto / get_users_posts，since_id 为 newest_post_id；同时可用 from:poteto has:links 与技术关键词补漏。筛软件开发内容，展开站外链接并核验，按 dedupe_keys 追加索引，写更新日志，更新本文件。历史补扫使用 backfill_cursors，每窗翻完再删除该游标。归档搜索必须带 start_time/end_time。",
+    "newest_post_id": "2123291467783549359",
+    "newest_post_created_at_utc": "2026-11-19T05:45:09.000Z",
+    "use_public_x_namespace_only": true,
+    "do_not_login_or_mutate": true,
+    "rate_limits": {
+      "per_minute": 30,
+      "per_day": 1000,
+      "max_results_per_call": 25
+    }
+  },
+  "dedupe_keys": [
+    "x_post_id",
+    "conversation_id",
+    "canonical_source_url",
+    "catalog_entry_id"
+  ],
+  "inclusion_rules": {
+    "include": [
+      "博客与官方文章",
+      "演讲/幻灯片/录像",
+      "开源仓库与 gist",
+      "有实质内容的技术教程帖与长线程",
+      "她推荐的他人软件开发资料"
+    ],
+    "exclude": [
+      "非技术闲聊",
+      "纯社交/会议寒暄",
+      "与软件开发无关的幻灯片或生活帖"
+    ],
+    "identity_labels": [
+      "本人原创",
+      "合著",
+      "本人原创，后移交维护",
+      "推荐他人作品",
+      "推荐（相关但仓库不在个人账号下）"
+    ]
+  },
+  "backfill_cursors": [
+    {
+      "query": "from:poteto (ember OR react OR typescript OR elixir OR phoenix OR graphql OR compiler OR javascript OR github OR skill OR addon OR blog OR talk OR tutorial) -is:retweet",
+      "start_time": "2016-01-01T00:00:00Z",
+      "end_time": "2018-01-01T00:00:00Z",
+      "pagination_token": "1jzu9lk96gu5npw2xtlrjsqoois8bfwvd2yrt3y2829p",
+      "pages_done": 4,
+      "oldest_id_seen": "720661985076113408",
+      "note": "本轮已翻至第 4 页仍有 next_token"
+    },
+    {
+      "query": "from:poteto (ember OR react OR typescript OR elixir OR phoenix OR graphql OR compiler OR javascript OR github OR skill OR addon OR blog OR talk OR tutorial) -is:retweet",
+      "start_time": "2024-01-01T00:00:00Z",
+      "end_time": "2026-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fr62f8vdlywbcdk5fdamevba72js71",
+      "pages_done": 4,
+      "oldest_id_seen": "1798746877908889664",
+      "note": "本轮已翻至第 4 页仍有 next_token"
+    },
+    {
+      "query": "from:poteto (\"Grok Bot\" OR grok OR skill OR pstack OR noodle OR brainmaxxing OR automate OR AIE) -is:retweet",
+      "start_time": "2026-01-01T00:00:00Z",
+      "end_time": "2026-11-19T05:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3juzlvk3yeixkjnovk0729553xcz7nh",
+      "pages_done": 4,
+      "oldest_id_seen": "2110158310267928892",
+      "note": "最近一页 23 条仍有 next_token，接近尾声但未结束"
+    },
+    {
+      "query": "from:poteto (url:github.com OR url:medium.com OR url:speakerdeck.com OR url:youtube.com OR url:youtu.be OR url:no.lol)",
+      "start_time": "2014-09-26T00:00:00Z",
+      "end_time": "2020-01-01T00:00:00Z",
+      "pagination_token": "1jzu9lk96gu5npw1rbtqcds03qn4jrzpxd65g6r3hs3h",
+      "pages_done": 4,
+      "oldest_id_seen": "532907441411739648",
+      "note": "已扫到 2014-11-13 附近，仍有 next_token"
+    },
+    {
+      "query": "from:poteto ember",
+      "start_time": "2016-01-01T00:00:00Z",
+      "end_time": "2018-01-01T00:00:00Z",
+      "pagination_token": "1jzu9lk96gu5npw2xnnh25pakpejx9uz0lp4yx2u3hx9",
+      "pages_done": 3,
+      "oldest_id_seen": "703356964525502464"
+    },
+    {
+      "query": "from:poteto (compiler OR react)",
+      "start_time": "2024-01-01T00:00:00Z",
+      "end_time": "2026-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3frqxup1bytffsgr3bf67fp0x2jnqt9",
+      "pages_done": 3,
+      "oldest_id_seen": "1848457295673647533"
+    },
+    {
+      "query": "from:poteto has:links -is:retweet",
+      "start_time": "2020-01-01T00:00:00Z",
+      "end_time": "2024-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fosksb7kays8h9w0tsufl4nt3donel",
+      "pages_done": 3,
+      "oldest_id_seen": "1352742616023003136"
+    },
+    {
+      "kind": "get_users_posts",
+      "user_id": "2832427459",
+      "exclude": [
+        "retweets"
+      ],
+      "pagination_token": "7140dibdnow9c7btwp0gm7cwusxkxp5n1zzq11r715t82",
+      "pages_done": 1,
+      "oldest_id_seen": "2122745512172609602",
+      "note": "仅用于必要时补最近时间线，不必为了目录穷尽翻完。本轮增量改用 since_id。"
+    }
+  ],
+  "pending_link_checks": [
+    "部分仍无法展开或 500 的旧 t.co / buff.ly",
+    "@16kbps Rust 演讲幻灯片 https://becca.ooo/rustconf/2020（403 未读）",
+    "推荐的 @edeblois ember-cli 讲座原 X 帖 404",
+    "部分 react.dev/learn 与 React Compiler configuration 深链 403 未读",
+    "Medium @sugarpirate 及部分历史 Medium 文 403 未读",
+    "Netflix UI JS Talks YouTube oembed 403（页面 200，演讲页已嵌入）",
+    "EmberFest 2017 原 pusher.com 录像 404"
+  ],
+  "link_verification_notes": {
+    "github.com/poteto/no.lol": "GET 404；https://www.no.lol/ 为 200",
+    "https://medium.com/@sugarpirate": "403 未读",
+    "https://pusher.com/sessions/meetup/emberfest/ember-netflix/": "实体中 status 404",
+    "https://github.com/DockYard/ember-crumbly": "GET 404",
+    "X article t.co/FwJ4AwuHeU": "跳到 X 登录；改用 https://x.ai/bot/rJW52lmFLtCvy2tSHcIag 与原帖",
+    "github.com/poteto/ember-crumbly": "GET 200，已归档；https://github.com/DockYard/ember-crumbly 与 adopted-ember-addons 路径 404",
+    "facebook/react vs react/react": "compiler fixture 目录与 PR 25229 两条路径均 200，互为别名",
+    "https://www.youtube.com/watch?v=pO4_Wlq8JeI": "Saša Jurić Solid Ground，EMPEX，oembed 200",
+    "https://www.youtube.com/watch?v=kalHSSnYYIo": "Orta Therox, Understanding the Compiler, SitePen，oembed 200",
+    "https://www.youtube.com/watch?v=9H9SO2u6Q20": "Esteban Kuber, RustConf 2021 Hacking rustc，oembed 200",
+    "https://becca.ooo/rustconf/2020": "403 未读",
+    "https://x.com/edeblois/status/721041812547375104": "404",
+    "https://medium.com/@jasonfried/give-it-five-minutes-b8115d6f2361": "403 未读",
+    "https://engineering.fb.com/2011/04/18/uncategorized/thoughts-on-software-quality/": "200，mcslee 文",
+    "https://thorstenball.com/blog/2019/04/09/learn-more-programming-languages/": "200；按实际 URL 记为他人文章"
+  },
+  "extensibility": {
+    "drive_root_folder_name": "follows",
+    "per_account_folder_pattern": "follows/<handle>/",
+    "required_files": [
+      "README 入口",
+      "资料索引表格",
+      "分类阅读版",
+      "tracking-state.json",
+      "更新日志"
+    ]
+  },
+  "second_inventory": {
+    "generated_at_sgt": "2026-11-19 14:40 Asia/Singapore (UTC+8)",
+    "catalog_entry_count_before": 97,
+    "catalog_entry_count_after": 123,
+    "new_entries": 26,
+    "revised_entries": 18,
+    "revised_ids": [
+      "talk-02",
+      "talk-05",
+      "talk-07",
+      "talk-08",
+      "talk-10",
+      "talk-11",
+      "talk-12",
+      "talk-13",
+      "talk-14",
+      "talk-15",
+      "x-compiler-list",
+      "x-yminsky",
+      "x-expect-tests",
+      "x-sasajuric",
+      "x-gist-table",
+      "repo-boba-js",
+      "repo-verification-skill-example",
+      "blog-02"
+    ],
+    "new_ids": [
+      "repo-ember-crumbly",
+      "repo-ember-metrics",
+      "repo-ember-macaroni",
+      "repo-ember-toggle-helper",
+      "repo-ember-test-component",
+      "repo-ember-deep-set",
+      "repo-ember-route-action-helper",
+      "repo-rustconf-2020",
+      "repo-reverse-proxy",
+      "repo-emberconf-2015-notes",
+      "repo-emberconf-2016-notes",
+      "x-nucleartide-hofs",
+      "x-ember-inspector",
+      "x-phoenix-pr",
+      "x-jonhoo-crust",
+      "x-16kbps-rust",
+      "x-mcslee-quality",
+      "x-edeblois-embercli",
+      "x-tomdale-ember20",
+      "x-jasonfried-five",
+      "x-compiler-libraries",
+      "x-compiler-nextjs",
+      "x-pstack-tutorial",
+      "x-junior-to-senior",
+      "x-thorsten-books",
+      "x-thorsten-mental-models"
+    ],
+    "x_posts_collected_author_filtered_this_round": 401,
+    "x_tool_calls_used_approx": "本轮约 29 次公开读取（search_posts_all 翻页 + get_users_posts 增量 + get_posts_by_ids）；当日额度未用尽",
+    "coverage": {
+      "finished_windows": [
+        "tech keywords 2014-09-26→2016-01-01（本轮翻完，最后一页 0 条）",
+        "tech keywords 2018-01-01→2020-01-01（本轮翻完，最后一页 0 条）",
+        "tech keywords 2020-01-01→2022-01-01（本轮翻完，最后一页 0 条）",
+        "tech keywords 2022-01-01→2024-01-01（本轮翻完，result_count 0）",
+        "hiring-without-whiteboards 专题（本轮翻完，最后一页 0 条）"
+      ],
+      "still_open_windows": "见 backfill_cursors；含 2016-2018 技术关键词、2024-2026 技术关键词、2026 Grok/skills、2014-2020 URL 检索、2016-2018 ember、2024-2026 compiler/react、2020-2024 has:links",
+      "user_timeline": "用 since_id 做了增量检查；get_users_posts 历史翻页仍非必须穷尽",
+      "not_claimed": "仍未声称穷尽 8203 条时间线、已删帖或平台未返回内容"
+    },
+    "observed_x_date_range": {
+      "earliest_technical_post_seen_utc": "2014-11-13T14:46:49.000Z",
+      "earliest_technical_post_note": "技术关键词窗已翻完到 2014-11-13《Using Highcharts.js in an Ember app》宣布帖；2014-09 至该日之间在该查询下没有更多结果。另有 2014-12-08 推荐 Tom Dale 演讲。",
+      "latest_post_seen_utc": "2026-11-19T05:45:09.000Z",
+      "latest_post_seen_sgt": "2026-11-19 13:45 Asia/Singapore (UTC+8)",
+      "latest_post_id": "2123291467783549359"
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "handle": "naval",
+  "display_name": "Naval",
+  "legal_or_common_name": "Naval Ravikant",
+  "user_id": "745273",
+  "profile_url": "https://x.com/naval",
+  "former_handles": [],
+  "invalid_or_stale_handles": [],
+  "account_created_at_utc": "2007-02-01T23:05:04.000Z",
+  "protected": false,
+  "profile_snapshot_at_sgt": "2026-11-19 15:56 Asia/Singapore (UTC+8)",
+  "profile_snapshot": {
+    "name": "Naval",
+    "username": "naval",
+    "description": "Incompressible",
+    "url": "https://nav.al",
+    "verified": true,
+    "post_count_then": 27219,
+    "followers_count_then": 4179544,
+    "pinned_post_id": "1002103360646823936",
+    "pinned_post_note": "get_users_by_username 展开置顶时返回 not found",
+    "most_recent_post_id_at_profile_read": "2123101958345277587",
+    "most_recent_post_created_at_utc": null,
+    "most_recent_post_note": "资料读取时 most_recent 为一条转帖；时间线排除转帖后最新原创为 2123082164426420367（2026-11-18T15:53:27Z）"
+  },
+  "official_sites": {
+    "homepage": "https://nav.al/",
+    "podcast_index": "https://nav.al/podcast",
+    "rss": "https://nav.al/feed",
+    "post_sitemap": "https://nav.al/post-sitemap.xml",
+    "angellist": "https://www.angellist.com/",
+    "historical_blog_now_redirects": "https://startupboy.com/"
+  },
+  "third_party_compilations": {
+    "almanack": {
+      "url": "https://www.navalmanack.com/",
+      "editors": [
+        "Eric Jorgenson"
+      ],
+      "not_his_blog": true,
+      "site_says_naval_does_not_earn": true
+    }
+  },
+  "scope_note": "优先软件开发、AI、代码/产品、数字杠杆与创业构建，以及他推荐的技术/知识读物。不把全部人生哲学、幸福、投资感悟收入目录。不把纳瓦尔宝典当亲笔博客。他不是编程教程作者，条目偏少是筛选结果。",
+  "first_inventory": {
+    "generated_at_sgt": "2026-11-19 16:00 Asia/Singapore（UTC+8）",
+    "catalog_entry_count": 43,
+    "category_counts": {
+      "官方站点与身份": 4,
+      "官方产品与公司": 2,
+      "第三方汇编（非亲笔博客）": 1,
+      "播客与文字稿：AI、编程与前沿产品": 11,
+      "数字杠杆与一人产品（How to Get Rich 系列）": 9,
+      "早期创业与产品文章": 3,
+      "X 技术帖与线程": 11,
+      "推荐的第三方资料": 2
+    },
+    "x_tool_calls_used_approx": "约 5 次公开读取（与当日已完成的另外四人额度共享；本轮未打满 100 次预算，也未穷尽历史）",
+    "coverage": {
+      "nav_al_post_sitemap": 241,
+      "official_rss_latest": 10,
+      "transcripts_read": "已读范围内主要单集与杠杆系列文字稿；Live in the Future 无完整文稿",
+      "archive_search": "from:naval 技术关键词 2025–2026 一页，官方链接/特定知识 2018–2026 一页，How to Get Rich/杠杆 2018–2020 一页",
+      "user_timeline": "最新 1 页（排除转帖）用于增量游标",
+      "not_claimed": "未声称穷尽 27219 条时间线或全部 241 篇 nav.al 文章"
+    },
+    "observed_x_date_range": {
+      "earliest_in_scope_post_seen_utc": "2019-04-27",
+      "latest_original_post_seen_utc": "2026-11-18T15:53:27.000Z",
+      "latest_original_post_seen_sgt": "2026-11-18 23:53 Asia/Singapore (UTC+8)",
+      "latest_original_post_id": "2123082164426420367",
+      "latest_any_post_id_at_profile_read": "2123101958345277587",
+      "note": "范围内较早相关帖至少可追溯到 2019-04 的杠杆系列。2018 年原推特长线起始帖可能仍在未翻完的页。增量 since_id 使用资料读取时看到的最新帖 ID（含转帖）2123101958345277587，以免漏掉其后的原创。"
+    }
+  },
+  "incremental": {
+    "strategy": "每日用公开 X 接口拉取 get_users_posts（id 745273，since_id 为 newest_post_id，exclude retweets），必要时用 from:naval 加上 AI/AGI/code/coding/leverage/Claude 或 url:nav.al 补漏。同时检查 https://nav.al/feed 与新单集页是否有文字稿。只追加范围内条目；无文字稿的音视频只记标题说明链接。去重后写索引和更新日志。历史补扫使用 backfill_cursors。归档搜索必须带 start_time/end_time。公开读取走 x 命名空间；约每分钟 30、每天 1000、每次最多 25 条。不要登录个人 X，不要发帖、私信、关注或点赞。不要把新的人生哲学或投资感悟自动灌进目录。不要把第三方汇编误标为亲笔博客。",
+    "newest_post_id": "2123101958345277587",
+    "newest_original_post_id": "2123082164426420367",
+    "newest_original_post_created_at_utc": "2026-11-18T15:53:27.000Z",
+    "newest_original_post_created_at_sgt": "2026-11-18 23:53 Asia/Singapore (UTC+8)",
+    "use_public_x_namespace_only": true,
+    "do_not_login_or_mutate": true,
+    "rate_limits": {
+      "per_minute": 30,
+      "per_day": 1000,
+      "max_results_per_call": 25
+    }
+  },
+  "dedupe_keys": [
+    "x_post_id",
+    "conversation_id",
+    "canonical_source_url",
+    "catalog_entry_id"
+  ],
+  "inclusion_rules": {
+    "include": [
+      "AI/编程对谈与文字稿",
+      "代码与媒体杠杆、特定知识、产品化",
+      "创业构建与工程团队的直接讨论",
+      "相关 X 短帖",
+      "他推荐的技术或知识读物"
+    ],
+    "exclude": [
+      "泛人生哲学、幸福、投资喊单、励志帖",
+      "把纳瓦尔宝典当亲笔博客",
+      "无法阅读或未收听则不编细节",
+      "重复的播客导流帖"
+    ]
+  },
+  "known_gaps": [
+    "多个 backfill_cursors 尚未翻完",
+    "2018 年 How to Get Rich 原推特长线起始帖可能未扫到",
+    "tech 2025–2026 第一页 oldest 仍在 2026-07，2025 与 2026 上半年可能未扫完",
+    "url 检索第一页 oldest 约在 2025-07",
+    "Live in the Future 等单集无完整文字稿",
+    "部分 X 短链未展开",
+    "未核验独立 YouTube 频道",
+    "GitHub @naval 缺少官方反向链接，未当官方仓库收录",
+    "置顶帖 not found",
+    "大量哲学与人生内容有意不收录"
+  ],
+  "backfill_cursors": [
+    {
+      "name": "timeline_backfill",
+      "tool": "get_users_posts",
+      "id": "745273",
+      "exclude": [
+        "retweets"
+      ],
+      "pagination_token": "7140dibdnow9c7btwp0fru0lqsqmmtgzlrs3dnfcfr8s1",
+      "note": "时间线第 1 页之后；本页 oldest 约为 2026-09-21。增量请用 since_id，不要用这条。",
+      "oldest_id_on_this_page": "2101861562315362641"
+    },
+    {
+      "name": "tech_2025_2026",
+      "tool": "search_posts_all",
+      "query": "from:naval (AI OR AGI OR code OR coding OR software OR \"vibe coding\" OR Claude OR Codex OR agent OR leverage OR app OR startup) -is:retweet",
+      "start_time": "2025-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:50:00Z",
+      "pagination_token": "b26v89c19zqg8o3juewfnhjtsboofej43lnqf39gar5vh",
+      "note": "仅第 1 页之后，本页 oldest 约为 2026-07-22，2025 与 2026 上半年可能仍在后续页。",
+      "oldest_id_on_this_page": "2080052566377763071"
+    },
+    {
+      "name": "url_and_themes_2018_2026",
+      "tool": "search_posts_all",
+      "query": "from:naval (url:nav.al OR \"specific knowledge\" OR \"How to Get Rich\" OR \"permissionless leverage\" OR \"code and media\") -is:retweet",
+      "start_time": "2018-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:50:00Z",
+      "pagination_token": "b26v89c19zqg8o3fsc89ft2u6de6xoug0nb5qcap4s60t",
+      "note": "仅第 1 页之后，本页 oldest 约为 2025-07-26。",
+      "oldest_id_on_this_page": "1949181210774888846"
+    },
+    {
+      "name": "how_to_get_rich_2018_2020",
+      "tool": "search_posts_all",
+      "query": "from:naval (\"How to Get Rich\" OR \"How to get rich\" OR \"permissionless leverage\" OR \"specific knowledge\" OR \"code and media\" OR leverage) -is:retweet",
+      "start_time": "2018-01-01T00:00:00Z",
+      "end_time": "2021-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fnlr0bjiwl1fam96ptiss2i3drsdx9",
+      "note": "已翻到第 1 页之后，本页 oldest 约为 2019-04-27。2018 年原长线起始帖可能仍在后续页。",
+      "oldest_id_on_this_page": "1122036731350401025"
+    }
+  ],
+  "drive": {
+    "follows_parent_id": "1ZgCrxGcwnVw1xTW2k4W_KESPvVtKqY2P",
+    "follows_parent_url": "https://drive.google.com/drive/folders/1ZgCrxGcwnVw1xTW2k4W_KESPvVtKqY2P",
+    "folder_id": "13224RaQD_7tjsfXMV3KWn4vI6GB4iZ78",
+    "folder_url": "https://drive.google.com/drive/folders/13224RaQD_7tjsfXMV3KWn4vI6GB4iZ78",
+    "files": {
+      "README": {
+        "id": "1AecoRUleOcp12vdjXH7Lo7G2UKC5uArPf6fWssez7ow",
+        "url": "https://docs.google.com/document/d/1AecoRUleOcp12vdjXH7Lo7G2UKC5uArPf6fWssez7ow/edit",
+        "mime": "application/vnd.google-apps.document"
+      },
+      "资料索引": {
+        "id": "1qMDMfr49SgCfZRIUb1e2hReSOpBRVmkuo7q1tysnQFE",
+        "url": "https://docs.google.com/spreadsheets/d/1qMDMfr49SgCfZRIUb1e2hReSOpBRVmkuo7q1tysnQFE/edit",
+        "mime": "application/vnd.google-apps.spreadsheet"
+      },
+      "分类阅读版": {
+        "id": "1Z8W5j8M8KEoItFXADsIhXzdZUZlSaMwgPxmZKqHCBHw",
+        "url": "https://docs.google.com/document/d/1Z8W5j8M8KEoItFXADsIhXzdZUZlSaMwgPxmZKqHCBHw/edit",
+        "mime": "application/vnd.google-apps.document"
+      },
+      "tracking-state.json": {
+        "id": "1gxnEQV2moou-VtGrr_yYX9v27LITPcks",
+        "url": "https://drive.google.com/file/d/1gxnEQV2moou-VtGrr_yYX9v27LITPcks/view",
+        "mime": "application/json"
+      },
+      "更新日志": {
+        "id": "1ajFeZr82Wx2UeMZJopIltZAvz2Rvgy2SwLZRCCdUPDA",
+        "url": "https://docs.google.com/document/d/1ajFeZr82Wx2UeMZJopIltZAvz2Rvgy2SwLZRCCdUPDA/edit",
+        "mime": "application/vnd.google-apps.document"
+      }
+    }
+  }
+}

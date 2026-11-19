@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "handle": "karpathy",
+  "display_name": "Andrej Karpathy",
+  "legal_or_common_name": "Andrej Karpathy",
+  "user_id": "33836629",
+  "profile_url": "https://x.com/karpathy",
+  "former_handles": [],
+  "invalid_or_stale_handles": [],
+  "channel_id_youtube": "UCXUPKJO5MZQN11PqgIvyuvQ",
+  "youtube_channel_note": "以 https://www.youtube.com/@AndrejKarpathy 的 canonical/og/externalId 为准。不要使用页面中插入的相关频道 ID（本轮曾误见 3Blue1Brown 的 UCYO_jab_esuFRV4b17AJtAw）。",
+  "account_created_at_utc": "2009-04-21T06:49:15.000Z",
+  "protected": false,
+  "profile_snapshot_at_sgt": "2026-11-19 14:38 Asia/Singapore (UTC+8)",
+  "profile_snapshot": {
+    "name": "Andrej Karpathy",
+    "username": "karpathy",
+    "description": "",
+    "url": "",
+    "location": "Earth",
+    "verified": true,
+    "post_count_then": 10173,
+    "followers_count_then": 4462272,
+    "most_recent_post_id_at_profile_read": "2119565104530505955",
+    "most_recent_post_created_at_utc": "2026-11-08T22:57:55.000Z"
+  },
+  "official_sites": {
+    "homepage": "https://karpathy.ai/",
+    "zero_to_hero": "https://karpathy.ai/zero-to-hero.html",
+    "github_blog": "https://karpathy.github.io/",
+    "bear_blog": "https://karpathy.bearblog.dev/blog/",
+    "medium_historical": "https://karpathy.medium.com/",
+    "github": "https://github.com/karpathy",
+    "eureka_labs": "https://eurekalabs.ai/",
+    "eureka_github_org": "https://github.com/EurekaLabsAI",
+    "youtube": "https://www.youtube.com/@AndrejKarpathy",
+    "youtube_rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ",
+    "zero_to_hero_playlist": "https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ",
+    "cs231n": "https://cs231n.stanford.edu/",
+    "cs231n_notes": "https://cs231n.github.io/",
+    "cs231n_2016_syllabus": "https://cs231n.stanford.edu/2016/syllabus.html",
+    "cs231n_2016_playlist": "https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC"
+  },
+  "first_inventory": {
+    "generated_at_sgt": "2026-11-19 14:47 Asia/Singapore (UTC+8)",
+    "catalog_entry_count": 160,
+    "x_candidates_author_filtered_approx": 514,
+    "x_posts_collected_author_filtered_note": "原始抓取若混入 includes 或其他作者，目录条目已人工筛过，只保留能核对到 @karpathy (33836629) 或官方站点的内容。",
+    "x_tool_calls_used_approx": "约 26 次公开读取（与 poteto 当日用量共享额度；本轮未用尽每日 1000 次，也未打满 150–200 次预算）",
+    "coverage": {
+      "homepage_and_course_pages": "karpathy.ai、zero-to-hero.html 已打开 200",
+      "bear_posts_total_on_index": 14,
+      "bear_posts_in_catalog": 11,
+      "bear_posts_excluded_non_software": [
+        "chemical-hygiene",
+        "finding-the-best-sleep-tracker",
+        "i-love-calculator"
+      ],
+      "github_blog_posts_fetched_200": 22,
+      "github_public_repos_via_api": {
+        "public": 63,
+        "non_fork": 54
+      },
+      "youtube_rss_latest": 15,
+      "youtube_uploads_playlist_video_ids": 17,
+      "zero_to_hero_lectures_title_verified": 9,
+      "archive_search": "按时间窗检索 from:karpathy 技术关键词、项目名和 url: 过滤（主要 2014-01 至 2026-11-19），多数窗口已取 1–3 页，仍有 next_token",
+      "user_timeline": "最新 2 页（排除转帖），用于增量游标和近期补漏",
+      "not_claimed": "未声称穷尽 10,173 条时间线、已删帖或平台未返回内容，也未声称看完所有视频"
+    },
+    "observed_x_date_range": {
+      "earliest_technical_post_seen_utc": "2015-07-01T00:00:00.000Z",
+      "earliest_technical_post_seen_id": "616383647613108224",
+      "latest_post_seen_utc": "2026-11-08T22:57:55.000Z",
+      "latest_post_seen_sgt": "2026-11-09 06:57 Asia/Singapore (UTC+8)",
+      "latest_post_id": "2119565104530505955",
+      "note": "2014 及更早、2016 部分、2022 上半年、2024 年初、2025 上半年仍可能有未翻完页。最早看到的技术帖之一是推荐 Justin Johnson 的 cnn-vis（2015-07-01）。时间线上最新一条是 2026-11-08 的非技术回复，增量仍以该 ID 为 since_id，以免漏掉其后新帖。"
+    }
+  },
+  "incremental": {
+    "strategy": "每日用公开 X 接口拉取 get_users_posts（id 33836629，since_id 为 newest_post_id，exclude retweets）以及必要时 from:karpathy has:links / 技术关键词补漏。同时检查 Bear 博客、karpathy.ai、Zero to Hero、YouTube RSS（频道 UCXUPKJO5MZQN11PqgIvyuvQ）和 GitHub 公开仓库。筛软件开发与 AI 工程内容，展开站外链接并核验，按 dedupe_keys 追加索引，写更新日志，更新本文件。历史补扫使用 backfill_cursors，每窗翻完再删除该游标。归档搜索必须带 start_time/end_time。公开读取走 x 命名空间，每分钟约 30、每天约 1000、每次最多 25 条。不要登录个人 X，不要发帖、私信、关注或点赞。",
+    "newest_post_id": "2119565104530505955",
+    "newest_post_created_at_utc": "2026-11-08T22:57:55.000Z",
+    "newest_post_created_at_sgt": "2026-11-09 06:57 Asia/Singapore (UTC+8)",
+    "use_public_x_namespace_only": true,
+    "do_not_login_or_mutate": true,
+    "rate_limits": {
+      "per_minute": 30,
+      "per_day": 1000,
+      "max_results_per_call": 25
+    }
+  },
+  "dedupe_keys": [
+    "x_post_id",
+    "conversation_id",
+    "canonical_source_url",
+    "catalog_entry_id"
+  ],
+  "inclusion_rules": {
+    "include": [
+      "课程、教程、讲座与配套代码",
+      "技术博客与工程随笔",
+      "开源仓库、gist 与官方演示站点",
+      "有实质内容的技术帖、长线程和技术性回复",
+      "他提及或推荐的第三方学习资料（单独标注推荐）",
+      "与软件/AI 工程相关的数字卫生、笔记方法等"
+    ],
+    "exclude": [
+      "生活闲聊、纯科幻书单、非技术新闻",
+      "Bear 上偏生活向的睡眠追踪、化学卫生、计算器审美文，以及 Biohacking Lite",
+      "早期纯游戏预告片（与 AI/软件无关）",
+      "无法阅读的原文（只保留标题与未读状态，不编摘要）"
+    ]
+  },
+  "known_gaps": [
+    "多个 backfill_cursors 尚未翻完",
+    "2014 及更早、账号 2009 年之后的早期帖基本未扫",
+    "2022 上半年、2024 年初、2025 上半年覆盖偏薄",
+    "Medium / Software 2.0 正文 403 未读",
+    "Google Scholar 403 未读",
+    "arxiv-sanity 与 arxiv-sanity-lite 站点本轮无法访问",
+    "EurekaLabsAI 公开仓库列表未拿到",
+    "YouTube 上传历史可能早于 RSS 15 条 + uploads 页 17 个 ID，CS231n 各讲未逐条建目",
+    "部分 t.co 短链未展开",
+    "部分斯坦福项目页仅来自主页索引，未逐页 HEAD"
+  ],
+  "backfill_cursors": [
+    {
+      "name": "timeline_backfill",
+      "tool": "get_users_posts",
+      "id": "33836629",
+      "exclude": [
+        "retweets"
+      ],
+      "pagination_token": "7140dibdnow9c7btwoxijcnz3bhvnrj5a1urfcwxw8com",
+      "note": "时间线第 2 页之后；第 2 页 oldest 约为 2026-06-24。增量请用 since_id，不要用这条。",
+      "oldest_id_on_this_page": "2069580531055100166"
+    },
+    {
+      "name": "url_links_2014_2026",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (url:github.com OR url:youtube.com OR url:youtu.be OR url:karpathy.github.io OR url:karpathy.ai OR url:bearblog.dev OR url:medium.com) -is:retweet",
+      "start_time": "2014-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fqk6z48xx8y1ai7difdw5yihzvqav1",
+      "note": "链接检索已翻到第 3 页，本页 oldest 约为 2023-01-30，继续往更早翻。",
+      "oldest_id_on_this_page": "1620103415799107585"
+    },
+    {
+      "name": "projects_keywords",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (nanochat OR nanoGPT OR \"llm.c\" OR llama2.c OR micrograd OR minGPT OR minbpe OR LLM101n OR Eureka OR \"vibe coding\" OR MenuGen OR \"Zero to Hero\" OR \"neural networks: zero\" OR hn-time-capsule OR HackerTube OR TristanTube) -is:retweet",
+      "start_time": "2015-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fscb8dmegexwgkn6scn6pw9x6nq3ct",
+      "note": "项目关键词已翻到第 2 页，本页 oldest 约为 2025-08-18。",
+      "oldest_id_on_this_page": "1957561075744010253"
+    },
+    {
+      "name": "announcements_keywords",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (\"Software 2.0\" OR \"llm.c\" OR llama2.c OR \"arxiv-sanity\" OR \"char-rnn\" OR \"A Recipe for Training\" OR \"year in review\" OR Autopilot OR EurekaLabs OR \"neural networks zero\" OR makemore) -is:retweet",
+      "start_time": "2015-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fqkozgi8ss2nxt6osoc2kn0j3o9u9p",
+      "note": "发布/公告关键词已翻到第 2 页，本页 oldest 约为 2023-07-27。",
+      "oldest_id_on_this_page": "1684612972034011136"
+    },
+    {
+      "name": "tech_2024_2026",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanochat OR nanoGPT OR micrograd OR pytorch OR cuda OR transformer OR tokenizer OR github OR lecture OR course OR tutorial OR \"software 2.0\" OR neural OR backpropagation OR agentic OR \"vibe coding\") -is:retweet",
+      "start_time": "2024-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3juebjcifvpmmb4nwxds28kwtghvjp9",
+      "note": "已翻到第 3 页，本页 oldest 约为 2026-01-26，2024 与 2025 大部分仍可能在后续页。",
+      "oldest_id_on_this_page": "2015887919924617657"
+    },
+    {
+      "name": "tech_2025",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanochat OR nanoGPT OR github OR agentic OR \"vibe coding\" OR course OR lecture OR tokenizer OR pytorch OR transformer) -is:retweet",
+      "start_time": "2025-01-01T00:00:00Z",
+      "end_time": "2026-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fsck5lgc7iwi5xcl6sf8ts38a1nqt9",
+      "note": "2025 年窗第 1 页之后，本页 oldest 约为 2025-10-26，年初到秋季仍可能未扫完。",
+      "oldest_id_on_this_page": "1982483540899237981"
+    },
+    {
+      "name": "tech_2022_2024",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanochat OR nanoGPT OR micrograd OR pytorch OR cuda OR transformer OR tokenizer OR github OR lecture OR course OR tutorial OR \"software 2.0\" OR neural OR backpropagation OR agentic OR \"vibe coding\") -is:retweet",
+      "start_time": "2022-01-01T00:00:00Z",
+      "end_time": "2024-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fqkizhc3ympkr1osrz06tvyt8sphml",
+      "note": "已翻到第 2 页，本页 oldest 约为 2023-05-29。",
+      "oldest_id_on_this_page": "1663296473675763712"
+    },
+    {
+      "name": "tech_2022_mid2023",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanoGPT OR micrograd OR minGPT OR pytorch OR transformer OR tokenizer OR github OR lecture OR course OR tutorial OR neural OR cuda) -is:retweet",
+      "start_time": "2022-01-01T00:00:00Z",
+      "end_time": "2023-05-29T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fqkcziktt49w4oi13cjv92kag2cqrh",
+      "note": "补 2022–2023 年中缺口的第 1 页之后，本页 oldest 约为 2023-04-02；2022 上半年仍稀。",
+      "oldest_id_on_this_page": "1642598890573819905"
+    },
+    {
+      "name": "tech_2022",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanoGPT OR minGPT OR micrograd OR makemore OR github OR lecture OR course OR pytorch OR transformer OR tokenizer) -is:retweet",
+      "start_time": "2022-01-01T00:00:00Z",
+      "end_time": "2023-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fpzekairuw1l6p3wdicx37py58kha5",
+      "note": "2022 整年窗第 1 页之后，本页 oldest 约为 2022-10-19，上半年基本未扫。",
+      "oldest_id_on_this_page": "1582807367988654081"
+    },
+    {
+      "name": "tech_2020_2022",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanochat OR nanoGPT OR micrograd OR pytorch OR cuda OR transformer OR tokenizer OR github OR lecture OR course OR tutorial OR \"software 2.0\" OR neural OR backpropagation OR agentic OR \"vibe coding\") -is:retweet",
+      "start_time": "2020-01-01T00:00:00Z",
+      "end_time": "2022-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fosbtea6gy2m13ifdvwbycqx6sijr1",
+      "note": "已翻到第 2 页，本页 oldest 约为 2020-11-02。",
+      "oldest_id_on_this_page": "1323070086710652929"
+    },
+    {
+      "name": "tech_2018_2020",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanochat OR nanoGPT OR micrograd OR pytorch OR cuda OR transformer OR tokenizer OR github OR lecture OR course OR tutorial OR \"software 2.0\" OR neural OR backpropagation OR agentic OR \"vibe coding\") -is:retweet",
+      "start_time": "2018-01-01T00:00:00Z",
+      "end_time": "2020-01-01T00:00:00Z",
+      "pagination_token": "1jzu9lk96gu5npw44nfflp7seeq9bqlexublhr7an725",
+      "note": "已翻到第 2 页，本页 oldest 约为 2018-01-21。",
+      "oldest_id_on_this_page": "954916614608117760"
+    },
+    {
+      "name": "tech_2016_2018",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanochat OR nanoGPT OR micrograd OR pytorch OR cuda OR transformer OR tokenizer OR github OR lecture OR course OR tutorial OR \"software 2.0\" OR neural OR backpropagation OR agentic OR \"vibe coding\") -is:retweet",
+      "start_time": "2016-01-01T00:00:00Z",
+      "end_time": "2018-01-01T00:00:00Z",
+      "pagination_token": "1jzu9lk96gu5npw3ja02c34m0r0ahji9hy4l9qf6qmbh",
+      "note": "仅第 1 页之后，本页 oldest 约为 2017-03-14，2016 大部分不在此页。",
+      "oldest_id_on_this_page": "841739127796125696"
+    },
+    {
+      "name": "tech_2016",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (cs231n OR github OR neural OR lecture OR course OR tutorial OR convnet OR \"software 2.0\" OR PhD OR recipe OR pytorch OR tensorflow) -is:retweet",
+      "start_time": "2016-01-01T00:00:00Z",
+      "end_time": "2017-01-01T00:00:00Z",
+      "pagination_token": "1jzu9lk96gu5npw2xqo3hyl0xzyaqnypsoytlp56ivel",
+      "note": "2016 专门窗第 1 页之后，本页 oldest 约为 2016-04-01。",
+      "oldest_id_on_this_page": "715783663426908160"
+    },
+    {
+      "name": "tech_2014_2016",
+      "tool": "search_posts_all",
+      "query": "from:karpathy (gpt OR llm OR nanochat OR nanoGPT OR micrograd OR pytorch OR cuda OR transformer OR tokenizer OR github OR lecture OR course OR tutorial OR \"software 2.0\" OR neural OR backpropagation OR agentic OR \"vibe coding\") -is:retweet",
+      "start_time": "2014-01-01T00:00:00Z",
+      "end_time": "2016-01-01T00:00:00Z",
+      "pagination_token": "1jzu9lk96gu5npw2cga6mjekyp24sbahas12dso65oxp",
+      "note": "仅第 1 页之后，本页覆盖约 2015-10 至 2015-07，更早年份基本未扫。",
+      "oldest_id_on_this_page": "616383647613108224"
+    }
+  ],
+  "drive": {
+    "follows_parent_id": "1ZgCrxGcwnVw1xTW2k4W_KESPvVtKqY2P",
+    "follows_parent_url": "https://drive.google.com/drive/folders/1ZgCrxGcwnVw1xTW2k4W_KESPvVtKqY2P",
+    "folder_id": "1Q7i72wDPng3yxj1aRLJz_EqUyN-EKAJL",
+    "folder_url": "https://drive.google.com/drive/folders/1Q7i72wDPng3yxj1aRLJz_EqUyN-EKAJL",
+    "files": {
+      "readme_doc_id": "1_0KbOPIqb_2VrnoZ7NF-bKbnLFaLLo6Y-9AMlLcrxh0",
+      "index_sheet_id": "1QX3F036L5xWhYL28bx1AfLWcSk8k3U4FwCypWReknI8",
+      "index_sheet_url": "https://docs.google.com/spreadsheets/d/1QX3F036L5xWhYL28bx1AfLWcSk8k3U4FwCypWReknI8/edit",
+      "reading_doc_id": "1inBAQrFhcgGuhnnDLFA79eXyO1RZRlEnlGNrKUC328M",
+      "reading_doc_url": "https://docs.google.com/document/d/1inBAQrFhcgGuhnnDLFA79eXyO1RZRlEnlGNrKUC328M/edit",
+      "changelog_doc_id": "1JsRXXOb5QlpfyIf7YSTxD5N20Ft3scyvWTlIIC3rUPY",
+      "changelog_doc_url": "https://docs.google.com/document/d/1JsRXXOb5QlpfyIf7YSTxD5N20Ft3scyvWTlIIC3rUPY/edit",
+      "tracking_state_file_id": "12gPFZiMc4pACNWltZAjps-v1Pn069GU7",
+      "tracking_state_file_url": "https://drive.google.com/file/d/12gPFZiMc4pACNWltZAjps-v1Pn069GU7/view",
+      "readme_doc_url": "https://docs.google.com/document/d/1_0KbOPIqb_2VrnoZ7NF-bKbnLFaLLo6Y-9AMlLcrxh0/edit"
+    }
+  }
+}
