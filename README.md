@@ -27,7 +27,9 @@ python3 scripts/import_x_sample.py
 
 ## 本次材料覆盖
 
-此前官方 `x.search_posts_all` / namespace `x`（无用户账户）的首次关键词查询成功返回 **0** 条，不是 403/429；一次修正查询 `from:thedankoe -is:retweet -is:reply`，`max_results=10`，取得 **10** 条。本次实现没有追加 X 调用，没有翻页。
+整个工作流此前使用平台官方公开工具 namespace `x`（非 user-X，无用户账户），共两次 `search_posts_all`，每次 `max_results=10`。首次关键词查询成功返回 **0** 条，不是 403/429；唯一一次修正查询 `from:thedankoe -is:retweet -is:reply` 取得 **10** 条。没有翻页、批量 lookup 或后续 X 调用。
+
+工作流从官方响应在本地生成了三份 gitignored 文件：`data/thedankoe/raw/x-api/search-posts-all-01.json`、`search-posts-all-02.json`、`selected-sample-posts.json`；它们不是用户上传的文件。后续 Codex 实现阶段，我只使用这些已采集的本地文件，没有追加 X / 来源 API 调用，没有抓取作者站，也没有执行部署。整个工作流的此前采集和实现提交后的手动部署另有记录。
 
 样章按主题而非时间排序，选用五条独立的 `complete_short_post`：
 
@@ -52,11 +54,13 @@ python3 scripts/import_x_sample.py
 
 ## 预览与验收状态
 
-公开预览 URL：**https://follow-books-thedankoe-preview.vercel.app/**，同一隔离 Hobby 静态项目 `follow-books-thedankoe-preview`。**本次推送后待另行重新部署；该 URL 尚不代表此样章版本。** 本轮不部署、不改 Vercel、DNS、域名或 Git 集成，不启动托管或认证流程。
+公开免认证预览 URL：**https://follow-books-thedankoe-preview.vercel.app/**，现已提供样章 SHA `9ab5c94bb92c9c1d0e2d4be2377f15dfd3ada36b`。该提交推送后，工作流手动部署至同一隔离、无成本 Hobby 项目 `follow-books-thedankoe-preview` / `prj_mPKRT20m578FfIZz7JoiyD9rTwrK`，团队 `tiansang0824s-projects`；部署 ID `dpl_Cgyu4kGENUUkP3xR7SUtAExHiHhd`，于 **2026-11-19 18:54:53 +08（Asia/Singapore）** READY。
 
-此前元数据修复部署：SHA `c92a182e9d17f46151da02d870e4ba562a596290`，部署 ID `dpl_89LRxD7raHVKrhsgwfHLs35TGDTw`；在 **2026-11-19 18:37:21 +08**，公开 catalog 已逐字节匹配该 SHA。这是用户提供的历史事实，本轮未访问预览或来源站验证。
+工作流的免认证 HTTP 核验记录显示：四份已提交 `site/` 文件均返回 200，响应字节与该 SHA 一致；旧 `/catalog.html` 和 `/chapters/orientation.html` 返回 404。团队范围别名仍需 Vercel Authentication，请使用上面的无团队前缀别名。没有建立 Git 集成，也没有更改自定义域名、DNS、套餐或其他站点。GitHub Actions 无部署步骤；这是样章提交后的手动隔离部署。
 
-**当前样章尚未获得用户视觉验收，也未宣称完整验收。** 离线 HTML/CSS 合同检查覆盖 375px 布局、可见来源、跳读链接、前后页、对比度和无脚本阅读；它们不等于浏览器截图或视觉验收。PR #2 保持未合并；本次只提交并常规推送到现有分支。
+此前元数据修复部署为 SHA `c92a182e9d17f46151da02d870e4ba562a596290` / `dpl_89LRxD7raHVKrhsgwfHLs35TGDTw`，**2026-11-19 18:37:21 +08** 的公开 catalog 逐字节匹配该 SHA；首部署为 `85a23d6` / `dpl_2F6qqueYBBhUZ1opi2jeY87Kk9Zp`。这些属于此前工作流记录，旧版人物介绍 / 来源索引站的视觉检查不作为本样章的验收依据，详见[实现报告](docs/thedankoe-prototype-report.md)。此次文档更正没有联网复核这些记录。
+
+**当前样章的真实浏览器验证仍在进行，尚未通过用户视觉验收，完整验收未完成。** 离线 HTML/CSS 合同检查覆盖 375px 布局、可见来源、跳读链接、前后页、对比度和无脚本阅读；它们和 HTTP 字节匹配均不能替代浏览器视觉验收。PR #2 保持未合并；用户批准样章前，不扩大采集或制作全书。此次仅更正文档，不改变 `site/` 或语料，不扩大样章。
 
 ## 文件与历史边界
 
@@ -71,6 +75,6 @@ editorial/thedankoe/sample-chapter.json 原创中文编辑稿
 site/                                 可独立服务的三页静态小样
 ```
 
-此前作者站采集在第 17 次请求遇到订阅限制后全局停止，历史汇总和请求账本保留。本轮不运行 live 或 export-only 采集，不恢复、修改或删除停止状态及 HTML/XML 缓存，不访问作者站、Eden、Kortex、YouTube 或其他来源主机。私有 API 响应、长文正文、受保护通讯、秘密和 token 不进入公开树。构建及 CI 全部离线，无部署步骤。
+此前作者站采集在第 17 次请求遇到订阅限制后全局停止，历史汇总和请求账本保留。Codex 离线实现阶段和此次文档更正均不运行 live 或 export-only 采集，不恢复、修改或删除停止状态及 HTML/XML 缓存，不访问作者站、Eden、Kortex、YouTube 或其他来源主机。私有 API 响应、长文正文、受保护通讯、秘密和 token 不进入公开树。导入器、构建器及 CI 在新克隆中仍保持离线，GitHub Actions 无部署步骤。
 
 [实现报告](docs/thedankoe-prototype-report.md) 记录本次范围修正、验证和此前证据。完成后在用户审阅关口停止。
