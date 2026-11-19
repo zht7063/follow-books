@@ -1,0 +1,197 @@
+[
+  {
+    "id": "x-sample-01",
+    "post_id": "2121636177702727868",
+    "url": "https://x.com/thedankoe/status/2121636177702727868",
+    "author": {
+      "name": "DAN KOE",
+      "username": "thedankoe",
+      "id": "256523056"
+    },
+    "created_at": "2026-11-14T16:07:37.000Z",
+    "created_at_singapore": "2026-11-15 00:07:37 +08 (Asia/Singapore)",
+    "lang": "en",
+    "fetched_text_length": 68,
+    "display_text_range": [
+      0,
+      68
+    ],
+    "completeness": "complete_short_post",
+    "completeness_note": "display_text_range 覆盖全部已取得文字，且末尾为完整句子；仅指这条短帖完整。",
+    "conversation_id": "2121636177702727868",
+    "conversation_completeness_note": "独立短帖；conversation_id 等于 post_id。未作为串文或长文，也不声称读取了回复。",
+    "content_hash": {
+      "algorithm": "sha256",
+      "value": "6ab200dad1a6350310412724e4615b7bb008788c3f3e73244a4868ff1fbbabc6",
+      "scope": "UTF-8 bytes of official fetched text, unchanged"
+    },
+    "provenance": {
+      "tool": "x.search_posts_all",
+      "namespace": "x",
+      "query": "from:thedankoe -is:retweet -is:reply",
+      "max_results": 10,
+      "queried_at": "2026-11-19T18:40:00+08:00",
+      "response_file": "search-posts-all-02.json",
+      "selection_file": "selected-sample-posts.json",
+      "date_field": "created_at (UTC)",
+      "author_field": "author_id + includes.users"
+    },
+    "quote": "You don't need experience to start, you gain experience by starting."
+  },
+  {
+    "id": "x-sample-02",
+    "post_id": "2118387157794496581",
+    "url": "https://x.com/thedankoe/status/2118387157794496581",
+    "author": {
+      "name": "DAN KOE",
+      "username": "thedankoe",
+      "id": "256523056"
+    },
+    "created_at": "2026-11-05T16:57:10.000Z",
+    "created_at_singapore": "2026-11-06 00:57:10 +08 (Asia/Singapore)",
+    "lang": "en",
+    "fetched_text_length": 266,
+    "display_text_range": [
+      0,
+      266
+    ],
+    "completeness": "complete_short_post",
+    "completeness_note": "display_text_range 覆盖全部已取得文字，且末尾为完整句子；仅指这条短帖完整。",
+    "conversation_id": "2118387157794496581",
+    "conversation_completeness_note": "独立短帖；conversation_id 等于 post_id。未作为串文或长文，也不声称读取了回复。",
+    "content_hash": {
+      "algorithm": "sha256",
+      "value": "dc4accb28f63e3ae5c2446020eaab43580f6b9af386c445605ee04b476f276ea",
+      "scope": "UTF-8 bytes of official fetched text, unchanged"
+    },
+    "provenance": {
+      "tool": "x.search_posts_all",
+      "namespace": "x",
+      "query": "from:thedankoe -is:retweet -is:reply",
+      "max_results": 10,
+      "queried_at": "2026-11-19T18:40:00+08:00",
+      "response_file": "search-posts-all-02.json",
+      "selection_file": "selected-sample-posts.json",
+      "date_field": "created_at (UTC)",
+      "author_field": "author_id + includes.users"
+    },
+    "quote": "You have to reach the point where your fear of dying mediocre outweighs your fear of looking like an idiot."
+  },
+  {
+    "id": "x-sample-03",
+    "post_id": "2122717500014022904",
+    "url": "https://x.com/thedankoe/status/2122717500014022904",
+    "author": {
+      "name": "DAN KOE",
+      "username": "thedankoe",
+      "id": "256523056"
+    },
+    "created_at": "2026-11-17T15:44:24.000Z",
+    "created_at_singapore": "2026-11-17 23:44:24 +08 (Asia/Singapore)",
+    "lang": "en",
+    "fetched_text_length": 263,
+    "display_text_range": [
+      0,
+      263
+    ],
+    "completeness": "complete_short_post",
+    "completeness_note": "display_text_range 覆盖全部已取得文字，且末尾为完整句子；仅指这条短帖完整。",
+    "conversation_id": "2122717500014022904",
+    "conversation_completeness_note": "独立短帖；conversation_id 等于 post_id。未作为串文或长文，也不声称读取了回复。",
+    "content_hash": {
+      "algorithm": "sha256",
+      "value": "129b53b8768c0f3d6b00203b43d0aa81a54ccbb51e60fc22b2824703e55b5b22",
+      "scope": "UTF-8 bytes of official fetched text, unchanged"
+    },
+    "provenance": {
+      "tool": "x.search_posts_all",
+      "namespace": "x",
+      "query": "from:thedankoe -is:retweet -is:reply",
+      "max_results": 10,
+      "queried_at": "2026-11-19T18:40:00+08:00",
+      "response_file": "search-posts-all-02.json",
+      "selection_file": "selected-sample-posts.json",
+      "date_field": "created_at (UTC)",
+      "author_field": "author_id + includes.users"
+    },
+    "quote": "You can't improve what doesn't exist, and your first version will suck."
+  },
+  {
+    "id": "x-sample-04",
+    "post_id": "2119463899774767513",
+    "url": "https://x.com/thedankoe/status/2119463899774767513",
+    "author": {
+      "name": "DAN KOE",
+      "username": "thedankoe",
+      "id": "256523056"
+    },
+    "created_at": "2026-11-08T16:15:46.000Z",
+    "created_at_singapore": "2026-11-09 00:15:46 +08 (Asia/Singapore)",
+    "lang": "en",
+    "fetched_text_length": 277,
+    "display_text_range": [
+      0,
+      277
+    ],
+    "completeness": "complete_short_post",
+    "completeness_note": "display_text_range 覆盖全部已取得文字，且末尾为完整句子；仅指这条短帖完整。",
+    "conversation_id": "2119463899774767513",
+    "conversation_completeness_note": "独立短帖；conversation_id 等于 post_id。未作为串文或长文，也不声称读取了回复。",
+    "content_hash": {
+      "algorithm": "sha256",
+      "value": "48fd6ef9163ddefde2c2141e2383a16c9fa52631433886e3d08a7bace17403be",
+      "scope": "UTF-8 bytes of official fetched text, unchanged"
+    },
+    "provenance": {
+      "tool": "x.search_posts_all",
+      "namespace": "x",
+      "query": "from:thedankoe -is:retweet -is:reply",
+      "max_results": 10,
+      "queried_at": "2026-11-19T18:40:00+08:00",
+      "response_file": "search-posts-all-02.json",
+      "selection_file": "selected-sample-posts.json",
+      "date_field": "created_at (UTC)",
+      "author_field": "author_id + includes.users"
+    },
+    "quote": "You have nothing better to do than to work on something meaningful."
+  },
+  {
+    "id": "x-sample-05",
+    "post_id": "2116156997712195646",
+    "url": "https://x.com/thedankoe/status/2116156997712195646",
+    "author": {
+      "name": "DAN KOE",
+      "username": "thedankoe",
+      "id": "256523056"
+    },
+    "created_at": "2026-10-30T13:15:19.000Z",
+    "created_at_singapore": "2026-10-30 21:15:19 +08 (Asia/Singapore)",
+    "lang": "en",
+    "fetched_text_length": 205,
+    "display_text_range": [
+      0,
+      205
+    ],
+    "completeness": "complete_short_post",
+    "completeness_note": "display_text_range 覆盖全部已取得文字，且末尾为完整句子；仅指这条短帖完整。",
+    "conversation_id": "2116156997712195646",
+    "conversation_completeness_note": "独立短帖；conversation_id 等于 post_id。未作为串文或长文，也不声称读取了回复。",
+    "content_hash": {
+      "algorithm": "sha256",
+      "value": "5450aacc7456ed70ae9d0eecdedbf3a66930086df8187d42dfdb4bc8052c165a",
+      "scope": "UTF-8 bytes of official fetched text, unchanged"
+    },
+    "provenance": {
+      "tool": "x.search_posts_all",
+      "namespace": "x",
+      "query": "from:thedankoe -is:retweet -is:reply",
+      "max_results": 10,
+      "queried_at": "2026-11-19T18:40:00+08:00",
+      "response_file": "search-posts-all-02.json",
+      "selection_file": "selected-sample-posts.json",
+      "date_field": "created_at (UTC)",
+      "author_field": "author_id + includes.users"
+    },
+    "quote": "Your competition was non existent to begin with, and your only real competition is your own mind."
+  }
+]

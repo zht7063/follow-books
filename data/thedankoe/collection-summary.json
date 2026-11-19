@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-11-19T09:46:40+00:00",
+  "seed_entries": 63,
+  "request_cap_per_invocation": 90,
+  "delay_seconds": 10,
+  "concurrency": 1,
+  "user_agent": "FollowBooksResearch/0.1 (small personal research collector; contact: zht7063@users.noreply.github.com)",
+  "planned_urls": 25,
+  "new_entries_added": 0,
+  "counts": {
+    "attempted": 17,
+    "fetched": 16,
+    "cached_hits": 0,
+    "skipped": 0,
+    "blocked": 1,
+    "network_errors": 0,
+    "unread_retained": 60,
+    "sources_reviewed": 3,
+    "full_public_pages_reviewed": 1,
+    "sources_fetched_ok": 11,
+    "sources_not_requested": 51,
+    "x_url_only_retained": 12,
+    "video_references_unwatched": 8
+  },
+  "count_definitions": "Cumulative HTTP attempts include robots, redirects and retries; cache hits/skips are ledger events. Unread retained includes fetched-but-unreviewed pages, seed abstracts and unwatched items. Excerpt-reviewed pages are counted separately as reviewed, not fully read. Fetched is not read.",
+  "hosts_touched": [
+    "letters.thedankoe.com",
+    "thedankoe.com"
+  ],
+  "stop_reason": "Captcha, challenge, login/paywall or explicit access restriction; global crawl stopped",
+  "started_at": "2026-11-19T09:31:33+00:00",
+  "youtube_verification": {
+    "seed_readme_id": "UCWXYDYv5STLk-zoxMP2I1Lw",
+    "seed_csv_id": "UCswG6FSbgZjbWtdf_hMLaow",
+    "result": "Unresolved: crawl stopped on a newsletter restriction before channel/RSS verification; neither candidate is adopted as verified."
+  }
+}

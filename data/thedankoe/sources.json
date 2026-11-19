@@ -1,0 +1,2098 @@
+[
+  {
+    "id": "site-01",
+    "seed_ids": [
+      "site-01"
+    ],
+    "title": "thedankoe.com 个人主页",
+    "url": "https://thedankoe.com/",
+    "canonical_url": "https://thedankoe.com/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "官方站点",
+    "tags": [
+      "官方入口"
+    ],
+    "section": "identity",
+    "seed_abstract": "Dan Koe 官方网站，自我介绍为《The Art of Focus》作者、Eden 联合创始人，写作主题是心智、互联网与未来。页面同时指向通讯 future/proof、YouTube、X 与 LinkedIn。站点主体是通讯与产品入口，不是软件工程博客。",
+    "seed_verification": "已核验 200",
+    "fetch_status": "fetched_ok",
+    "read_status": "public_page_reviewed",
+    "http_status": 200,
+    "content_hash": "9ccbe6521003a102a67e0880b092c6654f1f07dcc7ceb270eb4e1df40423536d",
+    "fetched_at": "2026-11-19T09:31:43+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "Home - Dan Koe",
+    "observed_date": null,
+    "review_note": "Reviewed the public homepage, including its identity section and project links. No course or product was accessed."
+  },
+  {
+    "id": "site-02",
+    "seed_ids": [
+      "site-02"
+    ],
+    "title": "X @thedankoe",
+    "url": "https://x.com/thedankoe",
+    "canonical_url": "https://x.com/thedankoe",
+    "date": "2011-02-23",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "site-02",
+      "field": "日期",
+      "note": "账号 created_at（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人账号",
+    "source_type": "社交账号",
+    "tags": [
+      "官方入口"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开用户资料）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "site-03",
+    "seed_ids": [
+      "site-03"
+    ],
+    "title": "future/proof 通讯（letters.thedankoe.com）",
+    "url": "https://letters.thedankoe.com/",
+    "canonical_url": "https://letters.thedankoe.com/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯/博客",
+    "tags": [
+      "官方入口",
+      "通讯"
+    ],
+    "section": "identity",
+    "seed_abstract": "官方通讯，刊名为 future/proof，同时可从 thedankoe.substack.com 跳转到同一 feed。本轮 Substack sitemap 有 93 篇，WordPress 镜像 thedankoe.com/letters/ 另有约 189 篇历史信件（大量交叉重复）。主题以个人成长、写作与一人公司为主；本目录只选读其中与 AI、工具和工作流、数字产品构建直接相关的篇目，不把全部信件当作技术教程。",
+    "seed_verification": "已核验 200；RSS 与 sitemap 已读",
+    "fetch_status": "fetched_ok",
+    "read_status": "fetched_not_reviewed",
+    "http_status": 200,
+    "content_hash": "c4b2af6ab37577182719422133dc32222d92de47d67726e85bcd0c5d95139e3e",
+    "fetched_at": "2026-11-19T09:32:33+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "future/proof | DAN KOE | Substack",
+    "observed_date": null
+  },
+  {
+    "id": "site-04",
+    "seed_ids": [
+      "site-04"
+    ],
+    "title": "YouTube @DanKoeTalks",
+    "url": "https://www.youtube.com/@DanKoeTalks",
+    "canonical_url": "https://www.youtube.com/@DanKoeTalks",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed; YouTube channel ID unresolved",
+    "seed_attribution": "本人账号",
+    "source_type": "视频频道",
+    "tags": [
+      "官方入口",
+      "YouTube"
+    ],
+    "section": "videos",
+    "seed_abstract": "官方 YouTube 频道，句柄 @DanKoeTalks，频道 ID UCswG6FSbgZjbWtdf_hMLaow。频道简介指向他的信件。公开 RSS 仅返回最近 15 条（本轮多为 Shorts 与若干长视频）。内容以心智、写作、一人公司为主，少数长视频讨论 AI 与创意工作；未观看视频正文。",
+    "seed_verification": "已核验 200；频道 ID 来自页面",
+    "fetch_status": "unwatched",
+    "read_status": "unwatched",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Unwatched; metadata verification not reached before global stop"
+  },
+  {
+    "id": "site-05",
+    "seed_ids": [
+      "site-05"
+    ],
+    "title": "Eden（eden.so）",
+    "url": "https://eden.so/",
+    "canonical_url": "https://eden.so/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人相关组织",
+    "source_type": "产品站点",
+    "tags": [
+      "AI 工具",
+      "官方入口",
+      "数字产品"
+    ],
+    "section": "identity",
+    "seed_abstract": "Eden 官方站点，定位为创作者一体化平台：保存与高亮材料、研究有效内容、排期发布、销售课程/教练/Custom AI，以及内容机构工作流。他在 X 简介与个人主页中将自己列为联合创始人。www 与 apex 本轮均可打开。这是目前最直接的软件/AI 产品入口。",
+    "seed_verification": "已核验 200",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "site-06",
+    "seed_ids": [
+      "site-06"
+    ],
+    "title": "thedankoe.eden.so 资料页",
+    "url": "https://thedankoe.eden.so/",
+    "canonical_url": "https://thedankoe.eden.so/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人账号",
+    "source_type": "产品主页",
+    "tags": [
+      "官方入口",
+      "Eden"
+    ],
+    "section": "identity",
+    "seed_abstract": "X 账号资料中的官方链接，指向他在 Eden 上的公开页面。本轮 GET 200。可作为当前产品侧身份入口，与个人网站、通讯并列。",
+    "seed_verification": "已核验 200",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "site-07",
+    "seed_ids": [
+      "site-07"
+    ],
+    "title": "Kortex（已停止，后为 Eden）",
+    "url": "https://www.kortex.co/",
+    "canonical_url": "https://www.kortex.co/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Kortex (organization)",
+    "attribution_note": "Historical company source; individual authorship not verified this run",
+    "seed_attribution": "本人相关组织",
+    "source_type": "产品站点（历史）",
+    "tags": [
+      "AI 工具",
+      "第二大脑",
+      "历史产品"
+    ],
+    "section": "identity",
+    "seed_abstract": "Kortex 原为他参与的 AI 第二大脑/写作工具。官方博文《Kortex To Eden》写明产品已停止开发，团队改做 Eden；早期自定义同步与服务器难以维护。站点与博客仍可打开，应用作历史产品与迁移说明，不再当作现行主产品。",
+    "seed_verification": "已核验 200（经 kortex.co 跳转 www）",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "site-08",
+    "seed_ids": [
+      "site-08"
+    ],
+    "title": "GitHub @thedankoe（早期，需审慎看待）",
+    "url": "https://github.com/thedankoe",
+    "canonical_url": "https://github.com/thedankoe",
+    "date": null,
+    "date_provenance": null,
+    "author": "Early @thedankoe account (unverified connection)",
+    "attribution_note": "Seed identity association is uncertain",
+    "seed_attribution": "疑似本人早期账号",
+    "source_type": "代码托管账号",
+    "tags": [
+      "早期开发",
+      "GitHub"
+    ],
+    "section": "identity",
+    "seed_abstract": "公开 GitHub 用户 thedankoe，资料名为 Dan Koe，简介曾写 JS Dev / JAMstack，约 18 个公开仓库，内容多为 2018–2019 年个人站点、课程作业与前端练习，其中有名为 thedankoe、说明为 Personal Brand site 的仓库。当前官方网站与 X 资料未链接此账号，因此只能视为较有可能的早期开发账号，不能当成现行官方工程组织。本目录不逐条展开这些练习仓库。",
+    "seed_verification": "已核验 API 用户与仓库列表；未在现行官方站点看到反向链接",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "prod-01",
+    "seed_ids": [
+      "prod-01"
+    ],
+    "title": "The Art of Focus",
+    "url": "https://theartoffocusbook.com/",
+    "canonical_url": "https://theartoffocusbook.com/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "书籍介绍页",
+    "tags": [
+      "官方产品",
+      "写作"
+    ],
+    "section": "products",
+    "seed_abstract": "他的书籍《The Art of Focus》官方介绍页。属于公开产品入口，不是软件教程。本目录只记录官方页面，不转述营销文案，也未购买纸书或电子版。",
+    "seed_verification": "已核验 200",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "prod-02",
+    "seed_ids": [
+      "prod-02"
+    ],
+    "title": "Purpose & Profit",
+    "url": "https://thedankoe.com/purpose",
+    "canonical_url": "https://thedankoe.com/purpose",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "课程/产品介绍页",
+    "tags": [
+      "官方产品",
+      "数字产品"
+    ],
+    "section": "products",
+    "seed_abstract": "个人站点上的 Purpose & Profit 介绍页，是他的数字产品/课程入口之一。本目录只保留公开页面链接，不展开付费内容，也不用促销语言复述卖点。",
+    "seed_verification": "已核验 200",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "letter-01",
+    "seed_ids": [
+      "letter-01"
+    ],
+    "title": "The most lucrative AI business to start in 2027",
+    "url": "https://letters.thedankoe.com/p/the-most-lucrative-ai-business-to",
+    "canonical_url": "https://letters.thedankoe.com/p/the-most-lucrative-ai-business-to",
+    "date": "2026-11-03",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-01",
+      "field": "日期",
+      "note": "Substack post_date（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "AI",
+      "一人公司",
+      "获客"
+    ],
+    "section": "letters",
+    "seed_abstract": "认为在 AI 降低“做出产品”门槛之后，更稀缺的是获取注意力与客户。文中把捕捉注意力当作可对外出售的技能，并讨论普通人在就业不稳时选择自己做业务。同时有同题 X 长文与 YouTube 长视频，内容交叉，不重复计为不同教程。摘要依据已读信件正文，不用推销语气。",
+    "seed_verification": "已核验 200；已读信件正文。对应 X 文章链本轮返回 404，标题来自帖子 article 字段",
+    "fetch_status": "fetched_ok",
+    "read_status": "fetched_not_reviewed",
+    "http_status": 200,
+    "content_hash": "cd3bc9994e5219012fa2505b5a1b2e8dfdd22474fa50081a534d24169c5c1030",
+    "fetched_at": "2026-11-19T09:33:43+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "The most lucrative AI business to start in 2027",
+    "observed_date": null
+  },
+  {
+    "id": "letter-02",
+    "seed_ids": [
+      "letter-02"
+    ],
+    "title": "The One-Human Business: How To Earn In The Age of AI",
+    "url": "https://letters.thedankoe.com/p/the-one-human-business-how-to-earn",
+    "canonical_url": "https://letters.thedankoe.com/p/the-one-human-business-how-to-earn",
+    "date": "2026-09-06",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-02",
+      "field": "日期",
+      "note": "Substack post_date（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "AI",
+      "一人公司"
+    ],
+    "section": "letters",
+    "seed_abstract": "引用 Sam Altman 关于“一人十亿美元公司”的讨论，对比过去以课程/教练为主的一人公司和 AI 之后单人能做的范围变化。重点是一人业务形态随工具能力扩大，而非具体编程教程。",
+    "seed_verification": "已核验 200；已读信件正文",
+    "fetch_status": "fetched_ok",
+    "read_status": "fetched_not_reviewed",
+    "http_status": 200,
+    "content_hash": "93ff97eff88de7da2322b20cb421ca33351d7e2a5760174feb300b671fc6663f",
+    "fetched_at": "2026-11-19T09:32:53+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "The One-Human Business: How To Earn In The Age of AI",
+    "observed_date": null
+  },
+  {
+    "id": "letter-03",
+    "seed_ids": [
+      "letter-03"
+    ],
+    "title": "How to survive AI mass replacement",
+    "url": "https://letters.thedankoe.com/p/how-to-survive-ai-mass-replacement",
+    "canonical_url": "https://letters.thedankoe.com/p/how-to-survive-ai-mass-replacement",
+    "date": "2026-06-22",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-03",
+      "field": "日期",
+      "note": "Substack post_date（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "AI",
+      "技能",
+      "工作"
+    ],
+    "section": "letters",
+    "seed_abstract": "反驳“所有工作立刻消失”的危言，认为真正风险是把生存完全寄托在雇主或机构上，主张拓宽技能并适应新环境。同日有对应 X 长文。文章是工作与心态讨论，不是模型或框架教程。",
+    "seed_verification": "已核验 200；已读信件正文",
+    "fetch_status": "fetched_ok",
+    "read_status": "fetched_not_reviewed",
+    "http_status": 200,
+    "content_hash": "79b000385c5b80357da440a5b6c9a7e60c7edde4b3480a10bf34e23cf217c62e",
+    "fetched_at": "2026-11-19T09:33:53+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "How to survive AI mass replacement (and escape wage slavery)",
+    "observed_date": null
+  },
+  {
+    "id": "letter-04",
+    "seed_ids": [
+      "letter-04"
+    ],
+    "title": "How I'd build a one-person business",
+    "url": "https://letters.thedankoe.com/p/how-id-build-a-one-person-business",
+    "canonical_url": "https://letters.thedankoe.com/p/how-id-build-a-one-person-business",
+    "date": "2026-01-03",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-04",
+      "field": "日期",
+      "note": "Substack post_date（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "一人公司",
+      "数字产品",
+      "AI"
+    ],
+    "section": "letters",
+    "seed_abstract": "讨论在内容形态与工具快速变化时，他会如何选择现在仍说得通的一人业务，并回应“价值内容/信息产品已死”的说法。文首指向 YouTube 与 Spotify 版本。已读正文，属于业务设计而非代码实现。",
+    "seed_verification": "已核验 200；已读信件正文",
+    "fetch_status": "fetched_ok",
+    "read_status": "public_excerpt_reviewed",
+    "http_status": 200,
+    "content_hash": "f302ef4f80a35e64216b87545ad87e087c2a748d18c4a60c069d968fa9c37acf",
+    "fetched_at": "2026-11-19T09:32:43+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "How I'd build a one-person business if I started over in 2026",
+    "observed_date": null,
+    "review_note": "Reviewed the first 14,000 characters of locally extracted public page text, through the opening discussion of interactive learning; the remaining text was not reviewed."
+  },
+  {
+    "id": "letter-05",
+    "seed_ids": [
+      "letter-05"
+    ],
+    "title": "The future of work when work is meaningless",
+    "url": "https://letters.thedankoe.com/p/the-future-of-work-when-work-is-meaningless",
+    "canonical_url": "https://letters.thedankoe.com/p/the-future-of-work-when-work-is-meaningless",
+    "date": "2026-01-21",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-05",
+      "field": "日期",
+      "note": "Substack post_date（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "AI",
+      "未来工作",
+      "创意工作"
+    ],
+    "section": "letters",
+    "seed_abstract": "讨论 AI 自动化之后，人类是否仍会想要创造并被承认，以及创意工作可能变成什么样子。明确关注的是意义与创造性劳动，而不是工厂式岗位清单。有对应 X 长文。",
+    "seed_verification": "已核验 200；已读信件正文",
+    "fetch_status": "fetched_ok",
+    "read_status": "fetched_not_reviewed",
+    "http_status": 200,
+    "content_hash": "69928f5a9a629d46542fa35e88653526be426c88d5cbf9a6a0e097331bd1338e",
+    "fetched_at": "2026-11-19T09:34:03+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "The future of work when work is meaningless - by DAN KOE",
+    "observed_date": null
+  },
+  {
+    "id": "letter-06",
+    "seed_ids": [
+      "letter-06"
+    ],
+    "title": "This prompt will change your life",
+    "url": "https://letters.thedankoe.com/p/this-prompt-will-change-your-life",
+    "canonical_url": "https://letters.thedankoe.com/p/this-prompt-will-change-your-life",
+    "date": "2026-01-24",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-06",
+      "field": "日期",
+      "note": "Substack post_date（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "提示词/通讯",
+    "tags": [
+      "提示词",
+      "内容创作"
+    ],
+    "section": "letters",
+    "seed_abstract": null,
+    "seed_verification": null,
+    "fetch_status": "blocked",
+    "read_status": "unread",
+    "http_status": 200,
+    "content_hash": "6ff9dac4ca6fabaf586a8d34876d5db2d9d4ac2b94dfde27a6b55cc9f0692566",
+    "fetched_at": "2026-11-19T09:34:13+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Captcha, challenge, login/paywall or explicit access restriction; global crawl stopped"
+  },
+  {
+    "id": "letter-07",
+    "seed_ids": [
+      "letter-07"
+    ],
+    "title": "Prompt: Deep Work Accelerator",
+    "url": "https://letters.thedankoe.com/p/prompt-deep-work-accelerator",
+    "canonical_url": "https://letters.thedankoe.com/p/prompt-deep-work-accelerator",
+    "date": "2025-05-07",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-07",
+      "field": "日期",
+      "note": "Substack post_date（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "提示词/通讯",
+    "tags": [
+      "提示词",
+      "工作流",
+      "ChatGPT",
+      "Claude"
+    ],
+    "section": "letters",
+    "seed_abstract": "把深工作的 2–3 项优先任务写成可执行、可量化的事项，并建议用当时较新的 ChatGPT 或 Claude 在卡住时协助，而不是把注意力切去别处。已读引言；提示词正文在页面嵌套中，本轮未完整抽出，故不编造提示词内容。",
+    "seed_verification": "已核验 200；已读引言，提示词全文未完整抽出",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "letter-08",
+    "seed_ids": [
+      "letter-08"
+    ],
+    "title": "Prompt: How I generate deep post ideas",
+    "url": "https://letters.thedankoe.com/p/prompt-how-i-generate-deep-post-ideas",
+    "canonical_url": "https://letters.thedankoe.com/p/prompt-how-i-generate-deep-post-ideas",
+    "date": "2025-05-06",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-08",
+      "field": "日期",
+      "note": "Substack post_date（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "提示词/通讯",
+    "tags": [
+      "提示词",
+      "Kortex",
+      "内容工作流"
+    ],
+    "section": "letters",
+    "seed_abstract": "回顾他长期尝试让 AI 直接写社交帖并不满意（即使给了详细说明和例子，并提到 Kortex 里的 Write Viral Social Posts），转而分享自己用来生成深度选题的方法。已读引言；具体提示词未完整抽出。",
+    "seed_verification": "已核验 200；已读引言，提示词全文未完整抽出",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "letter-09",
+    "seed_ids": [
+      "letter-09"
+    ],
+    "title": "The Internet Is Dead, And We Killed It",
+    "url": "https://thedankoe.com/letters/ai-will-end-the-internet/",
+    "canonical_url": "https://thedankoe.com/letters/ai-will-end-the-internet/",
+    "date": "2025-02-08",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-09",
+      "field": "日期",
+      "note": "页面 datePublished（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "AI 内容",
+      "互联网"
+    ],
+    "section": "letters",
+    "seed_abstract": "讨论“死互联网理论”：大量内容由机器人与生成式 AI 构成。他认为这未必只是危机，也可能让真正的创作者更容易被看见，同时指出低质量信息流的成瘾问题。WordPress 标题与 slug（ai-will-end-the-internet）略有出入，以页面标题为准。",
+    "seed_verification": "已核验 200；已读正文",
+    "fetch_status": "fetched_ok",
+    "read_status": "fetched_not_reviewed",
+    "http_status": 200,
+    "content_hash": "ac69a1ac99a42b06eb1511f0de0765936c84aea4b705cbb3e97554c4be3f7d8c",
+    "fetched_at": "2026-11-19T09:33:14+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "The Internet Is Dead, And We Killed It - Dan Koe",
+    "observed_date": null
+  },
+  {
+    "id": "letter-10",
+    "seed_ids": [
+      "letter-10"
+    ],
+    "title": "How To Write Authentic Content (Social Media Growth 101)",
+    "url": "https://thedankoe.com/letters/dont-get-replaced-by-ai-how-to-write-authentic-content/",
+    "canonical_url": "https://thedankoe.com/letters/dont-get-replaced-by-ai-how-to-write-authentic-content/",
+    "date": "2023-01-20",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-10",
+      "field": "日期",
+      "note": "页面 datePublished（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "ChatGPT",
+      "内容创作",
+      "真实性"
+    ],
+    "section": "letters",
+    "seed_abstract": "在 ChatGPT 等语言 AI 兴起的背景下，强调人们更愿意关注真人而非“长了脸的搜索引擎”，把真实性当作创作者的区分因素，并讨论如何把个人经验写进内容。不是模型使用教程。",
+    "seed_verification": "已核验 200；已读正文",
+    "fetch_status": "fetched_ok",
+    "read_status": "fetched_not_reviewed",
+    "http_status": 200,
+    "content_hash": "b6b921148c200543817a5a7a8c2f0ff3745b8f3a764be36d435ce018a1bc8fb0",
+    "fetched_at": "2026-11-19T09:33:23+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "How To Write Authentic Content (Social Media Growth 101) - Dan Koe",
+    "observed_date": null
+  },
+  {
+    "id": "letter-11",
+    "seed_ids": [
+      "letter-11"
+    ],
+    "title": "How My Startup Made $759,900 In 6 Months (Without Launching)",
+    "url": "https://thedankoe.com/letters/how-my-startup-made-759900-in-6-months-without-launching/",
+    "canonical_url": "https://thedankoe.com/letters/how-my-startup-made-759900-in-6-months-without-launching/",
+    "date": "2024-04-20",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-11",
+      "field": "日期",
+      "note": "页面 datePublished（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "Kortex",
+      "创业",
+      "数字产品"
+    ],
+    "section": "letters",
+    "seed_abstract": "记录他到多伦多见 Kortex 开发团队，并以公开记录的方式讲述产品在未向公众正式发布前的 6 个月进展。重点批评“先融资再砸营销、不先验证用户”的路径，强调另一种可被复制的做法。这是创业过程文章，不是工程实现细节。",
+    "seed_verification": "已核验 200；已读正文",
+    "fetch_status": "fetched_ok",
+    "read_status": "fetched_not_reviewed",
+    "http_status": 200,
+    "content_hash": "bea858119baf5f0aaa79a41bc44879aaedfe3621dfaaae4694f963f5940dbb97",
+    "fetched_at": "2026-11-19T09:33:33+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "How My Startup Made $759,900 In 6 Months (Without Launching) - Dan Koe",
+    "observed_date": null
+  },
+  {
+    "id": "letter-12",
+    "seed_ids": [
+      "letter-12"
+    ],
+    "title": "The Future Of Work (Acquire This Skill Stack)",
+    "url": "https://thedankoe.com/letters/the-future-of-work-acquire-this-skill-stack/",
+    "canonical_url": "https://thedankoe.com/letters/the-future-of-work-acquire-this-skill-stack/",
+    "date": "2024-07-28",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "letter-12",
+      "field": "日期",
+      "note": "页面 datePublished（UTC）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "通讯文章",
+    "tags": [
+      "AI",
+      "技能栈",
+      "未来工作"
+    ],
+    "section": "letters",
+    "seed_abstract": "从科技裁员、自由职业占比上升、创作者经济预测和 AGI 时间表等公开讨论出发，主张把出路放在自己可掌握的技能栈上，而不是等待机构安排。已读正文；文中还夹杂宏观预测，需与原文一起看，不当成技术课大纲。",
+    "seed_verification": "已核验 200；已读正文",
+    "fetch_status": "fetched_ok",
+    "read_status": "public_excerpt_reviewed",
+    "http_status": 200,
+    "content_hash": "4d441d9e3448b51daed3c66c19662f4007ea0e948f9a1d1c7771be8d5dc4f8d2",
+    "fetched_at": "2026-11-19T09:33:03+00:00",
+    "robots_note": "robots checked before network request; see request ledger",
+    "decision_note": "Public HTTP response; no authentication",
+    "observed_title": "The Future Of Work (Acquire This Skill Stack) - Dan Koe",
+    "observed_date": null,
+    "review_note": "Reviewed the first 14,000 characters of locally extracted public page text, covering the opening and generalist skill-stack discussion; the remaining text was not reviewed."
+  },
+  {
+    "id": "kortex-01",
+    "seed_ids": [
+      "kortex-01"
+    ],
+    "title": "The Kortex Founding Thesis",
+    "url": "https://www.kortex.co/blog/the-kortex-founding-thesis",
+    "canonical_url": "https://www.kortex.co/blog/the-kortex-founding-thesis",
+    "date": "2025-02-22",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "kortex-01",
+      "field": "日期",
+      "note": "页面可见日期"
+    },
+    "author": "Kortex (organization)",
+    "attribution_note": "Historical company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "产品文章",
+    "tags": [
+      "Kortex",
+      "第二大脑",
+      "写作工具"
+    ],
+    "section": "products",
+    "seed_abstract": "说明为何他认为多数笔记/写作应用只是带聊天框的文字处理器：想法、资料和写作过程被拆开，关闭后再打开就要重建上下文。Kortex 的设想是面向创作者的第二大脑：一键捕获、保存高亮与来源、在写作时把相关想法调出来，并用 AI 做研究或编辑，而不是替代写作。",
+    "seed_verification": "已核验 200；已读正文",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "kortex-02",
+    "seed_ids": [
+      "kortex-02"
+    ],
+    "title": "The Kortex Guide To Writing AI Prompts",
+    "url": "https://www.kortex.co/blog/the-kortex-guide-to-writing-ai-prompts",
+    "canonical_url": "https://www.kortex.co/blog/the-kortex-guide-to-writing-ai-prompts",
+    "date": "2025-02-25",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "kortex-02",
+      "field": "日期",
+      "note": "页面可见日期"
+    },
+    "author": "Kortex (organization)",
+    "attribution_note": "Historical company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "产品文章/教程",
+    "tags": [
+      "提示词",
+      "Kortex",
+      "kAI"
+    ],
+    "section": "products",
+    "seed_abstract": "把 AI 比作“聪明但缺少具体信息的人”，反对只用一句话就指望高质量输出。给出角色、任务、规格等提示词结构，并以 kAI（Kortex 内的 AI）写社交帖为例。已读正文。",
+    "seed_verification": "已核验 200；已读正文",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "kortex-03",
+    "seed_ids": [
+      "kortex-03"
+    ],
+    "title": "Kortex AI V1",
+    "url": "https://www.kortex.co/blog/kortex-ai-v1",
+    "canonical_url": "https://www.kortex.co/blog/kortex-ai-v1",
+    "date": "2025-02-25",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "kortex-03",
+      "field": "日期",
+      "note": "页面可见日期（与提示词指南同日，按页面记录，未另找到更细发布时间）"
+    },
+    "author": "Kortex (organization)",
+    "attribution_note": "Historical company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "产品更新",
+    "tags": [
+      "Kortex",
+      "AI 功能"
+    ],
+    "section": "products",
+    "seed_abstract": "Kortex AI 第一版相关博文。本轮已打开页面并抽取正文区域；日期按页面显示记录。与 V2、提示词指南同属产品更新线，不把重复宣传拆成多条教程。",
+    "seed_verification": "已核验 200；已读页面正文区域",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "kortex-04",
+    "seed_ids": [
+      "kortex-04"
+    ],
+    "title": "Kortex AI V2",
+    "url": "https://www.kortex.co/blog/kortex-ai-v2",
+    "canonical_url": "https://www.kortex.co/blog/kortex-ai-v2",
+    "date": "2025-04-05",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "kortex-04",
+      "field": "日期",
+      "note": "页面可见日期"
+    },
+    "author": "Kortex (organization)",
+    "attribution_note": "Historical company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "产品更新",
+    "tags": [
+      "Kortex",
+      "AI 功能"
+    ],
+    "section": "products",
+    "seed_abstract": "介绍 Kortex AI 第二版。页面嵌入 YouTube 视频，标题核验为 “This new kortex update is insane”（视频 ID KASiGzsRfRE）。已读页面正文开头。未观看视频，不编造演示细节。",
+    "seed_verification": "已核验 200；已读正文；视频仅核验标题与链接",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "kortex-05",
+    "seed_ids": [
+      "kortex-05"
+    ],
+    "title": "Kortex Capture Tutorial: One Place To Capture All Ideas",
+    "url": "https://www.kortex.co/blog/kortex-capture-one-place-to-capture-all-ideas",
+    "canonical_url": "https://www.kortex.co/blog/kortex-capture-one-place-to-capture-all-ideas",
+    "date": null,
+    "date_provenance": null,
+    "author": "Kortex (organization)",
+    "attribution_note": "Historical company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "产品教程",
+    "tags": [
+      "Kortex",
+      "捕获工作流"
+    ],
+    "section": "products",
+    "seed_abstract": "解释想法常被记在备忘录、待办、Notion 或短信里随后丢失，因此提供 Kortex Capture：把短想法作为独立条目收集，而不是写进一条长文档。已读正文，属产品功能教程。",
+    "seed_verification": "已核验 200；已读正文",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "kortex-06",
+    "seed_ids": [
+      "kortex-06"
+    ],
+    "title": "Kortex To Eden: Everything You Need To Know",
+    "url": "https://www.kortex.co/blog/kortex-to-eden-everything-you-need-to-know",
+    "canonical_url": "https://www.kortex.co/blog/kortex-to-eden-everything-you-need-to-know",
+    "date": "2025-11-24",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "kortex-06",
+      "field": "日期",
+      "note": "页面可见日期"
+    },
+    "author": "Kortex (organization)",
+    "attribution_note": "Historical company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "产品迁移说明",
+    "tags": [
+      "Kortex",
+      "Eden",
+      "迁移"
+    ],
+    "section": "products",
+    "seed_abstract": "正式说明 Kortex 已停止开发并转向 Eden：自建同步、登录和服务器导致改动易互相损坏。早期 Eden beta 与 Kortex 导入工具已不存在。仍在用 Kortex 的人可导出 Markdown 再拖入 Eden，但不建议一次导入全部笔记，因为新 Eden 不再是专用笔记应用。",
+    "seed_verification": "已核验 200；已读正文",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "kortex-07",
+    "seed_ids": [
+      "kortex-07"
+    ],
+    "title": "Kortex 导入/导出与安装说明（系列）",
+    "url": "https://www.kortex.co/blog",
+    "canonical_url": "https://www.kortex.co/blog",
+    "date": null,
+    "date_provenance": null,
+    "author": "Kortex (organization)",
+    "attribution_note": "Historical company source; individual authorship not verified this run",
+    "seed_attribution": "本人相关组织",
+    "source_type": "产品文档系列",
+    "tags": [
+      "Kortex",
+      "迁移",
+      "文档"
+    ],
+    "section": "products",
+    "seed_abstract": "官方博客中一组操作说明：从 Apple Notes、Notion、Obsidian、Readwise 导入，导出工作区，以及安装桌面应用等。本轮核验了站点地图与列表标题，未逐篇阅读正文，故只作系列入口，不编造步骤。",
+    "seed_verification": "已核验站点地图与博客列表；未逐篇阅读",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-01",
+    "seed_ids": [
+      "eden-01"
+    ],
+    "title": "Eden 官方博客（总目）",
+    "url": "https://eden.so/blog/",
+    "canonical_url": "https://eden.so/blog/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客目录",
+    "tags": [
+      "Eden",
+      "官方博客"
+    ],
+    "section": "products",
+    "seed_abstract": "Eden 博客索引本轮解析出 192 篇，分类包括 Guides、Alternatives、Comparisons、Data。页面结构化数据将作者列为 Dan Koe，并互链 X 与 YouTube。大量篇目是创作者工具对比、排期、邮件与销售指南，并非软件工程教程。本目录只另收与 AI 工具、MCP、工作流和数字产品构建更直接相关的篇目，避免用营销对比文凑数。",
+    "seed_verification": "已核验 200；已解析 192 篇列表元数据",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-02",
+    "seed_ids": [
+      "eden-02"
+    ],
+    "title": "Post image generator（免费引文图工具）",
+    "url": "https://eden.so/tools/post-image-generator/",
+    "canonical_url": "https://eden.so/tools/post-image-generator/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人相关组织",
+    "source_type": "产品工具",
+    "tags": [
+      "Eden",
+      "工具"
+    ],
+    "section": "products",
+    "seed_abstract": "Eden 提供的公开工具：把 X / LinkedIn / Threads 帖子、Substack note 链接或自写文本做成引文图，官方说明免费、无需注册、无水印，并提供竖图/方图/故事尺寸。他在回复中强调不必先有 Eden 账号。",
+    "seed_verification": "已核验 200；已读官方说明",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-03",
+    "seed_ids": [
+      "eden-03"
+    ],
+    "title": "Weekly Strategist: a free Claude workflow for content strategy",
+    "url": "https://eden.so/workflows/weekly-strategist/",
+    "canonical_url": "https://eden.so/workflows/weekly-strategist/",
+    "date": null,
+    "date_provenance": null,
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人相关组织",
+    "source_type": "工作流",
+    "tags": [
+      "Claude",
+      "MCP",
+      "Eden",
+      "内容策略"
+    ],
+    "section": "products",
+    "seed_abstract": "官方介绍一个免费工作流：让 Claude 检索大量传播帖、找出细分领域里的异常值，并据此写出带依据的内容策略，运行在 Eden MCP 上。X 上他把它当作“只想用 Claude 做趋势和创作者研究”的起点。未实际运行该工作流。",
+    "seed_verification": "已核验 200；已读官方标题与说明",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-04",
+    "seed_ids": [
+      "eden-04"
+    ],
+    "title": "The 8 best AI tools for content creators in 2026",
+    "url": "https://eden.so/blog/best-ai-tools-for-content-creators/",
+    "canonical_url": "https://eden.so/blog/best-ai-tools-for-content-creators/",
+    "date": "2026-08-20",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-04",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "AI 工具",
+      "创作者工作流"
+    ],
+    "section": "products",
+    "seed_abstract": "官方列表摘要：按任务各推荐一个他认为值得付费的 AI 工具，举例包括用 Eden 做研究与发布、用 Claude 写作、用 Descript 处理视频。已读列表元数据与 og 说明；未把对比文当作客观评测。",
+    "seed_verification": "已核验 200；已读列表与 og 元数据",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-05",
+    "seed_ids": [
+      "eden-05"
+    ],
+    "title": "Webflow MCP: update your site in a sentence",
+    "url": "https://eden.so/blog/webflow-mcp/",
+    "canonical_url": "https://eden.so/blog/webflow-mcp/",
+    "date": "2026-09-01",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-05",
+      "field": "日期",
+      "note": "页面 datePublished（UTC）"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "MCP",
+      "Webflow",
+      "AI 工作流"
+    ],
+    "section": "products",
+    "seed_abstract": "介绍 Webflow MCP 能让模型读取和操作站点、CMS 集合与页面，从而把改站变成一句话请求，并说明如何把 Webflow 连到 Eden，使 Notion 里的 brief 变成页面或通讯相关更新。已读官方标题与说明。",
+    "seed_verification": "已核验 200；已读官方标题与说明",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-06",
+    "seed_ids": [
+      "eden-06"
+    ],
+    "title": "How to schedule social media posts from Claude",
+    "url": "https://eden.so/blog/schedule-social-media-posts-from-claude/",
+    "canonical_url": "https://eden.so/blog/schedule-social-media-posts-from-claude/",
+    "date": "2026-08-20",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-06",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "Claude",
+      "MCP",
+      "排期"
+    ],
+    "section": "products",
+    "seed_abstract": "官方列表说明：连接一个 MCP 服务器后，Claude 可以研究、起草并向多个平台排期内容；文中也提到 Postiz、Buffer 等对照。本轮依据列表元数据，未读全文。",
+    "seed_verification": "已核验列表元数据，未读全文",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-07",
+    "seed_ids": [
+      "eden-07"
+    ],
+    "title": "How to research creators with Claude (5 prompts that return receipts)",
+    "url": "https://eden.so/blog/research-creators-with-claude/",
+    "canonical_url": "https://eden.so/blog/research-creators-with-claude/",
+    "date": "2026-08-20",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-07",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "Claude",
+      "提示词",
+      "研究工作流"
+    ],
+    "section": "products",
+    "seed_abstract": "官方列表说明提供五条可复制提示词，用来把 Claude 变成创作者研究工具，例如对照账号基线、扫描细分领域异常值等。本轮依据列表元数据，未读全文，不编造提示词内容。",
+    "seed_verification": "已核验列表元数据，未读全文",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-08",
+    "seed_ids": [
+      "eden-08"
+    ],
+    "title": "How to scale a content agency with AI (without losing quality)",
+    "url": "https://eden.so/blog/how-to-scale-a-content-agency-with-ai/",
+    "canonical_url": "https://eden.so/blog/how-to-scale-a-content-agency-with-ai/",
+    "date": "2026-10-22",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-08",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "AI 工作流",
+      "Custom AI",
+      "机构"
+    ],
+    "section": "products",
+    "seed_abstract": "官方列表说明如何把 SOP 做成共享的 Custom AI 与 skills、为客户提供工作区，并从统一池子管理 AI 成本。属机构工作流文章，依据列表元数据。",
+    "seed_verification": "已核验列表元数据，未读全文",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-09",
+    "seed_ids": [
+      "eden-09"
+    ],
+    "title": "How to sell a custom AI (now that custom GPTs are being retired)",
+    "url": "https://eden.so/blog/how-to-sell-a-custom-ai/",
+    "canonical_url": "https://eden.so/blog/how-to-sell-a-custom-ai/",
+    "date": "2026-09-30",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-09",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "Custom AI",
+      "数字产品"
+    ],
+    "section": "products",
+    "seed_abstract": "官方列表称 Custom GPTs 将于 2026-12-11 停止运行且此前也不能直接收费，并讨论改为出售自己的 AI 助手或 AI 课程。这是产品形态说明，依据列表元数据；未验证该下线日期是否仍有效。",
+    "seed_verification": "已核验列表元数据，未读全文",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-10",
+    "seed_ids": [
+      "eden-10"
+    ],
+    "title": "The best social media MCP servers in 2026",
+    "url": "https://eden.so/blog/best-social-media-mcp-servers/",
+    "canonical_url": "https://eden.so/blog/best-social-media-mcp-servers/",
+    "date": "2026-08-24",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-10",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "MCP",
+      "Claude",
+      "ChatGPT",
+      "Cursor"
+    ],
+    "section": "products",
+    "seed_abstract": "官方列表对比可用于研究、排期和发布的社交 MCP 服务器，文案提到 Claude、ChatGPT、Cursor，以及 Eden、Postiz 等。依据列表元数据，未当作独立评测结论。",
+    "seed_verification": "已核验列表元数据，未读全文",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-11",
+    "seed_ids": [
+      "eden-11"
+    ],
+    "title": "Eden 平台 MCP 指南（系列）",
+    "url": "https://eden.so/blog/",
+    "canonical_url": "https://eden.so/blog/",
+    "date": "2026-09-01",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-11",
+      "field": "日期",
+      "note": "同日发布一组平台 MCP 说明"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客系列",
+    "tags": [
+      "MCP",
+      "Eden",
+      "集成"
+    ],
+    "section": "products",
+    "seed_abstract": "2026-09-01 前后，Eden 博客发布一组把 beehiiv、Circle、Kajabi、Kit、Klaviyo、Notion、Stripe、Whop 等连到 AI/Eden 的 MCP 说明（Webflow 已单独建目）。本轮核验了索引标题与摘要，未逐篇阅读，故作系列入口，避免把同一结构的集成说明重复收录。",
+    "seed_verification": "已核验列表元数据；未逐篇阅读",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-12",
+    "seed_ids": [
+      "eden-12"
+    ],
+    "title": "How to launch a digital product",
+    "url": "https://eden.so/blog/how-to-launch-a-digital-product/",
+    "canonical_url": "https://eden.so/blog/how-to-launch-a-digital-product/",
+    "date": "2026-10-07",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-12",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "数字产品",
+      "发布"
+    ],
+    "section": "products",
+    "seed_abstract": "官方列表中的数字产品发布计划：预热名单、开售与截止、每天发布和发信，再把买家转化为证据。属业务流程指南，依据列表元数据。",
+    "seed_verification": "已核验列表元数据，未读全文",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-13",
+    "seed_ids": [
+      "eden-13"
+    ],
+    "title": "24 digital product ideas you can sell in 2026",
+    "url": "https://eden.so/blog/digital-product-ideas/",
+    "canonical_url": "https://eden.so/blog/digital-product-ideas/",
+    "date": "2026-11-13",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-13",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "数字产品"
+    ],
+    "section": "products",
+    "seed_abstract": "按模板、指南、课程、教练、会员、AI 产品和预设等类型列出 24 个数字产品方向，并讨论如何选择和先做验证。依据列表元数据；不是开发教程。",
+    "seed_verification": "已核验列表元数据，未读全文",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "eden-14",
+    "seed_ids": [
+      "eden-14"
+    ],
+    "title": "How to create a content strategy in 2026 (with free prompts)",
+    "url": "https://eden.so/blog/how-to-create-a-content-strategy/",
+    "canonical_url": "https://eden.so/blog/how-to-create-a-content-strategy/",
+    "date": "2026-11-13",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "eden-14",
+      "field": "日期",
+      "note": "博客列表日期"
+    },
+    "author": "Eden (organization)",
+    "attribution_note": "Company source; individual authorship not verified this run",
+    "seed_attribution": "本人原创",
+    "source_type": "博客文章",
+    "tags": [
+      "提示词",
+      "内容策略"
+    ],
+    "section": "products",
+    "seed_abstract": "官方列表称提供制定个人品牌内容策略的问题清单、来自 Dan Koe 的两条免费 AI 提示词，以及约六个月的内容地图。依据列表元数据，未读提示词全文。",
+    "seed_verification": "已核验列表元数据，未读全文",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "yt-01",
+    "seed_ids": [
+      "yt-01"
+    ],
+    "title": "The Most Lucrative AI Business To Start In 2027 (Complete Guide)",
+    "url": "https://www.youtube.com/watch?v=zdshL1IcetU",
+    "canonical_url": "https://www.youtube.com/watch?v=zdshL1IcetU",
+    "date": "2026-11-10",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "yt-01",
+      "field": "日期",
+      "note": "YouTube RSS published（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed; YouTube channel ID unresolved",
+    "seed_attribution": "本人原创",
+    "source_type": "YouTube 视频",
+    "tags": [
+      "AI",
+      "一人公司"
+    ],
+    "section": "videos",
+    "seed_abstract": "与同题通讯/X 长文交叉的长视频。仅依据官方标题与日期收录，未观看，不编造章节或口播内容。",
+    "seed_verification": "已核验标题与链接（YouTube RSS）；未观看",
+    "fetch_status": "unwatched",
+    "read_status": "unwatched",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Unwatched; metadata verification not reached before global stop"
+  },
+  {
+    "id": "yt-02",
+    "seed_ids": [
+      "yt-02"
+    ],
+    "title": "The Death Of The Influencer (& The Future Of Creative Work)",
+    "url": "https://www.youtube.com/watch?v=CZ5WyfbXtH4",
+    "canonical_url": "https://www.youtube.com/watch?v=CZ5WyfbXtH4",
+    "date": "2026-10-25",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "yt-02",
+      "field": "日期",
+      "note": "YouTube RSS published（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed; YouTube channel ID unresolved",
+    "seed_attribution": "本人原创",
+    "source_type": "YouTube 视频",
+    "tags": [
+      "创意工作",
+      "未来工作"
+    ],
+    "section": "videos",
+    "seed_abstract": "讨论影响者形态变化与创意工作的未来。与通讯《The influencer is dead. The Age of Experience is here.》主题交叉。未观看。",
+    "seed_verification": "已核验标题与链接（YouTube RSS）；未观看",
+    "fetch_status": "unwatched",
+    "read_status": "unwatched",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Unwatched; metadata verification not reached before global stop"
+  },
+  {
+    "id": "yt-03",
+    "seed_ids": [
+      "yt-03"
+    ],
+    "title": "If You Have Multiple Interests, Please Start a One-Person Business",
+    "url": "https://www.youtube.com/watch?v=XqS7kIWMIDE",
+    "canonical_url": "https://www.youtube.com/watch?v=XqS7kIWMIDE",
+    "date": "2026-09-11",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "yt-03",
+      "field": "日期",
+      "note": "YouTube RSS published（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed; YouTube channel ID unresolved",
+    "seed_attribution": "本人原创",
+    "source_type": "YouTube 视频",
+    "tags": [
+      "一人公司"
+    ],
+    "section": "videos",
+    "seed_abstract": "关于多兴趣与一人公司的长视频，与他长期写作主题一致。未观看，只保留已核验标题。播放列表 “The One Person Business” 可作系列入口。",
+    "seed_verification": "已核验标题与链接（YouTube RSS）；未观看",
+    "fetch_status": "unwatched",
+    "read_status": "unwatched",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Unwatched; metadata verification not reached before global stop"
+  },
+  {
+    "id": "yt-04",
+    "seed_ids": [
+      "yt-04"
+    ],
+    "title": "This new kortex update is insane",
+    "url": "https://www.youtube.com/watch?v=KASiGzsRfRE",
+    "canonical_url": "https://www.youtube.com/watch?v=KASiGzsRfRE",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed; YouTube channel ID unresolved",
+    "seed_attribution": "本人原创",
+    "source_type": "YouTube 视频",
+    "tags": [
+      "Kortex",
+      "产品更新"
+    ],
+    "section": "videos",
+    "seed_abstract": "嵌入在 Kortex AI V2 博文中的演示视频。仅核验嵌入标题与视频 ID，未观看，不描述画面。",
+    "seed_verification": "已核验嵌入标题与链接；未观看",
+    "fetch_status": "unwatched",
+    "read_status": "unwatched",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Unwatched; metadata verification not reached before global stop"
+  },
+  {
+    "id": "yt-05",
+    "seed_ids": [
+      "yt-05"
+    ],
+    "title": "播放列表：The One Person Business",
+    "url": "https://www.youtube.com/playlist?list=PLB4ePXk6nBaeG3fD13NaRMsRsEc2iCsV4",
+    "canonical_url": "https://www.youtube.com/playlist?list=PLB4ePXk6nBaeG3fD13NaRMsRsEc2iCsV4",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed; YouTube channel ID unresolved",
+    "seed_attribution": "本人原创",
+    "source_type": "YouTube 播放列表",
+    "tags": [
+      "一人公司",
+      "系列"
+    ],
+    "section": "videos",
+    "seed_abstract": "官方播放列表，页面标题为 The One Person Business。本轮在播放列表页看到约 46 条视频计数。只作系列入口，不把其中自我提升类单集逐条建目。",
+    "seed_verification": "已核验播放列表标题；未观看其中视频",
+    "fetch_status": "unwatched",
+    "read_status": "unwatched",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Unwatched; metadata verification not reached before global stop"
+  },
+  {
+    "id": "yt-06",
+    "seed_ids": [
+      "yt-06"
+    ],
+    "title": "播放列表：Season 2 / Season 4（频道系列）",
+    "url": "https://www.youtube.com/playlist?list=PLB4ePXk6nBafymRju41nx0b_TcXx5zBDa",
+    "canonical_url": "https://www.youtube.com/playlist?list=PLB4ePXk6nBafymRju41nx0b_TcXx5zBDa",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed; YouTube channel ID unresolved",
+    "seed_attribution": "本人原创",
+    "source_type": "YouTube 播放列表",
+    "tags": [
+      "YouTube 系列"
+    ],
+    "section": "videos",
+    "seed_abstract": "频道系列播放列表：Season 2（页面约 50 条）、Season 4（页面约 37 条）。主题以他的常规演讲/节目为主，未必都与软件开发有关，故只保留系列入口，不逐条收录。",
+    "seed_verification": "已核验两个播放列表标题；未观看",
+    "fetch_status": "unwatched",
+    "read_status": "unwatched",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Unwatched; metadata verification not reached before global stop"
+  },
+  {
+    "id": "yt-07",
+    "seed_ids": [
+      "yt-07"
+    ],
+    "title": "YouTube 最近公开上传（RSS 15 条，多为 Shorts）",
+    "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWXYDYv5STLk-zoxMP2I1Lw",
+    "canonical_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWXYDYv5STLk-zoxMP2I1Lw",
+    "date": null,
+    "date_provenance": null,
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed; YouTube channel ID unresolved",
+    "seed_attribution": "本人原创",
+    "source_type": "视频索引",
+    "tags": [
+      "YouTube"
+    ],
+    "section": "videos",
+    "seed_abstract": "本轮 YouTube RSS 只给出最近 15 条，其中大量是 Shorts，长视频已择要单列。不把每条短视频重复建目。完整历史上传未扫完。",
+    "seed_verification": "已核验 RSS；不是全历史",
+    "fetch_status": "unwatched",
+    "read_status": "unwatched",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Unwatched; metadata verification not reached before global stop"
+  },
+  {
+    "id": "gh-01",
+    "seed_ids": [
+      "gh-01"
+    ],
+    "title": "早期公开仓库（2018–2019，系列）",
+    "url": "https://github.com/thedankoe",
+    "canonical_url": "https://github.com/thedankoe",
+    "date": null,
+    "date_provenance": null,
+    "author": "Early @thedankoe account (unverified connection)",
+    "attribution_note": "Seed identity association is uncertain",
+    "seed_attribution": "疑似本人早期账号",
+    "source_type": "代码仓库系列",
+    "tags": [
+      "早期开发",
+      "JavaScript",
+      "练习项目"
+    ],
+    "section": "identity",
+    "seed_abstract": "在 GitHub 用户 thedankoe 下看到约 18 个公开仓库（含 3 个 fork），例如个人品牌站、SiteBird/SEOBird、健身记录页、Gatsby/Netlify、Redux 练习和 bootcamp 代码。这些是早期网页开发练习，与当前 Eden/Kortex 产品没有本轮能核验的直接仓库对应。不逐条建目，也不把它们当成现行官方 SDK。",
+    "seed_verification": "已核验仓库 API 列表；未 checkout、未改代码",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  },
+  {
+    "id": "x-01",
+    "seed_ids": [
+      "x-01"
+    ],
+    "title": "介绍 Eden：保存灵感、研究、写作与全平台排期",
+    "url": "https://x.com/thedankoe/status/2107871825514680577",
+    "canonical_url": "https://x.com/thedankoe/status/2107871825514680577",
+    "date": "2026-10-07",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-01",
+      "field": "日期",
+      "note": "X created_at（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "Eden",
+      "产品"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-02",
+    "seed_ids": [
+      "x-02"
+    ],
+    "title": "为 LLM、内容和研究做的画布",
+    "url": "https://x.com/thedankoe/status/2031765325654716480",
+    "canonical_url": "https://x.com/thedankoe/status/2031765325654716480",
+    "date": "2026-03-11",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-02",
+      "field": "日期",
+      "note": "X created_at（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "LLM",
+      "Eden",
+      "工作区"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）；视频未看",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-03",
+    "seed_ids": [
+      "x-03"
+    ],
+    "title": "推荐用 Claude 做趋势与创作者研究（Weekly Strategist）",
+    "url": "https://x.com/thedankoe/status/2090515656039104600",
+    "canonical_url": "https://x.com/thedankoe/status/2090515656039104600",
+    "date": "2026-08-20",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-03",
+      "field": "日期",
+      "note": "X created_at（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "Claude",
+      "Eden",
+      "工作流"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-04",
+    "seed_ids": [
+      "x-04"
+    ],
+    "title": "Kortex：第二大脑式写作工具的发布说明",
+    "url": "https://x.com/thedankoe/status/1843698104077553941",
+    "canonical_url": "https://x.com/thedankoe/status/1843698104077553941",
+    "date": "2024-10-08",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-04",
+      "field": "日期",
+      "note": "线程内帖子日期（UTC）；相邻 2024-10-15 还有路线图补充"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 线程",
+    "tags": [
+      "Kortex",
+      "第二大脑",
+      "写作工具"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-05",
+    "seed_ids": [
+      "x-05"
+    ],
+    "title": "创作者工具栈：Beehiiv、Stan、Kortex",
+    "url": "https://x.com/thedankoe/status/1859193723797856550",
+    "canonical_url": "https://x.com/thedankoe/status/1859193723797856550",
+    "date": "2024-11-20",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-05",
+      "field": "日期",
+      "note": "X created_at（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "工具栈",
+      "Kortex"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-06",
+    "seed_ids": [
+      "x-06"
+    ],
+    "title": "Eden 的使命，以及招聘移动开发者",
+    "url": "https://x.com/thedankoe/status/1968042371771404385",
+    "canonical_url": "https://x.com/thedankoe/status/1968042371771404385",
+    "date": "2025-09-16",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-06",
+      "field": "日期",
+      "note": "相邻两条同日帖"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "Eden",
+      "招聘",
+      "产品方向"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-07",
+    "seed_ids": [
+      "x-07"
+    ],
+    "title": "“我曾长期反对 AI，后来把它当成一项技能”",
+    "url": "https://x.com/thedankoe/status/2006786301400592532",
+    "canonical_url": "https://x.com/thedankoe/status/2006786301400592532",
+    "date": "2026-01-01",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-07",
+      "field": "日期",
+      "note": "X created_at（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "AI",
+      "技能"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-08",
+    "seed_ids": [
+      "x-08"
+    ],
+    "title": "先自己会做，再让 AI 代做",
+    "url": "https://x.com/thedankoe/status/1986444837072347345",
+    "canonical_url": "https://x.com/thedankoe/status/1986444837072347345",
+    "date": "2025-11-06",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-08",
+      "field": "日期",
+      "note": "X created_at（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "AI",
+      "学习方法"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-09",
+    "seed_ids": [
+      "x-09"
+    ],
+    "title": "AI 让任何人都能构建，但也放大了分心",
+    "url": "https://x.com/thedankoe/status/2116156997712195646",
+    "canonical_url": "https://x.com/thedankoe/status/2116156997712195646",
+    "date": "2026-10-30",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-09",
+      "field": "日期",
+      "note": "X created_at（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "AI",
+      "产品构建"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "x-10",
+    "seed_ids": [
+      "x-10"
+    ],
+    "title": "未来三种人：拒绝 AI、全盘外包、与 AI 共事",
+    "url": "https://x.com/thedankoe/status/2091876986444533842",
+    "canonical_url": "https://x.com/thedankoe/status/2091876986444533842",
+    "date": "2026-08-24",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "x-10",
+      "field": "日期",
+      "note": "X created_at（UTC 日期）"
+    },
+    "author": "Dan Koe",
+    "attribution_note": "Personal source or account, attributed by the seed",
+    "seed_attribution": "本人原创",
+    "source_type": "X 帖",
+    "tags": [
+      "AI",
+      "未来工作"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验（公开检索）",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "rec-01",
+    "seed_ids": [
+      "rec-01"
+    ],
+    "title": "自用工具栈中的第三方：Beehiiv 与 Stan",
+    "url": "https://x.com/thedankoe/status/1859193723797856550",
+    "canonical_url": "https://x.com/thedankoe/status/1859193723797856550",
+    "date": "2024-11-20",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "rec-01",
+      "field": "日期",
+      "note": "推荐帖日期（UTC）"
+    },
+    "author": "Third-party works recommended in the seed",
+    "attribution_note": "Recommendation, not original Dan Koe work",
+    "seed_attribution": "推荐他人作品",
+    "source_type": "推荐工具",
+    "tags": [
+      "邮件",
+      "数字产品支付"
+    ],
+    "section": "x",
+    "seed_abstract": null,
+    "seed_verification": "已核验推荐帖；目标站点本轮未作为重点打开",
+    "fetch_status": "unread",
+    "read_status": "unread",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "X seed titles/tags retained in metadata; URL-only in reader/search; unread and not requested"
+  },
+  {
+    "id": "rec-02",
+    "seed_ids": [
+      "rec-02"
+    ],
+    "title": "提示词实践中推荐的模型：ChatGPT 与 Claude",
+    "url": "https://letters.thedankoe.com/p/prompt-deep-work-accelerator",
+    "canonical_url": "https://letters.thedankoe.com/p/prompt-deep-work-accelerator",
+    "date": "2025-05-07",
+    "date_provenance": {
+      "kind": "seed",
+      "seed_id": "rec-02",
+      "field": "日期",
+      "note": "以 Deep Work Accelerator 信件为准"
+    },
+    "author": "Third-party works recommended in the seed",
+    "attribution_note": "Recommendation, not original Dan Koe work",
+    "seed_attribution": "推荐他人作品",
+    "source_type": "推荐工具",
+    "tags": [
+      "ChatGPT",
+      "Claude"
+    ],
+    "section": "identity",
+    "seed_abstract": "在深工作提示词信件里，建议使用当时较新的 ChatGPT 或 Claude 来运行提示词。这是使用建议，不是模型评测，也不包含付费订阅操作。",
+    "seed_verification": "已核验信件引言中的推荐",
+    "fetch_status": "seed_only",
+    "read_status": "seed_abstract_only",
+    "http_status": null,
+    "content_hash": null,
+    "fetched_at": null,
+    "robots_note": "Not requested this run",
+    "decision_note": "Not requested: global crawl stopped before this URL or URL outside finite plan"
+  }
+]

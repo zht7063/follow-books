@@ -1,0 +1,133 @@
+[
+  {
+    "id": "orientation",
+    "nav_title": "Start here",
+    "title": "An author, not a software syllabus",
+    "description": "Place the writing, the businesses and this small collection in context.",
+    "tags": ["identity", "reading guide", "writing"],
+    "source_ids": ["site-01", "site-03", "site-05", "site-06", "site-07", "site-08", "gh-01"],
+    "sections": [
+      {"heading": "Begin with the person", "paragraphs": [
+        "Dan Koe's homepage presents a writer concerned with how people think, work and create a life. Its identity section connects The Art of Focus with Eden and describes writing as part of a creative livelihood. That public self-description, reviewed in this run, is a better starting point than treating a handful of AI articles as his whole subject.",
+        "This edition follows three intersecting questions: what is worth learning, how can one person make useful work, and where do tools help? These are our organizing questions. They are not a table of contents supplied or endorsed by Dan."
+      ]},
+      {"heading": "What kind of book is this?", "paragraphs": [
+        "A collection can be useful without pretending to be complete. These chapters are original editorial: short arguments, reading questions and routes to sources. They do not reproduce Dan's essays. Read an original, return here to compare it with another, and keep your own notes on where the argument holds up.",
+        "The seed was compiled around technology and products. Its older Chinese abstracts and inherited reading claims are omitted from this reader and search. We preserve that selection's limits instead of silently converting it into a comprehensive portrait. Early GitHub references have an uncertain identity connection; their presence in an old index does not establish a current engineering practice."
+      ]},
+      {"heading": "Use the labels as part of reading", "paragraphs": [
+        "A fetch label describes collection. A read label describes review. A public excerpt review means only the specified portion was examined. Seed titles, tags and dates are prior metadata, and a product list can tell us that a title exists without telling us the article's argument. Unknown dates remain unknown, while dated entries retain the seed's explanation of what the date measures.",
+        "Treat commercial self-descriptions as attributed claims. This reader has not purchased a course, tested a paid product or independently verified business revenue. The homepage establishes how Dan describes his work; it does not validate every promise made by that work."
+      ]}
+    ]
+  },
+  {
+    "id": "one-person-business",
+    "nav_title": "The one-person business",
+    "title": "A business small enough to change",
+    "description": "Read the business model as a set of choices about learning, distribution and delivery.",
+    "tags": ["business", "education", "distribution", "AI"],
+    "source_ids": ["letter-04", "letter-02", "letter-11"],
+    "sections": [
+      {"heading": "Separate the need from the format", "paragraphs": [
+        "In the reviewed opening of the January 2026 business letter, Dan separates learning from the container used to sell it. The need to learn can persist even if a PDF, a course library or another delivery format becomes less attractive. His discussion moves toward interactive guidance: helping someone apply knowledge while doing the work.",
+        "Our reading is that this distinction makes a better design question than asking whether all information products are dead. What is the learner trying to accomplish, where do they get stuck, and what feedback would move them forward? A new interface matters only if it addresses that friction. This is an editorial interpretation of an opening excerpt, not a validation of market demand."
+      ]},
+      {"heading": "Speed is a constraint, too", "paragraphs": [
+        "The same excerpt connects a small business with the ability to change quickly. But speed also creates a burden: the owner must notice when a useful method becomes a copied convention. We would read the letter with a two-column notebook: decisions that depend on this moment's tools, and capabilities that remain useful when those tools change.",
+        "The later one-human-business letter and the earlier startup-revenue account offer comparison points. Both were fetched, but their complete arguments have not been reviewed for this edition. Their seed titles provide discovery links; they are not evidence that we replicated the results or audited the business."
+      ]},
+      {"heading": "A question to take to the original", "paragraphs": [
+        "Choose one thing you can help a specific person do. Describe the outcome before naming a product. Then ask whether the customer needs information, feedback, execution or some combination. Keep that question beside you while reading the original, and mark the places where its proposal answers it—or leaves work for you."
+      ]}
+    ]
+  },
+  {
+    "id": "writing-and-attention",
+    "nav_title": "Writing & attention",
+    "title": "Build a practice before a tool stack",
+    "description": "A route from generalist learning to a more deliberate writing practice.",
+    "tags": ["writing", "learning", "attention", "generalist", "skills"],
+    "source_ids": ["letter-12", "letter-10", "letter-09"],
+    "sections": [
+      {"heading": "Learning as an experiment", "paragraphs": [
+        "The reviewed opening of the July 2024 skill-stack essay joins broad learning with self-directed work. Its practical sequence is to study approaches, try them, look for recurring principles and develop a process that fits the situation. In that account, writing helps turn private thinking into something another person can evaluate.",
+        "For this reader, the useful move is to keep the learning loop visible. A stack of skills is not yet a practice. A practice leaves traces: a draft, feedback from a reader, a revised explanation, a product decision. Those traces let you distinguish progress from the feeling of consuming useful material."
+      ]},
+      {"heading": "Read predictions at their publication date", "paragraphs": [
+        "The opening also contains strong predictions about AI and employment. We treat these as claims made in a 2024 essay, not as facts independently established by this collection. The same care applies to economic statistics and anecdotes embedded in an author's argument: a source link identifies the claim's location; it is not independent corroboration.",
+        "The authentic-content and internet essays are suggested follow-ups from the seed. They were fetched here but have not received a new full-text review. Compare their original arguments about making and distributing work rather than relying on an appealing title to tell you what they conclude."
+      ]},
+      {"heading": "Try a small reading-to-writing loop", "paragraphs": [
+        "After reading one original, close it and explain a single idea in your own words. Write down a concrete example from your experience, then one condition under which the idea might fail. Reopen the source to check that you represented it fairly. This is our suggested exercise, not an exercise attributed to Dan."
+      ]}
+    ]
+  },
+  {
+    "id": "ai-and-work",
+    "nav_title": "AI & work",
+    "title": "Keep judgment inside the workflow",
+    "description": "A cautious reading route through AI, work and partially available prompts.",
+    "tags": ["AI", "work", "prompts", "judgment", "automation"],
+    "source_ids": ["letter-01", "letter-03", "letter-05", "letter-06", "letter-07", "letter-08", "rec-02"],
+    "sections": [
+      {"heading": "A route, not a composite summary", "paragraphs": [
+        "The seed groups these letters around changing work, AI-assisted production and prompt-based workflows. Several public pages fetched successfully, but this chapter does not pretend to synthesize their unread full texts. Use the individual seed titles to select an original that matches your question. The blocked page retains only a URL and restriction metadata.",
+        "A productive comparison is to ask what each source delegates to a tool and what it expects a person to decide. That is our reading lens. It avoids turning a list of AI-related links into an unsupported claim that the author has one settled position across different dates."
+      ]},
+      {"heading": "Partial sources require smaller claims", "paragraphs": [
+        "The seed already marked some prompt letters as incompletely extracted. During this run, the life-change prompt page triggered an access-restriction marker and stopped the entire live crawl. We did not attempt to unlock it or continue to other hosts. The next prompt pages were not requested.",
+        "That means this edition cannot teach the missing prompts, reconstruct their instructions or claim to have tested them. The blocked page's older abstract is withheld. Links alone cannot supply the instructions, context or limitations of a method."
+      ]},
+      {"heading": "Write down the decision before the automation", "paragraphs": [
+        "Before trying a workflow from an original, define a result you can inspect and a mistake you would need to catch. Keep a manual example for comparison. This editorial exercise gives you a way to evaluate the method on your own work; it makes no promise about income, productivity or protection from job displacement."
+      ]}
+    ]
+  },
+  {
+    "id": "products-and-history",
+    "nav_title": "Eden & Kortex",
+    "title": "Products have a history",
+    "description": "Keep company writing, author writing and historical product claims distinct.",
+    "tags": ["Eden", "Kortex", "products", "history", "MCP"],
+    "source_ids": ["prod-01", "prod-02", "kortex-01", "kortex-02", "kortex-03", "kortex-04", "kortex-05", "kortex-06", "kortex-07", "eden-01", "eden-02", "eden-03", "eden-04", "eden-05", "eden-06", "eden-07", "eden-08", "eden-09", "eden-10", "eden-11", "eden-12", "eden-13", "eden-14"],
+    "sections": [
+      {"heading": "Read the transition before the tutorial", "paragraphs": [
+        "The seed describes Kortex as a historical product and points to an official Kortex-to-Eden transition post. That is the right place to begin if you encounter older Kortex tutorials. We did not re-fetch the product sites after the newsletter restriction stopped collection, so their present availability and redirect behavior remain unverified in this run.",
+        "The homepage reviewed here links Eden as one of Dan's projects. That association does not make every Eden blog post a personally authored Dan Koe essay. Company materials stay attributed as organization-related sources, and public product descriptions are not a record of hands-on testing."
+      ]},
+      {"heading": "A blog list is a map", "paragraphs": [
+        "Many Eden entries came from a previous list-metadata survey. Their titles can orient a search for research tools, publishing workflows, MCP integrations or digital products. They cannot support a new explanation of how a feature works. The status on each entry preserves that boundary.",
+        "This chapter therefore acts as a product-history shelf. Start with the transition post, choose a specific question, and check the official original for current instructions. We include public book and course landing pages as references only; no purchase, download of a book or account access was performed."
+      ]}
+    ]
+  },
+  {
+    "id": "videos-unwatched",
+    "nav_title": "Videos · unwatched",
+    "title": "An unwatched video shelf",
+    "description": "Discovery links with no invented viewing notes or transcripts.",
+    "tags": ["YouTube", "video", "unwatched", "channel identity"],
+    "source_ids": ["site-04", "yt-01", "yt-02", "yt-03", "yt-04", "yt-05", "yt-06", "yt-07"],
+    "sections": [
+      {"heading": "Titles and limited seed metadata", "paragraphs": [
+        "None of these videos or playlists was watched. No video was downloaded, and no transcript was collected. Titles, dates and tags come from the seed snapshot, whose RSS coverage was limited to recent uploads. Derived metadata also retains older channel and playlist notes; these were not verified here and are omitted from the reader and search. Playlist entries do not imply that their contents were enumerated or viewed.",
+        "The seed contains conflicting channel IDs: UCWXYDYv5STLk-zoxMP2I1Lw in its README and RSS reference, and UCswG6FSbgZjbWtdf_hMLaow in the CSV identity row. Because live collection stopped before a permitted channel or RSS verification, the discrepancy remains unresolved. Neither candidate is adopted as verified. Open the public handle as a starting reference."
+      ]}
+    ]
+  },
+  {
+    "id": "x-references",
+    "nav_title": "X · unread",
+    "title": "A boundary around the timeline",
+    "description": "URL-only pointers retained from the seed. No X collection was performed.",
+    "tags": ["X", "unread", "coverage"],
+    "source_ids": ["site-02", "x-01", "x-02", "x-03", "x-04", "x-05", "x-06", "x-07", "x-08", "x-09", "x-10", "rec-01"],
+    "sections": [
+      {"heading": "An index is not a timeline", "paragraphs": [
+        "The old seed describes a very large posting history and substantial gaps. This project does not attempt to complete it. X references use URLs only in this reader and search, are labelled unread, and were not re-fetched. Derived metadata retains seed titles, tags and historical verification notes; these do not establish a new reading. We exclude their old summaries from this reader and its search text.",
+        "A date beside a reference reports what the seed recorded. For the account entry it is an account-creation date, not an essay publication date. We preserve that explanation so the presence of a date does not create a false chronology of ideas."
+      ]}
+    ]
+  }
+]

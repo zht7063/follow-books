@@ -1,0 +1,37 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "pid": 2321421,
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 5854
+    },
+    {
+      "path": "catalog.html",
+      "status": 200,
+      "bytes": 81827
+    },
+    {
+      "path": "chapters/orientation.html",
+      "status": 200,
+      "bytes": 14515
+    },
+    {
+      "path": "assets/search.js",
+      "status": 200,
+      "bytes": 2854
+    },
+    {
+      "path": "assets/reader.css",
+      "status": 200,
+      "bytes": 6058
+    },
+    {
+      "path": "search-index.json",
+      "status": 200,
+      "bytes": 38562
+    }
+  ],
+  "browser_driven": false
+}
