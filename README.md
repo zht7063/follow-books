@@ -2,7 +2,7 @@
 
 An **unofficial curated ebook reading prototype** for **Dan Koe only**: seven original editorial chapters, a source index, client-side search, source attribution and date provenance, previous/next reading navigation, and a responsive layout. It is independent, incomplete and unaffiliated. It does not republish Dan's books or full essays.
 
-The 2026-11-19 seed contains 63 entries selected mainly for software, AI and digital products. This edition preserves that selection and its gaps. It is not a comprehensive writing archive or a five-person library. Earlier Chinese seed abstracts and inherited reading claims are omitted from the reader and search. The blocked paid page's abstract is also removed from derived metadata. X references use URLs only in the reader/search, while derived metadata retains seed titles and tags; every X entry is unread and every video remains unwatched.
+The 2026-11-19 seed contains 63 entries selected mainly for software, AI and digital products. This edition preserves that selection and its gaps. It is not a comprehensive writing archive or a five-person library. Earlier Chinese seed abstracts and inherited reading claims are omitted from the reader and search. Blocked cards keep a generic heading, seed attribution, an unverified seed date/provenance (or an unknown date), URL and restriction/status metadata. Their inherited title/tags, abstracts, body and reading claims remain withheld. The blocked paid page's abstract is also removed from derived metadata. X references use URLs only in the reader/search, while derived metadata retains seed titles and tags; every X entry is unread and every video remains unwatched.
 
 ## Read locally
 
@@ -18,7 +18,15 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory site
 
 Open **http://127.0.0.1:4173/** on the machine running the server. A dedicated preview is left running for this implementation; its actual PID, port and address are in [docs/preview-server.json](docs/preview-server.json). Loopback is not a public URL and is not automatically reachable from another device.
 
-GitHub Pages is not enabled. External preview requires a separately authorized hosting/forwarding step. This task does not configure Pages, domains or another hosting service.
+## Public preview
+
+Public unauthenticated preview: **https://follow-books-thedankoe-preview.vercel.app/**.
+
+This is an isolated no-cost Hobby static project newly created for this prototype only: `follow-books-thedankoe-preview` (`prj_mPKRT20m578FfIZz7JoiyD9rTwrK`), under `tiansang0824s-projects` / `team_9aWYwFxIekNNlNo5kCYhwxZ0` (name: yubai project). It has no git integration, custom domain, DNS change, plan upgrade or password protection; no other existing site was changed. GitHub Pages was not enabled. GitHub Actions has no deploy step; this was a manual isolated deploy.
+
+The first deploy of SHA `85a23d6489432ed5858efe4aec343fd6adaeae8c` was `dpl_2F6qqueYBBhUZ1opi2jeY87Kk9Zp`, READY at **2026-11-19 18:17:56 Asia/Singapore (+08)**. Unauthenticated fetches of all 13 committed site files on the public alias returned HTTP 200 and byte-matched that tree. The team-scoped alias `https://follow-books-thedankoe-preview-tiansang0824s-projects.vercel.app/` and deployment-hash host require Vercel Authentication; use the public URL above.
+
+These are recorded deployment facts for the previous SHA, not new network checks from the code change alone. After this commit is pushed and the same isolated Hobby project is redeployed, a focused browser recheck of the blocked `letter-06` card's attribution/date/provenance gap remains outstanding; full acceptance is pending.
 
 ## Collection, with a deliberate stop boundary
 
@@ -69,7 +77,7 @@ The hygiene guard flags a contiguous overlap of 40 normalized tokens and at leas
 
 ## Verification and evidence
 
-`npm test` runs offline. Fixtures cover serial operation, cache/dedup/resume, robots and delays, restriction stops (including across process restarts), bounded retries, safe redirects, adapter read failures, metadata provenance, no-fulltext publication, chapter links, deterministic builds, search interactions and 375px CSS contracts. No browser GUI was driven; CSS/HTML/DOM contracts are evidence, not a screenshot or a complete accessibility audit.
+`npm test` runs offline. Fixtures cover serial operation, cache/dedup/resume, robots and delays, restriction stops (including across process restarts), bounded retries, safe redirects, adapter read failures, metadata provenance, no-fulltext publication, chapter links, deterministic builds, search interactions and 375px CSS contracts. No browser GUI was driven by this offline suite; its CSS/HTML/DOM contracts are not screenshots or a complete accessibility audit. Separately, measured browser acceptance on the public preview before this card fix passed homepage honest coverage and chapter next/prev/navigation; search “AI” returned 25 results and a nonsense query returned 0; the 375×985 view was legible with no visible overflow. The remaining blocked-card metadata defect is fixed in code/tests here, but has not been visually rechecked after this change and still needs the focused recheck after redeploy.
 
 [Implementation report](docs/thedankoe-prototype-report.md) records collection results, reviewed sources, validation, preview and PR details. GitHub Actions builds and checks the site entirely offline and has no deployment step.
 

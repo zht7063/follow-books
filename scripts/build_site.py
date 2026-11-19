@@ -35,13 +35,18 @@ READ_LABELS = {'public_page_reviewed': 'public page reviewed', 'public_excerpt_r
 
 def source_card(source):
     s = source
-    date = f'{esc(s["date"])} · {esc(s["date_provenance"]["note"])}' if s['date'] else 'Date unknown · no publication date inferred'
     if s['fetch_status'] == 'blocked':
+        provenance = s['date_provenance'] or {}
+        date = (f'{esc(s["date"])} · seed date unverified; live page not used to verify date'
+                if s['date'] else 'unknown · no publication date inferred')
         return f'''<article class="source" id="{esc(s['id'])}">
 <span class="source-id">{esc(s['id'])}</span><h3>Blocked / restricted source</h3>
 <p><span class="badge">Fetch: blocked / restricted</span><span class="badge">Read: unread</span></p>
-<p class="meta">{esc(s['decision_note'])}<br>HTTP: {esc(s['http_status'])} · Recorded: {esc(s['fetched_at'])}<br>Inherited abstract withheld; URL and restriction metadata only.</p>
+<p class="meta">Attribution: {esc(s['author'] or 'unknown')} · {esc(s['attribution_note'] or 'unknown')}<br>
+Date: {date}<br>Provenance: {esc(provenance.get('kind', 'none'))} · seed {esc(provenance.get('seed_id') or ', '.join(s['seed_ids']))} · {esc(provenance.get('note', 'no date provenance recorded'))}</p>
+<p class="meta">{esc(s['decision_note'])}<br>HTTP: {esc(s['http_status'])} · Recorded: {esc(s['fetched_at'])}<br>Inherited abstract withheld.</p>
 <p><a href="{esc(s['canonical_url'])}" rel="noreferrer">Original source URL</a> <span class="meta">{esc(s['canonical_url'])}</span></p></article>'''
+    date = f'{esc(s["date"])} · {esc(s["date_provenance"]["note"])}' if s['date'] else 'Date unknown · no publication date inferred'
     title = 'X reference · ' + s['id'] if s['section'] == 'x' else s['title']
     review = f'<p class="meta">{esc(s["review_note"])}</p>' if s.get('review_note') else ''
     return f'''<article class="source" id="{esc(s['id'])}">
@@ -137,7 +142,7 @@ def build(output=None):
             search_index.append({'id': source['id'], 'kind': 'source', 'title': title,
                                  'tags': [] if key == 'x' or restricted else source['tags'],
                                  'text': source['canonical_url'],
-                                 'provenance': ('Restricted source; URL and status only; abstract withheld' if restricted else
+                                 'provenance': ('Restricted source; seed attribution and unverified seed date, if known, on source card; abstract withheld' if restricted else
                                                 'Seed URL reference; unread' if key == 'x' else
                                                 'Seed title, tags and URL; prior abstract omitted'),
                                  'fetch_status': source['fetch_status'], 'read_status': source['read_status'],

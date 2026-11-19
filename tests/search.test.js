@@ -84,7 +84,7 @@ test('source results display seed provenance and separate fetch and read labels'
   const result = e['search-results'].children.find((item) => item.children[0].children[0].textContent.includes('letter-06'));
   assert(result);
   assert.match(result.children[0].children[0].textContent, /Blocked \/ restricted/);
-  assert.match(result.children[1].textContent, /Restricted source; URL and status only; abstract withheld/);
+  assert.match(result.children[1].textContent, /Restricted source; seed attribution and unverified seed date, if known, on source card; abstract withheld/);
   assert.match(result.children[1].textContent, /Fetch: collection stopped/);
   assert.match(result.children[1].textContent, /Read: unread/);
   const { elements: seed } = await controllerFixture('?q=Kortex&provenance=1');

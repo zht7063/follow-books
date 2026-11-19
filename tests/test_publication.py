@@ -138,7 +138,7 @@ class PublicationTests(unittest.TestCase):
         for path in (ROOT / 'site').rglob('*.html'):
             self.assertNotIn('seed-abstract', path.read_text())
 
-    def test_blocked_source_only_publishes_url_and_restriction_metadata(self):
+    def test_blocked_source_publishes_seed_metadata_and_withholds_protected_content(self):
         blocked = next(s for s in self.sources if s['id'] == 'letter-06')
         self.assertEqual(blocked['fetch_status'], 'blocked')
         self.assertIsNone(blocked['seed_abstract'])
@@ -146,16 +146,59 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(blocked['read_status'], 'unread')
         fixture = copy.deepcopy(blocked)
         fixture.update(seed_abstract='Protected seed abstract fixture', seed_verification='Prior reading claim',
-                       title='Inherited paid-page title', tags=['protected topic'])
+                       title='Inherited paid-page title', tags=['protected topic'],
+                       review_note='This run read the full text.')
         card = source_card(fixture)
-        self.assertIn('Blocked / restricted', card)
-        self.assertIn(blocked['canonical_url'], card)
-        for hidden in (fixture['seed_abstract'], fixture['seed_verification'], fixture['title'], fixture['tags'][0]):
+        for required in ('<h3>Blocked / restricted source</h3>', 'Fetch: blocked / restricted', 'Read: unread',
+                         'Inherited abstract withheld', blocked['canonical_url'], blocked['author'],
+                         blocked['attribution_note'], blocked['date'], 'seed date unverified',
+                         'live page not used to verify date', blocked['date_provenance']['note'],
+                         'Provenance: seed · seed letter-06', blocked['decision_note'],
+                         f'HTTP: {blocked["http_status"]}', f'Recorded: {blocked["fetched_at"]}'):
+            self.assertIn(required, card)
+        for hidden in (fixture['seed_abstract'], fixture['seed_verification'], fixture['title'],
+                       fixture['tags'][0], fixture['review_note'], 'Read: public page reviewed',
+                       'Read: seed abstract only'):
             self.assertNotIn(hidden, card)
         entry = next(e for e in json.loads((ROOT / 'site/search-index.json').read_text()) if e['id'] == 'letter-06')
         self.assertEqual(entry['tags'], [])
         self.assertEqual(entry['text'], blocked['canonical_url'])
         self.assertIn('Blocked / restricted', entry['title'])
+        self.assertEqual(entry['fetch_status'], 'blocked')
+        self.assertEqual(entry['read_status'], 'unread')
+        self.assertIn('seed attribution and unverified seed date', entry['provenance'])
+        self.assertIn('abstract withheld', entry['provenance'])
+        self.assertNotIn('URL and status only', entry['provenance'])
+        self.assertNotIn(blocked['title'], json.dumps(entry))
+
+    def test_blocked_source_without_date_does_not_invent_metadata(self):
+        fixture = copy.deepcopy(next(s for s in self.sources if s['id'] == 'letter-06'))
+        fixture.update(date=None, date_provenance=None, author=None, attribution_note=None)
+        card = source_card(fixture)
+        self.assertIn('Date: unknown · no publication date inferred', card)
+        self.assertIn('Attribution: unknown · unknown', card)
+        self.assertIn('Provenance: none · seed letter-06 · no date provenance recorded', card)
+        self.assertNotRegex(card.split('Date: ', 1)[1].split('</p>', 1)[0], r'\d{4}-\d{2}-\d{2}')
+        self.assertNotIn('Substack post_date', card)
+        self.assertIn('Read: unread', card)
+        self.assertIn('Inherited abstract withheld', card)
+
+    def test_built_blocked_card_shows_seed_metadata_in_catalog_and_chapter(self):
+        blocked = next(s for s in self.sources if s['id'] == 'letter-06')
+        paths = [ROOT / 'site/catalog.html'] + [
+            ROOT / 'site/chapters' / f'{c["id"]}.html'
+            for c in self.chapters if blocked['id'] in c['source_ids']]
+        self.assertGreater(len(paths), 1)
+        for path in paths:
+            with self.subTest(path=path):
+                card = re.search(r'<article class="source" id="letter-06">.*?</article>',
+                                 path.read_text(), re.S).group()
+                self.assertEqual(card, source_card(blocked))
+                for required in ('Attribution: Dan Koe', blocked['attribution_note'], '2026-01-24',
+                                 'seed date unverified', 'Substack post_date（UTC）',
+                                 'Provenance: seed · seed letter-06'):
+                    self.assertIn(required, card)
+                self.assertNotIn(blocked['title'], card)
 
     def test_company_sources_do_not_assume_personal_authorship(self):
         for source in self.sources:

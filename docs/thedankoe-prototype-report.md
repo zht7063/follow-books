@@ -11,13 +11,13 @@ Recorded on 2026-11-19. This is a finite, independent reading prototype, not a c
 - PR: [#2 — Add an unofficial Dan Koe ebook reader and safe source collector](https://github.com/zht7063/follow-books/pull/2). Open into `main`, unmerged; auto-merge is disabled. **Do not merge unless asked.**
 - Author: `Engineer (bot) <zht7063@users.noreply.github.com>`.
 - Runner metadata supplied by the coordinator: **Codex CLI 0.163.0**, **gpt-6.1-sol**, reasoning effort **high**. This work was implemented by Codex in that run.
-- No history rewriting, force-push, deployment, repository access change or five-person routine modification. Every file under `original-info/` remains unchanged.
+- No history rewriting, force-push, repository access change or five-person routine modification. The original implementation did not deploy; the later manual isolated preview deployment is recorded below. This attribution-fix commit does not change git integration, domains, DNS, plan, or other sites; the same isolated Hobby project is to be redeployed after push. Every file under `original-info/` remains unchanged.
 
 ## What was delivered
 
 Seven original editorial chapters: orientation/identity, one-person business, writing/attention, AI/work, product history, unwatched videos and unread X references. The static reader has nine HTML pages, 63 source entries and 70 search entries. It includes a consistent contents rail, previous/next chapter navigation, original-source links, attribution, dates with provenance, independent fetch/read labels, clear coverage limits, a skip link, print rules and responsive CSS.
 
-Search covers seed titles, tags, URLs and original editorial. Earlier seed abstracts and inherited reading claims are omitted from reader cards and search; source search records and results carry provenance and independent fetch/read labels. The blocked paid entry retains only its URL and restriction/status metadata in the reader/search, and its old abstract/verification claims are removed from derived metadata. X entries have URL text only in search and no seed summaries in reader output; derived metadata still retains seed titles, tags and historical verification notes. Videos remain unwatched. Company sources are attributed to Eden/Kortex with individual authorship unverified; the original seed attribution is retained separately for auditability.
+Search covers seed titles, tags, URLs and original editorial. Earlier seed abstracts and inherited reading claims are omitted from reader cards and search; source search records and results carry provenance and independent fetch/read labels. The blocked paid entry retains a generic heading, seed attribution, an explicitly unverified seed date/provenance (or an unknown date), URL and restriction/status metadata on reader cards, including chapter cards. Its inherited title/tags, abstract, body and reading claims remain withheld; its old abstract/verification claims are removed from derived metadata. Blocked search text remains URL-only, with no inherited title/tags; result provenance points to seed attribution and the unverified seed date, if known, on the source card and states that the abstract is withheld. X entries have URL text only in search and no seed summaries in reader output; derived metadata still retains seed titles, tags and historical verification notes. Videos remain unwatched. Company sources are attributed to Eden/Kortex with individual authorship unverified; the original seed attribution is retained separately for auditability.
 
 Test scratch files stay under `.cache/tests/` inside this checkout. The collector, builder and Python tests use the standard library; JavaScript uses the built-in Node test runner. No packages need installation. The builder never reads the raw cache.
 
@@ -107,7 +107,7 @@ The supplied stopped state must not be deleted to work around the restriction. A
 | --- | --- |
 | `npm run build` | PASS — 9 HTML pages, 63 sources, 70 search entries |
 | `npm run check` | PASS — Node syntax and Python compilation |
-| `npm test` | PASS — **38 Python tests + 8 Node tests**, zero failures |
+| `npm test` | PASS — **40 Python tests + 8 Node tests**, zero failures (offline attribution-fix run; no new CI run claimed) |
 | `python3 scripts/validate_content.py` | PASS — 63 sources and 12 published/editorial files checked against available raw cache |
 | Strict frontend static audit | PASS — zero findings; [evidence](design-audit.json) |
 | Restriction-guard mutation check | Prior run: inverted status guard caused 11 assertion failures; [evidence](mutation-check.json). Integrity-fix mutation checks exercise normalized gate detection and registry hash checks in memory. |
@@ -118,11 +118,11 @@ The supplied stopped state must not be deleted to work around the restriction. A
 
 Offline collector fixtures cover immediate persistent stops on restricted statuses, captcha, login/paywall and account redirects; serial cache/dedup/resume; robots disallow/delay; network/5xx-only bounded backoff; finite budgets; cache integrity; and explicit stale refresh. Review found that oversized/erroring bodies could hide restricted statuses and that NaN could bypass the delay floor. The fixes check restricted status before any body read, scan bounded body chunks, stop on oversized uninspectable responses, and reject nonfinite settings. Transport-level mocked-opener fixtures verify those paths. Integrity regressions additionally cover body-cache write failure on restricted responses, failed stop persistence and restart, load-time block evidence, normalized HTML/entity gates, uninspectable transport ValueError, and restricted redirects. Newly detected restricted/oversized bodies are not cached. State writes flush and fsync the replacement file and directory. An unfinished durable HTTP attempt or logical fetch fails closed on reload if the stop could not be saved, including policy checks on older cached robots and redirect responses. Gate detection remains a finite heuristic, and the stop does not coordinate already-running independent collector processes.
 
-Publication checks cover metadata/date provenance and preserved seed IDs, company attribution, resolved page/anchor links, search consistency, deterministic builds, contrast tokens, semantic markup, 375px CSS contracts, and real gitignore behavior. Node DOM fixtures exercise search restoration/clear/focus, IME composition, no results and failed index loading. **No browser GUI was driven**; these checks are not screenshots or a complete rendered-layout/accessibility audit.
+Publication checks require blocked-card seed attribution, explicitly unverified seed dates/provenance, null-date handling, withheld protected fields, and rebuilt catalog/chapter cards. They also cover metadata/date provenance and preserved seed IDs, company attribution, resolved page/anchor links, search consistency, deterministic builds, contrast tokens, semantic markup, 375px CSS contracts, and real gitignore behavior. Node DOM fixtures exercise search restoration/clear/focus, IME composition, no results and failed index loading. **No browser GUI was driven by the offline suite**; these checks are not screenshots or a complete rendered-layout/accessibility audit. Separate measured browser acceptance on the public preview is recorded below; mobile evidence is not limited to CSS contracts.
 
-## Preview and external hosting limit
+## Public preview and browser verification
 
-The dedicated preview is intentionally left running:
+The existing local-only preview record (not restarted or reverified by this offline fix):
 
 - URL: **http://127.0.0.1:4173/**.
 - PID: **2321421**.
@@ -134,7 +134,19 @@ The dedicated preview is intentionally left running:
 - Local ignored log: `.cache/preview.log`.
 - Machine-readable record: [preview-server.json](preview-server.json).
 
-This is loopback on the implementation machine, **not a public remote URL**. GitHub Pages is not enabled. Making an external preview available would require a separately authorized hosting or forwarding step. This run did not enable Pages or create/change Vercel, Cloudflare, DNS, domains, visibility, collaborator access or paid services.
+Loopback is local to the implementation machine. The public unauthenticated preview is **https://follow-books-thedankoe-preview.vercel.app/**.
+
+Recorded deployment facts supplied by the coordinator:
+
+- Isolated no-cost Hobby static project newly created for this prototype only: `follow-books-thedankoe-preview`, id `prj_mPKRT20m578FfIZz7JoiyD9rTwrK`.
+- Team: `tiansang0824s-projects` / `team_9aWYwFxIekNNlNo5kCYhwxZ0` (name: yubai project).
+- No git integration, custom domain, DNS change, plan upgrade or password protection. No other existing site was changed. GitHub Pages was not enabled; GitHub Actions still has no deploy step. This was a manual isolated deploy.
+- The team-scoped alias `https://follow-books-thedankoe-preview-tiansang0824s-projects.vercel.app/` and deployment-hash host require Vercel Authentication and are not the public preview.
+- First deploy of the then-current SHA `85a23d6489432ed5858efe4aec343fd6adaeae8c`: `dpl_2F6qqueYBBhUZ1opi2jeY87Kk9Zp`, READY at **2026-11-19 18:17:56 Asia/Singapore (+08)**. Unauthenticated fetches of all 13 committed site files on the public alias returned HTTP 200 and byte-matched that tree.
+
+Measured browser acceptance already performed on that public preview **before this card fix**: homepage honest coverage passed; chapter next/prev/navigation passed; search “AI” returned 25 results; a nonsense query returned 0; 375×985 was legible with no visible overflow. These are prior recorded results, not new checks from this offline run.
+
+This change fixes the restricted `letter-06` card's missing attribution/date/provenance in code and offline regression tests, while keeping the source blocked and unread and withholding protected content. **No visual recheck of that card after this change is claimed.** After this commit is pushed and the same isolated Hobby project is redeployed, a focused browser recheck of that blocked card gap remains outstanding. This change makes no source requests and no repository-side hosting, auth, domain, or DNS changes. Historical CI links above remain prior evidence.
 
 ## Copyright and remaining limits
 
@@ -142,4 +154,4 @@ Normalized metadata, source links, prior seed notes (except the blocked page's a
 
 The hygiene guard flags a contiguous overlap of 40 normalized tokens with at least 200 characters between local raw cache and published/editorial files. Fixtures demonstrate that a long copied passage fails and a short quote passes. This is a practical regression guard, not an assessment of close paraphrase, translation, cumulative quotation or legal permission. This edition uses no intentional article quotations beyond source titles. Reading exercises and interpretations are clearly editorial; author claims are not independently verified financial, employment or product claims.
 
-The implementation remains a prototype with static evidence for mobile/accessibility behavior, incomplete source coverage, unresolved channel identity, and no external hosting. These limits are stated in the reader itself.
+The implementation remains a prototype with incomplete source coverage and unresolved channel identity. The public preview has measured mobile browser evidence as recorded above, alongside offline CSS contracts; neither constitutes a complete accessibility audit. Full acceptance is pending the focused blocked-card browser recheck after redeploy.
