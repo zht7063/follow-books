@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "handle": "mattpocockuk",
+  "display_name": "Matt Pocock",
+  "legal_or_common_name": "Matt Pocock",
+  "user_id": "346640777",
+  "profile_url": "https://x.com/mattpocockuk",
+  "former_handles": [],
+  "invalid_or_stale_handles": [],
+  "channel_id_youtube": "UCswG6FSbgZjbWtdf_hMLaow",
+  "account_created_at_utc": "2011-08-01T16:08:26.000Z",
+  "protected": false,
+  "profile_snapshot_at_sgt": "2026-11-19 14:55 Asia/Singapore (UTC+8)",
+  "profile_snapshot": {
+    "name": "Matt Pocock",
+    "username": "mattpocockuk",
+    "description": "I teach devs for a living. Author of Total TypeScript and AI Hero. Ex-@vercel. Used to be a voice coach.",
+    "url": "https://aihero.dev",
+    "location": "Oxford, England",
+    "verified": true,
+    "post_count_then": 37683,
+    "followers_count_then": 394573,
+    "pinned_post_id": "2115538750147023323",
+    "pinned_post_note": "get_users_by_username 展开置顶时返回 not found",
+    "most_recent_post_id_at_profile_read": "2123104323877880108",
+    "most_recent_post_created_at_utc": "2026-11-18T17:21:30.000Z"
+  },
+  "official_sites": {
+    "homepage": "https://www.mattpocock.com/",
+    "total_typescript": "https://www.totaltypescript.com/",
+    "total_typescript_rss": "https://www.totaltypescript.com/rss.xml",
+    "ai_hero": "https://www.aihero.dev/",
+    "ai_hero_rss": "https://www.aihero.dev/rss.xml",
+    "github": "https://github.com/mattpocock",
+    "github_org": "https://github.com/total-typescript",
+    "youtube": "https://www.youtube.com/@mattpocockuk",
+    "youtube_rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCswG6FSbgZjbWtdf_hMLaow"
+  },
+  "first_inventory": {
+    "generated_at_sgt": "2026-11-19 15:05 Asia/Singapore (UTC+8)",
+    "catalog_entry_count": 161,
+    "x_candidates_author_filtered_approx": 156,
+    "x_tool_calls_used_approx": "约 8 次公开读取（与 poteto/karpathy 当日额度共享；本轮未打满 100–150 次预算，也未穷尽历史）",
+    "coverage": {
+      "total_typescript_rss_items": 126,
+      "tt_articles": 83,
+      "tt_tips_as_series": 34,
+      "tt_free_tutorials": 4,
+      "tt_paid_workshop_intros": 5,
+      "ai_hero_rss_items_approx": 198,
+      "ai_hero_strategy": "分层收录公开教程/文章与 skills 目录，不逐条展开全部技能页和 changelog",
+      "github_public_repos_via_api": {
+        "public": 225,
+        "non_fork_merged": 170
+      },
+      "youtube_rss_latest": 15,
+      "youtube_playlists_title_verified": 5,
+      "source_page_gets": {
+        "http_200": 131,
+        "http_403": 192,
+        "note": "同一 URL 存在间歇 403"
+      },
+      "archive_search": "时间窗检索 from:mattpocockuk 链接与技术关键词，多数窗口仅 1–2 页",
+      "user_timeline": "最新 1 页（排除转帖）用于增量游标",
+      "not_claimed": "未声称穷尽 37683 条时间线、全部 YouTube 上传或已付费课程正文"
+    },
+    "observed_x_date_range": {
+      "earliest_technical_post_seen_utc": "2023-09-22",
+      "latest_post_seen_utc": "2026-11-18T17:21:30.000Z",
+      "latest_post_seen_sgt": "2026-11-19 01:21 Asia/Singapore (UTC+8)",
+      "latest_post_id": "2123104323877880108",
+      "note": "候选帖主要在 2026，另有 2023 年末一页。2022、2024、2025 大部分仍待补扫。时间线最新一条是 2026-11-18 的回复，增量仍以该 ID 为 since_id。"
+    }
+  },
+  "incremental": {
+    "strategy": "每日用公开 X 接口拉取 get_users_posts（id 346640777，since_id 为 newest_post_id，exclude retweets），必要时用 from:mattpocockuk has:links / 技术关键词补漏。同时检查 Total TypeScript RSS、AI Hero RSS、YouTube RSS（UCswG6FSbgZjbWtdf_hMLaow）和 GitHub 公开仓库。筛 TypeScript/软件开发/AI 工程内容，付费课只更新公开介绍，去重后追加索引并写更新日志。历史补扫使用 backfill_cursors。归档搜索必须带 start_time/end_time。公开读取走 x 命名空间；约每分钟 30、每天 1000、每次最多 25 条。不要登录个人 X，不要发帖、私信、关注或点赞。",
+    "newest_post_id": "2123104323877880108",
+    "newest_post_created_at_utc": "2026-11-18T17:21:30.000Z",
+    "newest_post_created_at_sgt": "2026-11-19 01:21 Asia/Singapore (UTC+8)",
+    "use_public_x_namespace_only": true,
+    "do_not_login_or_mutate": true,
+    "rate_limits": {
+      "per_minute": 30,
+      "per_day": 1000,
+      "max_results_per_call": 25
+    }
+  },
+  "dedupe_keys": [
+    "x_post_id",
+    "conversation_id",
+    "canonical_source_url",
+    "catalog_entry_id"
+  ],
+  "inclusion_rules": {
+    "include": [
+      "TypeScript 教程/文章/技巧",
+      "AI 工程工作流与公开课程介绍",
+      "开源仓库",
+      "有实质内容的技术帖",
+      "他推荐的第三方技术资料"
+    ],
+    "exclude": [
+      "生活闲聊",
+      "付费课时正文",
+      "每条重复推广或全部 Shorts/单个 skill 页",
+      "无法阅读则不编摘要"
+    ]
+  },
+  "known_gaps": [
+    "多个 backfill_cursors 尚未翻完",
+    "X 覆盖偏 2026，2022–2025 大部分未扫",
+    "站点间歇 403",
+    "YouTube RSS 仅最近 15 条",
+    "置顶帖 not found",
+    "部分推荐短链未展开",
+    "个人主页访问不稳定"
+  ],
+  "backfill_cursors": [
+    {
+      "name": "timeline_backfill",
+      "tool": "get_users_posts",
+      "id": "346640777",
+      "exclude": [
+        "retweets"
+      ],
+      "pagination_token": "7140dibdnow9c7btwp0gm7bf49dqbhx26t6192nlpqud5",
+      "note": "时间线第 1 页之后；本页 oldest 约为 2026-11-16。增量请用 since_id，不要用这条。",
+      "oldest_id_on_this_page": "2122296143371464799"
+    },
+    {
+      "name": "url_2024_2026",
+      "tool": "search_posts_all",
+      "query": "from:mattpocockuk (url:totaltypescript.com OR url:aihero.dev OR url:github.com OR url:youtube.com OR url:youtu.be OR url:mattpocock.com) -is:retweet",
+      "start_time": "2024-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3juetgq9i9zvvq7zlzhzw07gjpf508t",
+      "note": "链接检索已翻到第 2 页，本页 oldest 约为 2026-07-02，2024–2025 大部分可能仍在后续页。",
+      "oldest_id_on_this_page": "2072635175339532774"
+    },
+    {
+      "name": "url_2022_2024",
+      "tool": "search_posts_all",
+      "query": "from:mattpocockuk (url:totaltypescript.com OR url:github.com OR url:youtube.com OR url:youtu.be) -is:retweet",
+      "start_time": "2022-01-01T00:00:00Z",
+      "end_time": "2024-01-01T00:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3fr5bf6308hv8oc5p2jwyqu2aihcgal",
+      "note": "仅第 1 页之后，本页约 2023-11 至 2023-09，2022 与 2023 上半年基本未扫。",
+      "oldest_id_on_this_page": "1703717321918099857"
+    },
+    {
+      "name": "tech_2025_2026",
+      "tool": "search_posts_all",
+      "query": "from:mattpocockuk (TypeScript OR AI OR agent OR Cursor OR Claude OR \"AI Hero\" OR skills OR tutorial OR course) -is:retweet",
+      "start_time": "2025-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3juzly2zij05rgskj6rf9p2yp8siu7x",
+      "note": "已翻到第 2 页，本页 oldest 仍在 2026-10 附近，2025 年大部分未扫。",
+      "oldest_id_on_this_page": "2116097915685052636"
+    },
+    {
+      "name": "announcements",
+      "tool": "search_posts_all",
+      "query": "from:mattpocockuk (\"Total TypeScript\" OR \"AI Hero\" OR \"ts-reset\" OR \"Beginner's TypeScript\" OR dictionary-of-ai OR \"mattpocock/skills\" OR evalite OR sandcastle) -is:retweet",
+      "start_time": "2022-01-01T00:00:00Z",
+      "end_time": "2026-11-19T07:00:00Z",
+      "pagination_token": "b26v89c19zqg8o3juethzm4g6zhbcwgygt5tghsr5f43h",
+      "note": "项目/课程公告检索第 1 页之后，本页 oldest 约为 2026-07-10，更早发布帖仍待补。",
+      "oldest_id_on_this_page": "2075495703028142364"
+    }
+  ],
+  "drive": {
+    "follows_parent_id": "1ZgCrxGcwnVw1xTW2k4W_KESPvVtKqY2P",
+    "follows_parent_url": "https://drive.google.com/drive/folders/1ZgCrxGcwnVw1xTW2k4W_KESPvVtKqY2P",
+    "folder_id": "1QfRajU_xi82Q1iN4en9eMqUTlSv4tbTj",
+    "folder_url": "https://drive.google.com/drive/folders/1QfRajU_xi82Q1iN4en9eMqUTlSv4tbTj",
+    "files": {
+      "readme_doc_id": "1Z-MtRwlg5zBK2aZedFs_A9vfS86tdX4yzG80MFCe2H4",
+      "index_sheet_id": "1_6WNb1YgrW-SWE1STQTBek5bXJRD-ZeK_HvHh8Qhe0s",
+      "index_sheet_url": "https://docs.google.com/spreadsheets/d/1_6WNb1YgrW-SWE1STQTBek5bXJRD-ZeK_HvHh8Qhe0s/edit",
+      "reading_doc_id": "1am3ByZMJ3z7TV8a0f6XgM6VotWmYtcuepP6gFeaOBDM",
+      "reading_doc_url": "https://docs.google.com/document/d/1am3ByZMJ3z7TV8a0f6XgM6VotWmYtcuepP6gFeaOBDM/edit",
+      "changelog_doc_id": "1yjRYjvANeTSsow_fCcG5394N8dFhEDaCgwQlS4Z9K4Q",
+      "changelog_doc_url": "https://docs.google.com/document/d/1yjRYjvANeTSsow_fCcG5394N8dFhEDaCgwQlS4Z9K4Q/edit",
+      "tracking_state_file_id": "1GxtF43B5cO4pd_t4JcT0TrJrovEiqzfi",
+      "tracking_state_file_url": "https://drive.google.com/file/d/1GxtF43B5cO4pd_t4JcT0TrJrovEiqzfi/view",
+      "readme_doc_url": "https://docs.google.com/document/d/1Z-MtRwlg5zBK2aZedFs_A9vfS86tdX4yzG80MFCe2H4/edit"
+    }
+  }
+}
