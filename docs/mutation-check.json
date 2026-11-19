@@ -1,0 +1,19 @@
+{
+  "mutation": "Invert restricted-HTTP-status membership guard",
+  "command": "python3 -m unittest discover -s tests -p test_collector.py",
+  "mutated_exit_code": 1,
+  "assertion_failures": [
+    "FAIL: test_blocked_robots_stops_before_page (test_collector.CollectorTests.test_blocked_robots_stops_before_page)",
+    "FAIL: test_explicit_staleness_can_refresh_completed_urls (test_collector.CollectorTests.test_explicit_staleness_can_refresh_completed_urls)",
+    "FAIL: test_network_and_5xx_only_have_finite_backoff (test_collector.CollectorTests.test_network_and_5xx_only_have_finite_backoff)",
+    "FAIL: test_oversized_restrictions_stop_before_size_limit_skip (test_collector.CollectorTests.test_oversized_restrictions_stop_before_size_limit_skip) (status=403)",
+    "FAIL: test_oversized_restrictions_stop_before_size_limit_skip (test_collector.CollectorTests.test_oversized_restrictions_stop_before_size_limit_skip) (status=429)",
+    "FAIL: test_oversized_restrictions_stop_before_size_limit_skip (test_collector.CollectorTests.test_oversized_restrictions_stop_before_size_limit_skip) (status=200)",
+    "FAIL: test_redirect_to_login_restriction_stops_globally (test_collector.CollectorTests.test_redirect_to_login_restriction_stops_globally)",
+    "FAIL: test_redirects_recheck_robots_and_forbidden_hosts_are_never_requested (test_collector.CollectorTests.test_redirects_recheck_robots_and_forbidden_hosts_are_never_requested)",
+    "FAIL: test_retry_cap_and_budget_include_robots_and_retries (test_collector.CollectorTests.test_retry_cap_and_budget_include_robots_and_retries)",
+    "FAIL: test_robots_disallow_skips_and_crawl_delay_is_honored (test_collector.CollectorTests.test_robots_disallow_skips_and_crawl_delay_is_honored)",
+    "FAIL: test_serial_cache_dedup_and_incremental_resume (test_collector.CollectorTests.test_serial_cache_dedup_and_incremental_resume)"
+  ],
+  "result": "caught by offline collector assertion tests; original source restored"
+}

@@ -1,0 +1,23 @@
+{
+  "site-01": {
+    "content_hash": "9ccbe6521003a102a67e0880b092c6654f1f07dcc7ceb270eb4e1df40423536d",
+    "read_status": "public_page_reviewed",
+    "note": "Reviewed the public homepage, including its identity section and project links. No course or product was accessed.",
+    "reviewed_at": "2026-11-19",
+    "reviewer": "Engineer (bot)"
+  },
+  "letter-04": {
+    "content_hash": "f302ef4f80a35e64216b87545ad87e087c2a748d18c4a60c069d968fa9c37acf",
+    "read_status": "public_excerpt_reviewed",
+    "note": "Reviewed the first 14,000 characters of locally extracted public page text, through the opening discussion of interactive learning; the remaining text was not reviewed.",
+    "reviewed_at": "2026-11-19",
+    "reviewer": "Engineer (bot)"
+  },
+  "letter-12": {
+    "content_hash": "4d441d9e3448b51daed3c66c19662f4007ea0e948f9a1d1c7771be8d5dc4f8d2",
+    "read_status": "public_excerpt_reviewed",
+    "note": "Reviewed the first 14,000 characters of locally extracted public page text, covering the opening and generalist skill-stack discussion; the remaining text was not reviewed.",
+    "reviewed_at": "2026-11-19",
+    "reviewer": "Engineer (bot)"
+  }
+}

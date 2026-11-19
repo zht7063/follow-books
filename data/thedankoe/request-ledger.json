@@ -1,0 +1,207 @@
+[
+  {
+    "at": "2026-11-19T09:31:33+00:00",
+    "kind": "attempted",
+    "url": "https://thedankoe.com/robots.txt",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:31:34+00:00",
+    "kind": "fetched",
+    "url": "https://thedankoe.com/robots.txt",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:31:43+00:00",
+    "kind": "attempted",
+    "url": "https://thedankoe.com/",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:31:43+00:00",
+    "kind": "fetched",
+    "url": "https://thedankoe.com/",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:31:53+00:00",
+    "kind": "attempted",
+    "url": "https://thedankoe.com/sitemap_index.xml",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:31:54+00:00",
+    "kind": "fetched",
+    "url": "https://thedankoe.com/sitemap_index.xml",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:32:03+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/robots.txt",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:32:03+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/robots.txt",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:32:13+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/feed",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:32:13+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/feed",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:32:23+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/sitemap.xml",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:32:23+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/sitemap.xml",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:32:33+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:32:33+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:32:43+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/p/how-id-build-a-one-person-business",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:32:43+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/p/how-id-build-a-one-person-business",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:32:53+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/p/the-one-human-business-how-to-earn",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:32:53+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/p/the-one-human-business-how-to-earn",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:33:03+00:00",
+    "kind": "attempted",
+    "url": "https://thedankoe.com/letters/the-future-of-work-acquire-this-skill-stack/",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:33:03+00:00",
+    "kind": "fetched",
+    "url": "https://thedankoe.com/letters/the-future-of-work-acquire-this-skill-stack/",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:33:13+00:00",
+    "kind": "attempted",
+    "url": "https://thedankoe.com/letters/ai-will-end-the-internet/",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:33:14+00:00",
+    "kind": "fetched",
+    "url": "https://thedankoe.com/letters/ai-will-end-the-internet/",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:33:23+00:00",
+    "kind": "attempted",
+    "url": "https://thedankoe.com/letters/dont-get-replaced-by-ai-how-to-write-authentic-content/",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:33:23+00:00",
+    "kind": "fetched",
+    "url": "https://thedankoe.com/letters/dont-get-replaced-by-ai-how-to-write-authentic-content/",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:33:33+00:00",
+    "kind": "attempted",
+    "url": "https://thedankoe.com/letters/how-my-startup-made-759900-in-6-months-without-launching/",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:33:33+00:00",
+    "kind": "fetched",
+    "url": "https://thedankoe.com/letters/how-my-startup-made-759900-in-6-months-without-launching/",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:33:43+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/p/the-most-lucrative-ai-business-to",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:33:43+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/p/the-most-lucrative-ai-business-to",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:33:53+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/p/how-to-survive-ai-mass-replacement",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:33:53+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/p/how-to-survive-ai-mass-replacement",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:34:03+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/p/the-future-of-work-when-work-is-meaningless",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:34:03+00:00",
+    "kind": "fetched",
+    "url": "https://letters.thedankoe.com/p/the-future-of-work-when-work-is-meaningless",
+    "http_status": 200
+  },
+  {
+    "at": "2026-11-19T09:34:13+00:00",
+    "kind": "attempted",
+    "url": "https://letters.thedankoe.com/p/this-prompt-will-change-your-life",
+    "attempt": 1
+  },
+  {
+    "at": "2026-11-19T09:34:13+00:00",
+    "kind": "blocked",
+    "url": "https://letters.thedankoe.com/p/this-prompt-will-change-your-life",
+    "http_status": 200,
+    "reason": "Captcha, challenge, login/paywall or explicit access restriction; global crawl stopped"
+  }
+]

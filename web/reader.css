@@ -1,0 +1,91 @@
+:root {
+  --primary: #2349a0;
+  --background: #edf2f8;
+  --surface: #ffffff;
+  --text: #1d2b43;
+  --muted: #4d6078;
+  --border: #c7d3e3;
+  --display: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", monospace;
+  --radius: .75rem;
+  color-scheme: light;
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--background);
+  scrollbar-gutter: stable;
+}
+* { box-sizing: border-box; min-width: 0; scrollbar-color: var(--muted) var(--background); scrollbar-width: auto; }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--muted); border: 3px solid var(--background); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active { background: var(--primary); }
+body { margin: 0; font-size: 1rem; line-height: 1.65; }
+a { color: var(--primary); text-underline-offset: .22em; overflow-wrap: anywhere; cursor: pointer; }
+a:hover { text-decoration-thickness: 2px; }
+a:active, button:active { opacity: .8; }
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+.skip { position: absolute; top: -8rem; left: 1rem; background: var(--surface); padding: 1rem; z-index: 2; }
+.skip:focus { top: 1rem; }
+.book { display: grid; grid-template-columns: 16rem minmax(0, 1fr); max-width: 78rem; margin: 0 auto; padding: 2rem; gap: 2.25rem; }
+.cover { border-top: .55rem solid var(--primary); padding-top: 1rem; }
+.brand { font-family: var(--display); font-size: 1.75rem; text-decoration: none; font-weight: bold; }
+.edition, .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; color: var(--muted); font-weight: 650; }
+.cover p { color: var(--muted); }
+nav ul { padding: 0; list-style: none; }
+.contents a { display: block; padding: .65rem .75rem; text-decoration: none; border-left: 2px solid var(--border); }
+.contents a:hover, .contents a[aria-current="page"] { border-color: var(--primary); background: var(--surface); }
+.contents a[aria-current="page"] { font-weight: 700; }
+.leaf { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 4rem); }
+main { min-height: 60vh; }
+h1, h2, h3 { line-height: 1.15; text-wrap: balance; }
+h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.5rem, 5vw, 4.3rem); letter-spacing: -.035em; margin: .5rem 0 1.5rem; }
+h2 { font-family: var(--display); font-size: 1.8rem; font-weight: 500; margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.1rem; }
+.deck { font-size: 1.25rem; color: var(--muted); max-width: 52ch; }
+.prose { max-width: 66ch; font-size: 1.125rem; line-height: 1.85; }
+.prose p { margin: 0 0 1.35rem; }
+.notice { border-left: 3px solid var(--primary); padding: .8rem 1.2rem; background: var(--background); margin: 1.5rem 0; }
+.notice p { margin: .3rem 0; }
+.primary { display: inline-block; padding: .8rem 1.3rem; background: var(--primary); color: var(--surface); border-radius: .35rem; text-decoration: none; margin: .5rem 0; }
+.primary:hover { text-decoration: underline; }
+.stats { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding: 1.25rem 0; border-block: 1px solid var(--border); margin: 2rem 0; }
+.stats div { flex: 1 1 7rem; }
+.stats dt { font-size: .875rem; color: var(--muted); }
+.stats dd { margin: 0; font-size: 1.6rem; font-family: var(--display); }
+.chapter-list { list-style: none; padding: 0; }
+.chapter-list li { border-bottom: 1px solid var(--border); padding: 1.1rem 0; }
+.chapter-list a { font-family: var(--display); font-size: 1.45rem; }
+.chapter-list p { margin: .3rem 0; color: var(--muted); }
+.source { border-top: 1px solid var(--border); padding: 1.5rem 0; scroll-margin-top: 1rem; }
+.source h3 { margin: .5rem 0; line-height: 1.5; overflow-wrap: anywhere; }
+.source p { overflow-wrap: anywhere; }
+.meta { font-size: .875rem; color: var(--muted); }
+.badge { display: inline-block; border: 1px solid var(--border); border-radius: .3rem; padding: .1rem .45rem; font-size: .8rem; margin: .1rem .25rem .1rem 0; }
+.source-id { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+.seed-abstract { line-height: 1.9; }
+details { margin: .75rem 0; }
+summary { cursor: pointer; color: var(--primary); padding: .4rem 0; }
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 3rem; }
+footer { font-size: .85rem; color: var(--muted); margin-top: 3rem; }
+form { margin: 1.5rem 0; }
+.search-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+input { flex: 1 1 12rem; width: 100%; border: 1px solid var(--muted); background: var(--surface); color: var(--text); padding: .75rem; font: inherit; border-radius: .3rem; }
+button { font: inherit; color: var(--primary); background: var(--surface); border: 1px solid var(--primary); border-radius: .3rem; padding: .65rem .9rem; min-height: 44px; cursor: pointer; }
+button:hover { background: var(--background); }
+[hidden] { display: none !important; }
+#search-status { min-height: 1.65em; }
+@media (max-width: 760px) {
+  .book { display: block; padding: 1rem; }
+  .cover { margin-bottom: 1.5rem; }
+  .contents ul { display: flex; flex-wrap: wrap; gap: .25rem; }
+  .contents a { border-left: 0; border-bottom: 2px solid var(--border); padding: .65rem; }
+  .leaf { padding: 1.25rem; }
+  .cover .about-edition { display: none; }
+  h1 { font-size: 2.5rem; }
+  .prose { font-size: 1.0625rem; }
+}
+@media (max-width: 400px) { .book { padding: .5rem; } .leaf { padding: 1rem; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; animation: none; transition: none; } }
+@media (forced-colors: active) { * { scrollbar-color: auto; } :focus-visible { outline-color: Highlight; } }
+@media print { .cover, form, .pager, .skip { display: none; } .book { display: block; padding: 0; } .leaf { border: 0; padding: 0; } a { color: inherit; } }

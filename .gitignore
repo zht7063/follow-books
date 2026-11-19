@@ -1,0 +1,13 @@
+# Copyrighted responses and local crawl state never belong in the public tree.
+data/thedankoe/raw/
+.cache/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+auth.json
+*.pem
+*.key
+*.log
